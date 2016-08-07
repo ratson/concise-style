@@ -1,0 +1,24 @@
+{
+  "name": "csc",
+  "version": "0.0.1",
+  "description": "Concise Style Checker for JavaScript",
+  "bin": "lib/cli.js",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "eslint-config-concise": "^0.0.1",
+    "eslint-formatter-pretty": "^0.2.2",
+    "has-flag": "^2.0.0",
+    "meow": "^3.7.0",
+    "resolve-cwd": "^1.0.0",
+    "update-notifier": "^1.0.2",
+    "xo": "^0.16.0"
+  },
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/csc",
+  "license": "MIT",
+  "xo": {
+    "extends": "concise",
+    "ignores": [
+      "lib/*"
+    ]
+  }
+}
