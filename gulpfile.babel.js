@@ -43,3 +43,9 @@ gulp.task('build', () => gulp.src('./packages/*/src/**/*.js')
   .pipe(through.obj(logCompilingFile))
   .pipe(babel())
   .pipe(gulp.dest(dest)))
+
+gulp.task('watch', () => {
+  gulp.watch('./packages/*/src/**/*.js', ['build'])
+})
+
+gulp.task('default', ['watch'])
