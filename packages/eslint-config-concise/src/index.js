@@ -8,10 +8,10 @@ let config
 
 try {
   config = yaml.safeLoad(fs.readFileSync(filePath, 'utf8')) || {}
-} catch (e) {
+} catch (err) {
   console.error(`Error reading YAML file: ${filePath}`)
-  e.message = `Cannot read config file: ${filePath} \nError: ${e.message}`
-  throw e
+  err.message = `Cannot read config file: ${filePath} \nError: ${err.message}`
+  throw err
 }
 
 module.exports = config

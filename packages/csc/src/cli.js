@@ -22,8 +22,20 @@ if (!hasFlag('no-local') && localCLI && localCLI !== __filename) {
   debug('Using local install of CSC.')
   require(localCLI)
 } else {
-  const cli = meow({
-  }, {
+  const cli = meow(`
+Usage
+
+  $ csc [<file|glob> ...]
+
+Options
+
+  --fix           Automagically fix issues
+  --quiet         Show only errors and no warnings
+
+Examples
+
+  $ csc
+  `, {
     string: [
       '-',
     ],
