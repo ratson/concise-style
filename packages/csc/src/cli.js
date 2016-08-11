@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-import makeDebug from 'debug'
+import findUp from 'find-up'
 import hasFlag from 'has-flag'
+import makeDebug from 'debug'
+import parseGitignore from 'parse-gitignore'
 import resolveCwd from 'resolve-cwd'
 
 import formatterPretty from 'eslint-formatter-pretty'
@@ -56,6 +58,12 @@ Examples
       require.resolve('eslint-config-concise'),
     ],
   }, cli.flags)
+
+  const gitignoreFile = findUp.sync('.gitignore')
+  if (gitignoreFile && !opts.ignore) {
+    opts.ignore = parseGitignore(gitignoreFile).map((x) => `**/${x}`)
+    debug('Ignore patterns', opts.ignore)
+  }
 
   // `xo -` => `xo --stdin`
   if (input[0] === '-') {
