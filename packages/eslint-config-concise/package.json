@@ -13,7 +13,7 @@
     "eslint-config-xo-space": "^0.14.0"
   },
   "devDependencies": {
-    "eslint": "^3.2.2",
+    "eslint": "^3.3.0",
     "jy-transform": "^2.0.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-plugin-concise",
