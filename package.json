@@ -15,7 +15,7 @@
     "gulp-newer": "^1.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.7",
-    "lerna": "2.0.0-beta.24",
+    "lerna": "2.0.0-beta.26",
     "through2": "^2.0.1"
   }
 }
