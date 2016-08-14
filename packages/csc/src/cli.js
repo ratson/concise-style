@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import _ from 'lodash'
 import findUp from 'find-up'
 import hasFlag from 'has-flag'
 import makeDebug from 'debug'
 import parseGitignore from 'parse-gitignore'
+import readPkgUp from 'read-pkg-up'
 import resolveCwd from 'resolve-cwd'
 
 import formatterPretty from 'eslint-formatter-pretty'
@@ -54,10 +56,20 @@ Examples
 
   const input = cli.input
   const opts = Object.assign({
+    env: [],
     extends: [
       require.resolve('eslint-config-concise'),
     ],
   }, cli.flags)
+
+  const {pkg} = readPkgUp.sync()
+  const deps = Object.assign({}, _.get(pkg, 'dependencies'), _.get(pkg, 'devDependencies'))
+  if (deps.mocha) {
+    opts.env.push('mocha')
+  }
+  if (deps.react) {
+    opts.extends.push(require.resolve('eslint-config-xo-react/space'))
+  }
 
   const gitignoreFile = findUp.sync('.gitignore')
   if (gitignoreFile && !opts.ignore) {
