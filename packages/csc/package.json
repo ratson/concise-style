@@ -5,6 +5,7 @@
   "bin": "lib/cli.js",
   "dependencies": {
     "debug": "^2.2.0",
+    "eslint": "^3.3.0",
     "eslint-config-concise": "^0.0.2",
     "eslint-config-xo-react": "^0.9.0",
     "eslint-formatter-pretty": "^0.3.1",
@@ -19,9 +20,6 @@
     "resolve-cwd": "^1.0.0",
     "update-notifier": "^1.0.2",
     "xo": "^0.16.0"
-  },
-  "devDependencies": {
-    "eslint": "^3.3.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/csc",
   "license": "MIT",
