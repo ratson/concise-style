@@ -1,6 +1,6 @@
-# Concise Style for JavaScript
+# Concise Coding Style for JavaScript
 
-## Design Principles
+## Principles
 
 1. Easy to read with syntax highlight
 2. Less typing

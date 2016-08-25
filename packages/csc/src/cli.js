@@ -54,15 +54,15 @@ Examples
 
   updateNotifier({pkg: cli.pkg}).notify()
 
+  const {pkg} = readPkgUp.sync()
   const input = cli.input
   const opts = Object.assign({
-    env: [],
+    env: _.get(pkg, 'xo.env', []),
     extends: [
       require.resolve('eslint-config-concise'),
     ],
   }, cli.flags)
 
-  const {pkg} = readPkgUp.sync()
   const deps = Object.assign({}, _.get(pkg, 'dependencies'), _.get(pkg, 'devDependencies'))
   if (deps.mocha) {
     opts.env.push('mocha')
