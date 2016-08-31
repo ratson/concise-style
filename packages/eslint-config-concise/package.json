@@ -4,7 +4,8 @@
   "main": "index.js",
   "description": "ESLint shareable config for concise.",
   "scripts": {
-    "prepublish": "jyt -f index.yml index.js"
+    "prepublish": "jyt -f index.yml index.js",
+    "test": "ava"
   },
   "peerDependencies": {
     "eslint": ">=2.12.0"
@@ -14,8 +15,12 @@
     "eslint-plugin-filenames": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^3.3.1",
-    "jy-transform": "^2.0.0"
+    "ava": "^0.16.0",
+    "eslint": "^3.7.1",
+    "js-yaml": "^3.6.1",
+    "jy-transform": "^2.0.0",
+    "lodash": "^4.16.3",
+    "temp-write": "^2.1.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-plugin-concise",
   "license": "MIT",
