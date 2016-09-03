@@ -9,7 +9,8 @@ import yaml from 'js-yaml'
 function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
-    configFile: tempWrite.sync(JSON.stringify(conf))
+    configFile: tempWrite.sync(JSON.stringify(conf)),
+    cwd: `${process.cwd()}/fixtures`,
   })
 
   return linter.executeOnText(str).results[0].messages
