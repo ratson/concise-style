@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-react",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "main": "index.js",
   "description": "ESLint shareable config for React be used with eslint-plugin-concise.",
   "scripts": {
