@@ -68,7 +68,7 @@ Examples
     opts.env.push('mocha')
   }
   if (deps.react) {
-    opts.extends.push(require.resolve('eslint-config-xo-react/space'))
+    opts.extends.push(require.resolve('eslint-config-concise-react'))
   }
 
   const gitignoreFile = findUp.sync('.gitignore')
