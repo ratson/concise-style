@@ -15,6 +15,16 @@ module.exports = {
   rules: {
     'comma-dangle': errorsRules['comma-dangle'],
     'filenames/match-exported': 'error',
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: [
+        '**/*.spec.js',
+        '**/*.test.js',
+        '**/gulpfile.babel.js',
+        '**/gulpfile.js',
+        '**/test/*.js',
+      ],
+      optionalDependencies: false,
+    }],
     'promise/param-names': 'error',
     'semi': ['error', 'never'],
     'xo/filename-case': 'off',
