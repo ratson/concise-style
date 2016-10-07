@@ -1,13 +1,13 @@
 {
   "name": "csc",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Concise Style Checker for JavaScript",
   "bin": "lib/cli.js",
   "dependencies": {
     "debug": "^2.2.0",
     "eslint": "^3.7.1",
-    "eslint-config-concise": "^0.2.0",
-    "eslint-config-concise-react": "^0.2.0",
+    "eslint-config-concise": "^0.2.1",
+    "eslint-config-concise-react": "^0.2.1",
     "eslint-formatter-pretty": "^1.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-react": "^6.3.0",
