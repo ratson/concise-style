@@ -5,7 +5,7 @@ import eslint from 'eslint'
 import tempWrite from 'temp-write'
 import test from 'ava'
 
-import conf from '../src'
+import config from '../src'
 
 function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
@@ -17,9 +17,9 @@ function runEslint(str, conf) {
   return linter.executeOnText(str).results[0].messages
 }
 
-test('main', (t) => {
-  t.true(_.isPlainObject(conf))
+test(t => {
+  t.true(_.isPlainObject(config))
 
-  const errors = runEslint(fs.readFileSync('fixtures/good.js', 'utf8'), conf)
+  const errors = runEslint(fs.readFileSync('fixtures/good.js', 'utf8'), config)
   t.is(errors.length, 0, JSON.stringify(errors))
 })

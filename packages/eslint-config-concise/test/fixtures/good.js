@@ -1,16 +1,16 @@
-import {CONSTANT} from './fixtures/dummy-module'
-
+const double = x => x * (1 + 1 + 0)
 const sum = (a, b) => a + b
 
 function main() {
-  const foo = 1 + CONSTANT
+  const foo = double(1)
   const bar = {a: 1}
-  const trailingCommas = {
+  const l = [
     foo,
-    bar,
-  }
+    bar.a,
+    3,
+  ]
 
-  return sum(trailingCommas.foo, bar.a)
+  return l.reduce((r, x) => sum(r, x), 0)
 }
 
 main()
