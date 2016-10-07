@@ -59,8 +59,8 @@ Examples
   const opts = Object.assign({
     env: _.get(pkg, 'xo.env', []),
     extends: [
-      require.resolve('eslint-config-concise'),
-    ],
+      'eslint-config-concise',
+    ].map(require.resolve),
   }, cli.flags)
 
   const deps = Object.assign({}, _.get(pkg, 'dependencies'), _.get(pkg, 'devDependencies'))
