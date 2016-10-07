@@ -9,7 +9,8 @@
   "dependencies": {
     "eslint-config-airbnb-base": "^8.0.0",
     "eslint-config-xo": "^0.16.0",
-    "eslint-plugin-filenames": "^1.1.0"
+    "eslint-plugin-filenames": "^1.1.0",
+    "eslint-plugin-promise": "^2.0.1"
   },
   "devDependencies": {
     "ava": "^0.16.0",

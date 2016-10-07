@@ -8,10 +8,14 @@ module.exports = {
     'airbnb-base',
     'xo/esnext',
   ],
-  plugins: ['filenames'],
+  plugins: [
+    'filenames',
+    'promise',
+  ],
   rules: {
     'comma-dangle': errorsRules['comma-dangle'],
     'filenames/match-exported': 'error',
+    'promise/param-names': 'error',
     'semi': ['error', 'never'],
     'xo/filename-case': 'off',
     indent,
