@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "eslint-config-airbnb-base": "^8.0.0",
-    "eslint-config-xo-space": "^0.14.0",
+    "eslint-config-xo": "^0.16.0",
     "eslint-plugin-filenames": "^1.1.0"
   },
   "devDependencies": {

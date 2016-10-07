@@ -9,6 +9,7 @@
     "eslint-config-concise": "^0.2.0",
     "eslint-config-concise-react": "^0.2.0",
     "eslint-formatter-pretty": "^1.0.0",
+    "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-react": "^6.3.0",
     "find-up": "^2.0.0",
     "has-flag": "^2.0.0",
