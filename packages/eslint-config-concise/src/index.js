@@ -5,9 +5,9 @@ const {indent} = styleRules
 
 module.exports = {
   extends: [
-    'airbnb-base',
-    'xo/esnext',
-  ],
+    'eslint-config-airbnb-base',
+    'eslint-config-xo/esnext',
+  ].map(require.resolve),
   plugins: [
     'filenames',
     'promise',
