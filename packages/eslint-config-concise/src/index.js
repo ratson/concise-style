@@ -26,8 +26,8 @@ module.exports = {
       optionalDependencies: false,
     }],
     'promise/param-names': 'error',
-    'semi': ['error', 'never'],
-    'xo/filename-case': 'off',
+    'unicorn/filename-case': 'off',
     indent,
+    semi: ['error', 'never'],
   },
 }

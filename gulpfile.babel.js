@@ -21,13 +21,15 @@ function mapSrcToLib(file, enc, callback) {
     libFragment = '$1/lib/'
   }
 
-  file._path = file.path
+  /* eslint-disable no-param-reassign */
+  file.srcPath = file.path
   file.path = file.path.replace(srcEx, libFragment)
+  /* eslint-enable no-param-reassign */
   callback(null, file)
 }
 
 function logCompilingFile(file, enc, callback) {
-  gutil.log(`Compiling '${chalk.cyan(path.relative(__dirname, file._path))}'...`)
+  gutil.log(`Compiling '${chalk.cyan(path.relative(__dirname, file.srcPath))}'...`)
   callback(null, file)
 }
 

@@ -24,6 +24,7 @@ function log(opts, report) {
 
 if (!hasFlag('no-local') && localCLI && localCLI !== __filename) {
   debug('Using local install of CSC.')
+  // eslint-disable-next-line global-require,import/no-dynamic-require
   require(localCLI)
 } else {
   const cli = meow(`
@@ -73,7 +74,7 @@ Examples
 
   const gitignoreFile = findUp.sync('.gitignore')
   if (gitignoreFile && !opts.ignore) {
-    opts.ignore = parseGitignore(gitignoreFile).map((x) => `**/${x}`)
+    opts.ignore = parseGitignore(gitignoreFile).map(x => `**/${x}`)
     debug('Ignore patterns', opts.ignore)
   }
 
@@ -83,7 +84,7 @@ Examples
     input.shift()
   }
 
-  xo.lintFiles(input, opts).then((report) => {
+  xo.lintFiles(input, opts).then(report => {
     if (opts.fix) {
       xo.outputFixes(report)
     }
