@@ -13,16 +13,16 @@
     "eslint-plugin-promise": "*"
   },
   "dependencies": {
-    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-config-airbnb-base": "^10.0.1",
     "eslint-config-xo": "^0.17.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "eslint": "^3.7.1",
+    "eslint": "^3.10.2",
     "eslint-plugin-filenames": "^1.1.0",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-promise": "^3.0.0",
-    "lodash": "^4.16.4",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-promise": "^3.3.2",
+    "lodash": "^4.17.2",
     "temp-write": "^2.1.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-plugin-concise",
