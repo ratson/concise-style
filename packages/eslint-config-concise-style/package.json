@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config-concise-style",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "description": "Concise, fixable, shareable ESLint config.",
+  "scripts": {
+    "prepublish": "babel-node scripts/gen.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-find-rules": "^1.14.3",
+    "eslint-plugin-import": "^2.2.0",
+    "lodash": "^4.17.2",
+    "serialize-js": "^1.1.0"
+  },
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-plugin-concise-style",
+  "license": "MIT",
+  "keywords": [
+    "eslintconfig",
+    "eslint-config",
+    "eslint"
+  ]
+}
