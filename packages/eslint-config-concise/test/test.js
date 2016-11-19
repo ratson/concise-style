@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 
 import _ from 'lodash'
 import eslint from 'eslint'
@@ -11,7 +12,7 @@ function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf)),
-    cwd: `${process.cwd()}/fixtures`,
+    cwd: path.join(__dirname, 'fixtures'),
   })
 
   return linter.executeOnText(str).results[0].messages
@@ -20,6 +21,6 @@ function runEslint(str, conf) {
 test(t => {
   t.true(_.isPlainObject(config))
 
-  const errors = runEslint(fs.readFileSync('fixtures/good.js', 'utf8'), config)
+  const errors = runEslint(fs.readFileSync(path.join(__dirname, 'fixtures/good.js'), 'utf8'), config)
   t.is(errors.length, 0, JSON.stringify(errors))
 })
