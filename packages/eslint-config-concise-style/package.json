@@ -16,7 +16,7 @@
     "lodash": "^4.17.2",
     "serialize-js": "^1.1.0"
   },
-  "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-plugin-concise-style",
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-style",
   "license": "MIT",
   "keywords": [
     "eslintconfig",

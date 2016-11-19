@@ -2,32 +2,26 @@
   "name": "eslint-config-concise",
   "version": "0.3.0",
   "main": "lib/index.js",
-  "description": "ESLint shareable config for concise.",
+  "description": "Concise ESLint shareable config.",
   "scripts": {
     "test": "ava"
   },
   "peerDependencies": {
     "eslint": "*",
-    "eslint-plugin-filenames": "*",
-    "eslint-plugin-import": "*",
     "eslint-plugin-promise": "*"
   },
   "dependencies": {
-    "eslint-config-airbnb-base": "^10.0.1",
     "eslint-config-concise-style": "^0.3.0",
-    "eslint-config-xo": "^0.17.0",
     "lodash": "^4.17.2",
     "read-pkg-up": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.17.0",
     "eslint": "^3.10.2",
-    "eslint-plugin-filenames": "^1.1.0",
-    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "temp-write": "^2.1.0"
   },
-  "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-plugin-concise",
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise",
   "license": "MIT",
   "keywords": [
     "eslintconfig",
