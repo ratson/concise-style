@@ -1,3 +1,12 @@
+import airbnbImports from 'eslint-config-airbnb-base/rules/imports'
+
+const noExtraneousDependenciesOptions = airbnbImports.rules['import/no-extraneous-dependencies'][1]
+noExtraneousDependenciesOptions.devDependencies.push(
+  '**/*.spec.js',
+  '**/gulpfile.babel.js',
+)
+noExtraneousDependenciesOptions.optionalDependencies = true
+
 module.exports = {
   extends: [
     'eslint-config-airbnb-base',
@@ -10,15 +19,6 @@ module.exports = {
   ],
   rules: {
     'filenames/match-exported': 'error',
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: [
-        '**/*.spec.js',
-        '**/*.test.js',
-        '**/gulpfile.babel.js',
-        '**/gulpfile.js',
-        '**/test/*.js',
-      ],
-      optionalDependencies: false,
-    }],
+    'import/no-extraneous-dependencies': ['error', noExtraneousDependenciesOptions],
   },
 }
