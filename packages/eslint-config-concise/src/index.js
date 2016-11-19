@@ -5,15 +5,18 @@ import readPkgUp from 'read-pkg-up'
 const config = {
   env: {},
   extends: [
-    'eslint-config-concise-style',
-  ].map(require.resolve),
+    'plugin:node/recommended',
+    require.resolve('eslint-config-concise-style'),
+  ],
   globals: {},
   plugins: [
+    'node',
     'promise',
   ],
   rules: {
+    'node/no-unpublished-require': 'off',
+    'node/no-unsupported-features': 'off',
     'promise/param-names': 'error',
-    'unicorn/filename-case': 'off',
   },
 }
 
