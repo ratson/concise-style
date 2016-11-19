@@ -15,7 +15,7 @@
     "eslint-config-concise": "file:packages/eslint-config-concise",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-promise": "^3.3.2",
+    "eslint-plugin-promise": "^3.4.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-newer": "^1.3.0",

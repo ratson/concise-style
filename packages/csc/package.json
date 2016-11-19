@@ -11,7 +11,7 @@
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-promise": "^3.3.2",
+    "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.7.1",
     "find-up": "^2.0.0",
     "has-flag": "^2.0.0",

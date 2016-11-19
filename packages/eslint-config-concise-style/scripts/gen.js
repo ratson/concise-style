@@ -22,6 +22,7 @@ const config = {
   rules: Object.assign(
     _.pick(airbnb.getCurrentRulesDetailed(), fixableRules),
     {
+      'object-curly-spacing': ['error', 'never'],
       semi: ['error', 'never'],
     },
   ),
