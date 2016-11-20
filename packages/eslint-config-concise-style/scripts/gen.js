@@ -21,7 +21,10 @@ const fixableRules = _.filter(Object.keys(loadRules()), id => {
 })
 
 function pickRules(rulesObj, keys) {
-  keys.forEach(k => assert.notEqual(rulesObj[k], undefined, `rule "${k}" is missing`))
+  keys.forEach((k) => {
+    assert.notEqual(rulesObj[k], undefined, `rule "${k}" is missing`)
+    assert(fixableRules.includes(k), `rule "${k}" is not fixable`)
+  })
   return _.pick(rulesObj, keys)
 }
 
