@@ -4,7 +4,7 @@
   "description": "Concise Style Checker for JavaScript",
   "bin": "lib/cli.js",
   "dependencies": {
-    "debug": "^2.3.2",
+    "debug": "^2.3.3",
     "eslint": "^3.10.2",
     "eslint-config-concise": "^0.3.0",
     "eslint-config-concise-react": "^0.3.0",
