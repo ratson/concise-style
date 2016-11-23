@@ -10,10 +10,13 @@ const config = {
   ],
   globals: {},
   plugins: [
+    'html',
+    'markdown',
     'node',
     'promise',
   ],
   rules: {
+    'eslint-comments/no-unlimited-disable': 'error',
     'node/no-unpublished-require': 'off',
     'node/no-unsupported-features': 'off',
     'promise/param-names': 'error',
