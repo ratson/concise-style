@@ -10,6 +10,7 @@ const config = {
   ],
   globals: {},
   plugins: [
+    'eslint-comments',
     'html',
     'markdown',
     'node',
