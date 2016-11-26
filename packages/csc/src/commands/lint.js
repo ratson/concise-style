@@ -1,5 +1,4 @@
 import {CLIEngine} from 'eslint'
-import cli from 'eslint/lib/cli'
 import log from 'eslint/lib/logging'
 
 import detailedFormatter from 'eslint-detailed-reporter/lib/detailed'
@@ -47,7 +46,7 @@ function getFormatter(format, engine) {
     default:
       try {
         return engine.getFormatter(format)
-      } catch (e) {
+      } catch (err) {
       }
   }
   return friendlyFormatter

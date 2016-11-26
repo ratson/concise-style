@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable import/no-dynamic-require */
 import hasFlag from 'has-flag'
 import resolveCwd from 'resolve-cwd'
 

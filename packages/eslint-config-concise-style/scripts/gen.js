@@ -15,7 +15,7 @@ import standard from 'eslint-config-standard'
 import xo from 'eslint-config-xo'
 
 const airbnb = getRuleFinder(require.resolve('eslint-config-airbnb-base'))
-const fixableRules = _.filter(Object.keys(loadRules()), id => {
+const fixableRules = _.filter(Object.keys(loadRules()), (id) => {
   const r = rules.get(id)
   return r && !r.meta.deprecated && r.meta.fixable
 })

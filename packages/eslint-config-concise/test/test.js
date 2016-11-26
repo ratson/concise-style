@@ -18,7 +18,7 @@ function runEslint(str, conf) {
   return linter.executeOnText(str).results[0].messages
 }
 
-test(t => {
+test((t) => {
   t.true(_.isPlainObject(config))
 
   const errors = runEslint(fs.readFileSync(path.join(__dirname, 'fixtures/good.js'), 'utf8'), config)

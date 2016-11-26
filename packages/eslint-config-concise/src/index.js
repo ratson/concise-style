@@ -21,6 +21,8 @@ const config = {
     'node/no-unpublished-require': 'off',
     'node/no-unsupported-features': 'off',
     'promise/param-names': 'error',
+    // false-positive
+    'node/shebang': 'off',
   },
 }
 
