@@ -8,7 +8,7 @@
     "eslint-config-xo-react": "^0.10.0"
   },
   "devDependencies": {
-    "eslint": "^3.10.2",
+    "eslint": "^3.11.0",
     "eslint-plugin-react": "^6.7.1"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react",
