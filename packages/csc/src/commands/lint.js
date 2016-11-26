@@ -2,6 +2,10 @@ import {CLIEngine} from 'eslint'
 import cli from 'eslint/lib/cli'
 import log from 'eslint/lib/logging'
 
+import detailedFormatter from 'eslint-detailed-reporter/lib/detailed'
+import friendlyFormatter from 'eslint-friendly-formatter'
+import prettyFormatter from 'eslint-formatter-pretty'
+
 export const desc = 'Lint files'
 
 export const builder = {
@@ -9,24 +13,44 @@ export const builder = {
     default: false,
     type: 'boolean',
   },
+  format: {
+    default: 'pretty',
+    choices: [
+      'friendly',
+      'html-detailed',
+      'pretty',
+      // eslint built-in formatter
+      'checkstyle',
+      'codeframe',
+      'compact',
+      'html',
+      'jslint-xml',
+      'json',
+      'junit',
+      'stylish',
+      'table',
+      'tap',
+      'unix',
+      'visualstudio',
+    ],
+  },
 }
 
-function printResults(engine, results, format, outputFile) {
-  let formatter
-
-  try {
-    formatter = engine.getFormatter(format)
-  } catch (e) {
-    log.error(e.message)
-    return false
+function getFormatter(format, engine) {
+  switch (format) {
+    case 'html-detailed':
+      return detailedFormatter
+    case 'pretty':
+      return prettyFormatter
+    case 'friendly':
+      return friendlyFormatter
+    default:
+      try {
+        return engine.getFormatter(format)
+      } catch (e) {
+      }
   }
-
-  const output = formatter(results)
-
-  if (output) {
-    log.info(output)
-  }
-  return true
+  return friendlyFormatter
 }
 
 export function handler(argv) {
@@ -40,7 +64,9 @@ export function handler(argv) {
   if (argv.fix) {
     CLIEngine.outputFixes(report)
   }
-  if (printResults(engine, report.results, 'stylish')) {
-    process.exitCode = report.errorCount ? 1 : 0
+  const output = getFormatter(argv.format, engine)(report.results)
+  if (output) {
+    log.info(output)
   }
+  process.exitCode = report.errorCount ? 1 : 0
 }
