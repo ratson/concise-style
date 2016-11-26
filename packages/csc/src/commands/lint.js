@@ -31,6 +31,10 @@ function printResults(engine, results, format, outputFile) {
 
 export function handler(argv) {
   const files = argv._.slice(1)
+  if (files.length === 0) {
+    files.push('.')
+  }
+
   const engine = new CLIEngine()
   const report = engine.executeOnFiles(files)
   if (argv.fix) {
