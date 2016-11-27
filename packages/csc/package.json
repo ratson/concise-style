@@ -20,6 +20,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.7.1",
     "has-flag": "^2.0.0",
+    "inquirer": "^1.2.3",
     "lodash": "^4.17.2",
     "parse-gitignore": "^0.3.1",
     "path-exists": "^3.0.0",
