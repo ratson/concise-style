@@ -5,6 +5,8 @@ import detailedFormatter from 'eslint-detailed-reporter/lib/detailed'
 import friendlyFormatter from 'eslint-friendly-formatter'
 import prettyFormatter from 'eslint-formatter-pretty'
 
+export const command = 'lint [files..]'
+
 export const desc = 'Lint files'
 
 export const builder = {
@@ -53,12 +55,29 @@ function getFormatter(format, engine) {
 }
 
 export function handler(argv) {
-  const files = argv._.slice(1)
+  const files = argv.files.slice(2)
   if (files.length === 0) {
     files.push('.')
   }
 
-  const engine = new CLIEngine()
+  const engine = new CLIEngine({
+    extensions: [
+      '.erb',
+      '.hbs',
+      '.htm',
+      '.html',
+      '.js',
+      '.md',
+      '.mustache',
+      '.nunjucks',
+      '.php',
+      '.vue',
+    ],
+    useEslintrc: true,
+    fix: argv.fix,
+    ignore: true,
+    allowInlineConfig: true,
+  })
   const report = engine.executeOnFiles(files)
   if (argv.fix) {
     CLIEngine.outputFixes(report)

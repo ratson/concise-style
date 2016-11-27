@@ -26,11 +26,12 @@ function getPeerDependencies(pkg) {
         'eslint-plugin-filenames',
         'eslint-plugin-import',
       ])
+    default:
   }
   return []
 }
 
-export function handler(argv) {
+export function handler() {
   const ui = new inquirer.ui.BottomBar()
   inquirer.prompt([
     {
