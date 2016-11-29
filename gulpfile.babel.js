@@ -34,20 +34,22 @@ function logCompilingFile(file, enc, callback) {
 }
 
 const dest = 'packages'
-gulp.task('build', () => gulp.src('./packages/*/src/**/*.js')
-  .pipe(plumber({
-    errorHandler(err) {
-      gutil.log(err.stack)
-    },
-  }))
-  .pipe(through.obj(mapSrcToLib))
-  .pipe(newer(dest))
-  .pipe(through.obj(logCompilingFile))
-  .pipe(babel())
-  .pipe(gulp.dest(dest)))
+export function build() {
+  return gulp.src('./packages/*/src/**/*.js')
+    .pipe(plumber({
+      errorHandler(err) {
+        gutil.log(err.stack)
+      },
+    }))
+    .pipe(through.obj(mapSrcToLib))
+    .pipe(newer(dest))
+    .pipe(through.obj(logCompilingFile))
+    .pipe(babel())
+    .pipe(gulp.dest(dest))
+}
 
-gulp.task('watch', () => {
-  gulp.watch('./packages/*/src/**/*.js', ['build'])
-})
+function watch() {
+  gulp.watch('./packages/*/src/**/*.js', build)
+}
 
-gulp.task('default', ['watch'])
+export default watch
