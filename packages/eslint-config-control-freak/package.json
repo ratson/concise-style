@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-control-freak",
-  "version": "0.0.0",
+  "version": "0.4.0",
   "main": "lib/index.js",
   "description": "Restrictive ESLint config for single style.",
   "peerDependencies": {
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "eslint-config-airbnb-base": "^10.0.1",
-    "eslint-config-concise": "^0.3.0",
+    "eslint-config-concise": "^0.4.0",
     "eslint-config-xo": "^0.17.0"
   },
   "devDependencies": {
