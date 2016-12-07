@@ -25,7 +25,7 @@
     "eslint-plugin-eslint-comments": "^1.0.0",
     "eslint-plugin-html": "^1.7.0",
     "eslint-plugin-markdown": "^1.0.0-beta.3",
-    "eslint-plugin-node": "^3.0.4",
+    "eslint-plugin-node": "^3.0.5",
     "eslint-plugin-promise": "^3.4.0",
     "temp-write": "^2.1.0"
   },
