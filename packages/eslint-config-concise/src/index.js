@@ -5,6 +5,7 @@ import readPkgUp from 'read-pkg-up'
 const config = {
   env: {},
   extends: [
+    'eslint:recommended',
     'plugin:node/recommended',
     require.resolve('eslint-config-concise-style'),
   ],
