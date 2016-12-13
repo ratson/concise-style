@@ -16,6 +16,10 @@ function getPeerDependencies(pkg) {
         'eslint-plugin-node',
         'eslint-plugin-promise',
       ]
+    case 'eslint-config-concise-esnext':
+      return getPeerDependencies('eslint-config-concise').concat([
+        'eslint-plugin-babel',
+      ])
     case 'eslint-config-concise-react':
       return [
         'eslint',
