@@ -12,7 +12,7 @@
     "babel-eslint": "^7.1.1"
   },
   "devDependencies": {
-    "eslint": "^3.12.1",
+    "eslint": "^3.12.2",
     "eslint-plugin-babel": "^4.0.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-esnext",
