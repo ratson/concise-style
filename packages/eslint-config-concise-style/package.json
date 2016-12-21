@@ -3,24 +3,12 @@
   "version": "0.5.0",
   "main": "lib/index.js",
   "description": "Concise, fixable, shareable ESLint config.",
-  "scripts": {
-    "prepublish": "babel-node scripts/gen.js"
+  "scripts": {},
+  "peerDependencies": {
+    "eslint": "*"
   },
   "dependencies": {},
-  "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "eslint": "^3.12.2",
-    "eslint-config-airbnb-base": "^11.0.0",
-    "eslint-config-google": "^0.7.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-config-xo": "^0.17.0",
-    "eslint-find-rules": "^1.14.3",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "lodash": "^4.17.2",
-    "serialize-js": "^1.1.0"
-  },
+  "devDependencies": {},
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-style",
   "license": "MIT",
   "keywords": [

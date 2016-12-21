@@ -3,7 +3,6 @@ import airbnbImports from 'eslint-config-airbnb-base/rules/imports'
 const noExtraneousDependenciesOptions = airbnbImports.rules['import/no-extraneous-dependencies'][1]
 noExtraneousDependenciesOptions.devDependencies.push(
   '**/*.spec.js',
-  '**/gulpfile.babel.js',
 )
 noExtraneousDependenciesOptions.optionalDependencies = true
 

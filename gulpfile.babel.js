@@ -1,13 +1,17 @@
 import path from 'path'
 
 import chalk from 'chalk'
-import newer from 'gulp-newer'
 import through from 'through2'
 
 import babel from 'gulp-babel'
+import filter from 'gulp-filter'
 import gulp from 'gulp'
 import gutil from 'gulp-util'
+import newer from 'gulp-newer'
 import plumber from 'gulp-plumber'
+
+import genConciseReact from './tools/gen-concise-react'
+import genConciseStyle from './tools/gen-concise-style'
 
 function mapSrcToLib(file, enc, callback) {
   let srcEx
@@ -34,8 +38,13 @@ function logCompilingFile(file, enc, callback) {
 }
 
 const dest = 'packages'
-export function build() {
-  return gulp.src('./packages/*/src/**/*.js')
+export function buildSrc() {
+  const jsFilter = filter('**/*.js', {restore: true})
+
+  return gulp.src([
+    './packages/*/src/**/*.js',
+    './packages/*/src/**/*.json',
+  ])
     .pipe(plumber({
       errorHandler(err) {
         gutil.log(err.stack)
@@ -44,12 +53,18 @@ export function build() {
     .pipe(through.obj(mapSrcToLib))
     .pipe(newer(dest))
     .pipe(through.obj(logCompilingFile))
+    .pipe(jsFilter)
     .pipe(babel())
+    .pipe(jsFilter.restore)
     .pipe(gulp.dest(dest))
 }
 
+gulp.task('buildConfig', gulp.parallel(genConciseStyle, genConciseReact))
+
+gulp.task('build', gulp.series('buildConfig', buildSrc))
+
 function watch() {
-  gulp.watch('./packages/*/src/**/*.js', build)
+  gulp.watch('./packages/*/src/**/*.js', ['build'])
 }
 
 export default watch
