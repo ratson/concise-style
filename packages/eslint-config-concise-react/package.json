@@ -2,7 +2,7 @@
   "name": "eslint-config-concise-react",
   "version": "0.5.0",
   "main": "lib/index.js",
-  "description": "ESLint shareable config for React be used with eslint-plugin-concise.",
+  "description": "ESLint config for React be used with eslint-plugin-concise.",
   "scripts": {},
   "peerDependencies": {
     "eslint": "*",

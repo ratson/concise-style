@@ -2,7 +2,7 @@
   "name": "eslint-config-concise-style",
   "version": "0.5.0",
   "main": "lib/index.js",
-  "description": "Concise, fixable, shareable ESLint config.",
+  "description": "Concise, fixable ESLint config.",
   "scripts": {},
   "peerDependencies": {
     "eslint": "*"

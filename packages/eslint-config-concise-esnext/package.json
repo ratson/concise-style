@@ -2,7 +2,7 @@
   "name": "eslint-config-concise-esnext",
   "version": "0.5.0",
   "main": "lib/index.js",
-  "description": "Concise ESLint shareable config using babel-eslint parser.",
+  "description": "Concise ESLint config using babel-eslint parser.",
   "scripts": {},
   "peerDependencies": {
     "eslint": "*",
