@@ -27,7 +27,7 @@ function pickRules(rulesObj, keys) {
 }
 
 export function writeJsFile(filePath, config) {
-  return fs.writeFile(path.join(__dirname, '..', filePath), stringify(config), 'utf8')
+  return fs.writeFile(path.join(__dirname, '..', filePath), `${stringify(config)}\n`, 'utf8')
 }
 
 export default () => {
