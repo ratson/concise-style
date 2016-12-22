@@ -28,22 +28,16 @@
     ],
     "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-closing-bracket-location": ["error", "line-aligned"],
-    "react/jsx-curly-spacing": ["error", "never", {"allowMultiline": true}],
-    "react/jsx-handler-names": [
-      "off",
-      {"eventHandlerPrefix": "handle", "eventHandlerPropPrefix": "on"}
-    ],
+    "react/jsx-curly-spacing": ["error", "never"],
+    "react/jsx-handler-names": "error",
     "react/jsx-indent-props": ["error", 2],
-    "react/jsx-key": "off",
+    "react/jsx-key": "error",
     "react/jsx-max-props-per-line": ["off", {"maximum": 1}],
-    "react/jsx-no-bind": [
-      "error",
-      {"ignoreRefs": true, "allowArrowFunctions": true, "allowBind": false}
-    ],
+    "react/jsx-no-bind": "error",
     "react/jsx-no-duplicate-props": ["error", {"ignoreCase": true}],
     "react/jsx-no-literals": "off",
     "react/jsx-no-undef": "error",
-    "react/jsx-pascal-case": ["error", {"allowAllCaps": true, "ignore": []}],
+    "react/jsx-pascal-case": "error",
     "react/sort-prop-types": [
       "off",
       {"ignoreCase": true, "callbacksLast": false, "requiredFirst": false}
@@ -58,13 +52,13 @@
         "shorthandLast": false
       }
     ],
-    "react/jsx-uses-react": ["error"],
+    "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "react/no-danger": "warn",
-    "react/no-deprecated": ["error"],
+    "react/no-danger": "error",
+    "react/no-deprecated": "error",
     "react/no-did-mount-set-state": ["error"],
-    "react/no-did-update-set-state": ["error"],
-    "react/no-direct-mutation-state": "off",
+    "react/no-did-update-set-state": "error",
+    "react/no-direct-mutation-state": "error",
     "react/no-is-mounted": "error",
     "react/no-multi-comp": ["error", {"ignoreStateless": true}],
     "react/no-set-state": "off",
@@ -72,12 +66,12 @@
     "react/no-unknown-property": "error",
     "react/prefer-es6-class": ["error", "always"],
     "react/prefer-stateless-function": "error",
-    "react/prop-types": ["error", {"ignore": [], "customValidators": []}],
+    "react/prop-types": "error",
     "react/react-in-jsx-scope": "error",
     "react/require-extension": ["off", {"extensions": [".jsx", ".js"]}],
     "react/require-render-return": "error",
     "react/self-closing-comp": "error",
-    "react/jsx-space-before-closing": ["error", "always"],
+    "react/jsx-space-before-closing": ["error", "never"],
     "react/sort-comp": [
       "error",
       {
@@ -92,10 +86,7 @@
         ]
       }
     ],
-    "react/jsx-wrap-multilines": [
-      "error",
-      {"declaration": true, "assignment": true, "return": true}
-    ],
+    "react/jsx-wrap-multilines": "error",
     "react/wrap-multilines": "off",
     "react/jsx-first-prop-new-line": ["error", "multiline"],
     "react/jsx-equals-spacing": ["error", "never"],
@@ -107,12 +98,9 @@
     "react/no-render-return-value": "error",
     "react/require-optimization": ["off", {"allowDecorators": []}],
     "react/no-find-dom-node": "error",
-    "react/forbid-component-props": ["off", {"forbid": []}],
+    "react/forbid-component-props": "error",
     "react/no-danger-with-children": "error",
-    "react/no-unused-prop-types": [
-      "error",
-      {"customValidators": [], "skipShapeProps": true}
-    ],
+    "react/no-unused-prop-types": "error",
     "react/style-prop-object": "error",
     "react/no-unescaped-entities": "error",
     "react/no-children-prop": "error"
