@@ -1,1 +1,1 @@
-module.exports = require('eslint-config-concise')
+throw new Error('This is replaced by `eslint-config-concise`.')
