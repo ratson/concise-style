@@ -71,7 +71,7 @@
     "react/require-extension": ["off", {"extensions": [".jsx", ".js"]}],
     "react/require-render-return": "error",
     "react/self-closing-comp": "error",
-    "react/jsx-space-before-closing": ["error", "never"],
+    "react/jsx-space-before-closing": ["error", "always"],
     "react/sort-comp": [
       "error",
       {

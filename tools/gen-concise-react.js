@@ -32,6 +32,7 @@ export default () => {
         'react/jsx-closing-bracket-location',
         'react/jsx-indent-props',
         'react/jsx-indent',
+        'react/jsx-space-before-closing',
       ]),
     ),
   })
