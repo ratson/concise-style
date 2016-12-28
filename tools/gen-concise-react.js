@@ -2,24 +2,7 @@ import _ from 'lodash'
 import xoReact from 'eslint-config-xo-react'
 import airbnbReact from 'eslint-config-airbnb/rules/react'
 
-import {writeJsFile} from './gen-concise-style'
-
-function prettifyRule(ruleValue) {
-  if (Array.isArray(ruleValue)) {
-    return [
-      prettifyRule(ruleValue[0]),
-      ..._.drop(ruleValue),
-    ]
-  }
-  switch (ruleValue) {
-    case 0:
-      return 'off'
-    case 2:
-      return 'error'
-    default:
-  }
-  return ruleValue
-}
+import {prettifyRule, writeJsFile} from './utils'
 
 export default () => {
   const config = Object.assign({}, xoReact, {

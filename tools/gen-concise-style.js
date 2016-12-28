@@ -1,17 +1,16 @@
 import assert from 'assert'
-import path from 'path'
 
 import _ from 'lodash'
-import fs from 'mz/fs'
 import getRuleFinder from 'eslint-find-rules'
 import loadRules from 'eslint/lib/load-rules'
 import rules from 'eslint/lib/rules'
-import stringify from 'json-stringify-pretty-compact'
 
 import {parserOptions} from 'eslint-config-airbnb-base'
 import google from 'eslint-config-google'
 import standard from 'eslint-config-standard'
 import xo from 'eslint-config-xo'
+
+import {writeJsFile} from './utils'
 
 const fixableRules = _.filter(Object.keys(loadRules()), (id) => {
   const r = rules.get(id)
@@ -24,10 +23,6 @@ function pickRules(rulesObj, keys) {
     assert(fixableRules.includes(k), `rule "${k}" is not fixable`)
   })
   return _.pick(rulesObj, keys)
-}
-
-export function writeJsFile(filePath, config) {
-  return fs.writeFile(path.join(__dirname, '..', filePath), `${stringify(config)}\n`, 'utf8')
 }
 
 export default () => {
