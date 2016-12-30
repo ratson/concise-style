@@ -10,6 +10,7 @@ import gutil from 'gulp-util'
 import newer from 'gulp-newer'
 import plumber from 'gulp-plumber'
 
+import genConcise from './tools/gen-concise'
 import genConciseReact from './tools/gen-concise-react'
 import genConciseStyle from './tools/gen-concise-style'
 
@@ -59,7 +60,7 @@ export function buildSrc() {
     .pipe(gulp.dest(dest))
 }
 
-gulp.task('buildConfig', gulp.parallel(genConciseStyle, genConciseReact))
+gulp.task('buildConfig', gulp.parallel(genConcise, genConciseStyle, genConciseReact))
 
 gulp.task('build', gulp.series('buildConfig', buildSrc))
 

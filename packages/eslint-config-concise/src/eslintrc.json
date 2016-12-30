@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "eslint-comments/no-unlimited-disable": "error",
+    "mysticatea/no-instanceof-array": "error",
+    "mysticatea/no-instanceof-wrapper": "error",
+    "node/no-unpublished-require": "off",
+    "node/no-unsupported-features": "off",
+    "promise/param-names": "error",
+    "node/shebang": "off"
+  }
+}

@@ -2,6 +2,8 @@
 import _ from 'lodash'
 import readPkgUp from 'read-pkg-up'
 
+import eslintrc from './eslintrc.json'
+
 const config = {
   env: {},
   extends: [
@@ -17,14 +19,7 @@ const config = {
     'node',
     'promise',
   ],
-  rules: {
-    'eslint-comments/no-unlimited-disable': 'error',
-    'node/no-unpublished-require': 'off',
-    'node/no-unsupported-features': 'off',
-    'promise/param-names': 'error',
-    // false-positive
-    'node/shebang': 'off',
-  },
+  rules: eslintrc.rules,
 }
 
 const {pkg} = readPkgUp.sync()

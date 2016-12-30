@@ -1,5 +1,6 @@
 {
   "presets": [
-    ["env", {"targets": {"node": 4}}]
+    ["env", {"targets": {"node": 4}}],
+    "stage-3"
   ]
 }
