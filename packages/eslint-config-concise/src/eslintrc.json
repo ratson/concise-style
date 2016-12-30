@@ -1,4 +1,15 @@
 {
+  "env": {},
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "globals": {},
+  "plugins": [
+    "eslint-comments",
+    "html",
+    "markdown",
+    "mysticatea",
+    "node",
+    "promise"
+  ],
   "rules": {
     "eslint-comments/no-unlimited-disable": "error",
     "mysticatea/no-instanceof-array": "error",

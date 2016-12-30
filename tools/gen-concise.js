@@ -5,6 +5,20 @@ import {writeJsFile} from './utils'
 
 export default () => {
   const config = {
+    env: {},
+    extends: [
+      'eslint:recommended',
+      'plugin:node/recommended',
+    ],
+    globals: {},
+    plugins: [
+      'eslint-comments',
+      'html',
+      'markdown',
+      'mysticatea',
+      'node',
+      'promise',
+    ],
     rules: {
       ..._.pick(mysticatea.rules, [
         'eslint-comments/no-unlimited-disable',
