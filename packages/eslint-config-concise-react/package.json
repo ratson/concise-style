@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-react",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "main": "lib/index.js",
   "description": "ESLint config for React be used with eslint-plugin-concise.",
   "scripts": {},
