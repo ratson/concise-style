@@ -1,15 +1,14 @@
-import path from 'path'
+'use strict'
 
-import _ from 'lodash'
-import fs from 'mz/fs'
-import stringify from 'json-stringify-pretty-compact'
+const path = require('path')
 
-export function prettifyRule(ruleValue) {
+const _ = require('lodash')
+const fs = require('mz/fs')
+const stringify = require('json-stringify-pretty-compact')
+
+exports.prettifyRule = function prettifyRule(ruleValue) {
   if (Array.isArray(ruleValue)) {
-    return [
-      prettifyRule(ruleValue[0]),
-      ..._.drop(ruleValue),
-    ]
+    return [prettifyRule(ruleValue[0]), ..._.drop(ruleValue)]
   }
   switch (ruleValue) {
     case 0:
@@ -21,6 +20,10 @@ export function prettifyRule(ruleValue) {
   return ruleValue
 }
 
-export function writeJsFile(filePath, config) {
-  return fs.writeFile(path.join(__dirname, '..', filePath), `${stringify(config)}\n`, 'utf8')
+exports.writeJsFile = function writeJsFile(filePath, config) {
+  return fs.writeFile(
+    path.join(__dirname, '..', filePath),
+    `${stringify(config)}\n`,
+    'utf8'
+  )
 }

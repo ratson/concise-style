@@ -1,15 +1,14 @@
-import _ from 'lodash'
-import mysticatea from 'eslint-config-mysticatea/base'
+'use strict'
 
-import {writeJsFile} from './utils'
+const _ = require('lodash')
+const mysticatea = require('eslint-config-mysticatea/base')
 
-export default () => {
+const { writeJsFile } = require('./utils')
+
+module.exports = () => {
   const config = {
     env: {},
-    extends: [
-      'eslint:recommended',
-      'plugin:node/recommended',
-    ],
+    extends: ['eslint:recommended', 'plugin:node/recommended'],
     globals: {},
     plugins: [
       'eslint-comments',
@@ -19,18 +18,20 @@ export default () => {
       'node',
       'promise',
     ],
-    rules: {
+    rules: Object.assign(
       ..._.pick(mysticatea.rules, [
         'eslint-comments/no-unlimited-disable',
         'mysticatea/no-instanceof-array',
         'mysticatea/no-instanceof-wrapper',
       ]),
-      'node/no-unpublished-require': 'off',
-      'node/no-unsupported-features': 'off',
-      'promise/param-names': 'error',
-      // false-positive
-      'node/shebang': 'off',
-    },
+      {
+        'node/no-unpublished-require': 'off',
+        'node/no-unsupported-features': 'off',
+        'promise/param-names': 'error',
+        // false-positive
+        'node/shebang': 'off',
+      }
+    ),
   }
   return writeJsFile('packages/eslint-config-concise/src/eslintrc.json', config)
 }
