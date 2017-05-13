@@ -47,7 +47,11 @@ function buildSrc() {
   const jsFilter = filter('**/*.js', { restore: true })
 
   return gulp
-    .src(['./packages/*/src/**/*.js', './packages/*/src/**/*.json'])
+    .src([
+      './packages/*/src/**/*.js',
+      './packages/*/src/**/*.json',
+      '!./packages/eslint-config-concise',
+    ])
     .pipe(
       plumber({
         errorHandler(err) {
@@ -65,12 +69,9 @@ function buildSrc() {
 }
 exports.buildSrc = buildSrc
 
-gulp.task(
-  'buildConfig',
-  gulp.parallel(genConcise, genConciseStyle, genConciseReact)
-)
+gulp.task('buildConfig', gulp.parallel(genConcise))
 
-gulp.task('build', gulp.series('buildConfig', buildSrc))
+gulp.task('build', gulp.series('buildConfig'))
 
 function watch() {
   gulp.watch('./packages/*/src/**/*.js', ['build'])
