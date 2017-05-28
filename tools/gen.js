@@ -1,3 +1,5 @@
+'use strict'
+
 const assert = require('assert')
 
 const _ = require('lodash')
@@ -5,7 +7,6 @@ const getRuleFinder = require('eslint-find-rules')
 const loadRules = require('eslint/lib/load-rules')
 const rules = require('eslint/lib/rules')
 
-const { parserOptions } = require('eslint-config-airbnb-base')
 const google = require('eslint-config-google')
 const standard = require('eslint-config-standard')
 const xo = require('eslint-config-xo')
@@ -28,19 +29,33 @@ function pickRules(rulesObj, keys) {
 }
 
 function buildFixableRules() {
-  const airbnb = getRuleFinder(require.resolve('eslint-config-airbnb-base'))
+  const airbnbRuleFinder = getRuleFinder(
+    require.resolve('eslint-config-airbnb-base')
+  )
   return Object.assign(
-    pickRules(airbnb.getCurrentRulesDetailed(), fixableRules),
+    pickRules(airbnbRuleFinder.getCurrentRulesDetailed(), fixableRules),
     pickRules(google.rules, ['space-before-function-paren']),
     pickRules(standard.rules, ['semi']),
-    pickRules(xo.rules, ['object-curly-spacing'])
+    pickRules(xo.rules, ['arrow-parens']),
+    {
+      'comma-dangle': [
+        'error',
+        {
+          arrays: 'always-multiline',
+          objects: 'always-multiline',
+          imports: 'always-multiline',
+          exports: 'always-multiline',
+          functions: 'ignore',
+        },
+      ],
+    }
   )
 }
 
-function main() {
-  const config = {
-    parserOptions,
+function buildConciseConfig() {
+  return {
     env: {},
+    // parserOptions,
     extends: ['eslint:recommended', 'plugin:node/recommended'],
     globals: {},
     plugins: [
@@ -67,7 +82,26 @@ function main() {
       }
     ),
   }
-  return writeJsFile('packages/eslint-config-concise/lib/eslintrc.json', config)
 }
 
-module.exports = main
+function genConcise() {
+  return writeJsFile(
+    'packages/eslint-config-concise/eslintrc.json',
+    buildConciseConfig()
+  )
+}
+
+async function printRule() {
+  /* eslint-disable no-console */
+  const rule = _.last(process.argv.slice(2))
+  console.log(rule)
+  _.forEach([mysticatea, xo, standard, google, buildConciseConfig()], config =>
+    console.log(_.get(config, ['rules', rule]))
+  )
+  /* eslint-enable no-console */
+}
+
+module.exports = {
+  genConcise,
+  printRule,
+}

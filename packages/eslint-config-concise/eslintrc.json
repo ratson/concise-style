@@ -1,9 +1,4 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 2017,
-    "sourceType": "module",
-    "ecmaFeatures": {"experimentalObjectRestSpread": true}
-  },
   "env": {},
   "extends": ["eslint:recommended", "plugin:node/recommended"],
   "globals": {},
@@ -22,7 +17,7 @@
       "as-needed",
       {"requireReturnForObjectLiteral": false}
     ],
-    "arrow-parens": ["error", "as-needed", {"requireForBlockBody": true}],
+    "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": ["error", {"before": true, "after": true}],
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", {"allowSingleLine": true}],
@@ -49,7 +44,7 @@
         "objects": "always-multiline",
         "imports": "always-multiline",
         "exports": "always-multiline",
-        "functions": "always-multiline"
+        "functions": "ignore"
       }
     ],
     "comma-spacing": ["error", {"before": false, "after": true}],
@@ -144,7 +139,7 @@
         "ObjectPattern": {"minProperties": 0, "multiline": true}
       }
     ],
-    "object-curly-spacing": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
     "object-property-newline": [
       "error",
       {"allowMultiplePropertiesPerLine": true}
@@ -177,7 +172,7 @@
     "quotes": ["error", "single", {"avoidEscape": true}],
     "rest-spread-spacing": ["error", "never"],
     "semi-spacing": ["error", {"before": false, "after": true}],
-    "semi": [2, "never"],
+    "semi": ["error", "never"],
     "sort-imports": [
       "off",
       {

@@ -12,9 +12,7 @@ const gutil = require('gulp-util')
 const newer = require('gulp-newer')
 const plumber = require('gulp-plumber')
 
-const genConcise = require('./tools/gen-concise')
-const genConciseReact = require('./tools/gen-concise-react')
-const genConciseStyle = require('./tools/gen-concise-style')
+const { genConcise, printRule } = require('./tools/gen')
 
 function mapSrcToLib(file, enc, callback) {
   let srcEx
@@ -77,4 +75,5 @@ function watch() {
   gulp.watch('./packages/*/src/**/*.js', ['build'])
 }
 
+exports.printRule = printRule
 exports.default = watch
