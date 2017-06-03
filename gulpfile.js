@@ -7,7 +7,7 @@ const through = require('through2')
 
 const babel = require('gulp-babel')
 const filter = require('gulp-filter')
-const gulp = require('gulp')
+const gulp = require('gulp-v4')
 const gutil = require('gulp-util')
 const newer = require('gulp-newer')
 const plumber = require('gulp-plumber')
