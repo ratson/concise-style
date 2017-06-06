@@ -24,4 +24,5 @@ node_modules
 *.log
 lib
 tmp
+package-lock.json
 !/packages/eslint-config-concise/lib
