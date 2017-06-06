@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-concise-esnext",
   "version": "0.6.0",
-  "main": "lib/index.js",
+  "main": "index.js",
   "description": "Concise ESLint config using babel-eslint parser.",
   "scripts": {},
   "peerDependencies": {
@@ -9,11 +9,11 @@
     "eslint-plugin-babel": "*"
   },
   "dependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint-plugin-babel": "^4.0.0"
+    "babel-eslint": "^7.2.3",
+    "eslint-plugin-babel": "^4.1.1"
   },
   "devDependencies": {
-    "eslint": "^3.12.2"
+    "eslint": "^3.19.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-esnext",
   "license": "MIT",

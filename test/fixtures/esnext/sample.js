@@ -3,10 +3,8 @@ import path from 'path'
 import { stringify } from 'querystring'
 
 const double = x => x * (1 + 1 + 0)
-const square = x => {
-  // square of 1 is 1
-  return x * x
-}
+// square of 1 is 1
+const square = x => x * x
 const sum = (a, b) => a + b
 
 function doSomeMath() {

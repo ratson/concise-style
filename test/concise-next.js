@@ -5,13 +5,17 @@ import globby from 'globby'
 import execa from 'execa'
 
 async function checkGoodStyle(t, filename) {
-  const result = await execa('eslint', [filename], {
+  const result = await execa('eslint', [
+    '-c',
+    require.resolve('../packages/eslint-config-concise-esnext'),
+    filename,
+  ], {
     cwd: __dirname,
   })
   t.is(result.code, 0)
 }
 
-globby('./fixtures/good/*.js', {
+globby('./fixtures/esnext/*.js', {
   cwd: __dirname,
 }).then(filenames =>
   filenames.forEach(filename => {

@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
   parser: require.resolve('babel-eslint'),
   plugins: [
@@ -5,6 +7,6 @@ module.exports = {
   ],
   rules: {
     'object-curly-spacing': 'off',
-    'babel/object-curly-spacing': 'error',
+    'babel/object-curly-spacing': ['error', 'always'],
   },
 }
