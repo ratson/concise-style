@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /* eslint-disable import/no-dynamic-require */
-import hasFlag from 'has-flag'
-import resolveCwd from 'resolve-cwd'
+
+'use strict'
+
+const hasFlag = require('has-flag')
+const resolveCwd = require('resolve-cwd')
 
 const localCLI = resolveCwd('csc/lib/cli')
 if (!hasFlag('no-local') && localCLI && localCLI !== __filename) {

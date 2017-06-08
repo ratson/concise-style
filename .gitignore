@@ -25,4 +25,5 @@ node_modules
 lib
 tmp
 package-lock.json
+!/packages/csc/lib
 !/packages/eslint-config-concise/lib

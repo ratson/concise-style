@@ -1,12 +1,14 @@
-import chalk from 'chalk'
-import updateNotifier from 'update-notifier'
-import yargs from 'yargs'
-import yargsParser from 'yargs-parser'
+'use strict'
 
-import pkg from '../package.json'
+const chalk = require('chalk')
+const updateNotifier = require('update-notifier')
+const yargs = require('yargs')
+const yargsParser = require('yargs-parser')
 
-export default () => {
-  updateNotifier({pkg}).notify()
+const pkg = require('../package.json')
+
+module.exports = () => {
+  updateNotifier({ pkg }).notify()
 
   const args = process.argv
   const parsed = yargsParser(args)

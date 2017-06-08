@@ -1,15 +1,16 @@
-import {CLIEngine} from 'eslint'
-import log from 'eslint/lib/logging'
+'use strict'
 
-import detailedFormatter from 'eslint-detailed-reporter/lib/detailed'
-import friendlyFormatter from 'eslint-friendly-formatter'
-import prettyFormatter from 'eslint-formatter-pretty'
+const { CLIEngine } = require('eslint')
+const log = require('eslint/lib/logging')
+const detailedFormatter = require('eslint-detailed-reporter/lib/detailed')
+const friendlyFormatter = require('eslint-friendly-formatter')
+const prettyFormatter = require('eslint-formatter-pretty')
 
-export const command = 'lint [files..]'
+const command = 'lint [files..]'
 
-export const desc = 'Lint files'
+const desc = 'Lint files'
 
-export const builder = {
+const builder = {
   fix: {
     default: false,
     type: 'boolean',
@@ -49,12 +50,12 @@ function getFormatter(format, engine) {
       try {
         return engine.getFormatter(format)
       } catch (err) {
+        return friendlyFormatter
       }
   }
-  return friendlyFormatter
 }
 
-export function handler(argv) {
+function handler(argv) {
   const files = argv.files.slice(2)
   if (files.length === 0) {
     files.push('.')
@@ -87,4 +88,11 @@ export function handler(argv) {
     log.info(output)
   }
   process.exitCode = report.errorCount ? 1 : 0
+}
+
+module.exports = {
+  command,
+  desc,
+  builder,
+  handler,
 }
