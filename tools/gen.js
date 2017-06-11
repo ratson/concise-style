@@ -7,13 +7,14 @@ const getRuleFinder = require('eslint-find-rules')
 const loadRules = require('eslint/lib/load-rules')
 const rules = require('eslint/lib/rules')
 
+const airbnbReact = require('eslint-config-airbnb/rules/react')
 const google = require('eslint-config-google')
+const mysticatea = require('eslint-config-mysticatea/base')
 const standard = require('eslint-config-standard')
 const xo = require('eslint-config-xo')
+const xoReact = require('eslint-config-xo-react')
 
-const mysticatea = require('eslint-config-mysticatea/base')
-
-const { writeJsFile } = require('./utils')
+const { prettifyRule, writeJsFile } = require('./utils')
 
 const fixableRules = _.filter(Object.keys(loadRules()), id => {
   const r = rules.get(id)
@@ -91,6 +92,27 @@ function genConcise() {
   )
 }
 
+function genConciseReact() {
+  const config = Object.assign({}, xoReact, {
+    rules: Object.assign(
+      {},
+      airbnbReact.rules,
+      _.mapValues(xoReact.rules, prettifyRule),
+      _.pick(airbnbReact.rules, [
+        'react/jsx-boolean-value',
+        'react/jsx-closing-bracket-location',
+        'react/jsx-indent-props',
+        'react/jsx-indent',
+        'react/jsx-space-before-closing',
+      ])
+    ),
+  })
+  return writeJsFile(
+    'packages/eslint-config-concise-react/eslintrc.json',
+    config
+  )
+}
+
 async function printRule() {
   /* eslint-disable no-console */
   const rule = _.last(process.argv.slice(2))
@@ -103,5 +125,6 @@ async function printRule() {
 
 module.exports = {
   genConcise,
+  genConciseReact,
   printRule,
 }

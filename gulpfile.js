@@ -12,7 +12,7 @@ const gutil = require('gulp-util')
 const newer = require('gulp-newer')
 const plumber = require('gulp-plumber')
 
-const { genConcise, printRule } = require('./tools/gen')
+const { genConcise, genConciseReact, printRule } = require('./tools/gen')
 
 function mapSrcToLib(file, enc, callback) {
   let srcEx
@@ -67,7 +67,7 @@ function buildSrc() {
 }
 exports.buildSrc = buildSrc
 
-gulp.task('buildConfig', gulp.parallel(genConcise))
+gulp.task('buildConfig', gulp.parallel(genConcise, genConciseReact))
 
 gulp.task('build', gulp.series('buildConfig'))
 
