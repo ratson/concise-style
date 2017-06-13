@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-concise-style",
   "version": "0.5.1",
-  "main": "lib/index.js",
+  "main": "eslintrc.json",
   "description": "Concise, fixable ESLint config.",
   "scripts": {},
   "peerDependencies": {

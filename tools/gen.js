@@ -7,6 +7,7 @@ const getRuleFinder = require('eslint-find-rules')
 const loadRules = require('eslint/lib/load-rules')
 const rules = require('eslint/lib/rules')
 
+const { parserOptions } = require('eslint-config-airbnb-base')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
 const google = require('eslint-config-google')
 const mysticatea = require('eslint-config-mysticatea/base')
@@ -113,6 +114,17 @@ function genConciseReact() {
   )
 }
 
+function genConciseStyle() {
+  const config = {
+    parserOptions,
+    rules: buildFixableRules(),
+  }
+  return writeJsFile(
+    'packages/eslint-config-concise-style/eslintrc.json',
+    config
+  )
+}
+
 async function printRule() {
   /* eslint-disable no-console */
   const rule = _.last(process.argv.slice(2))
@@ -126,5 +138,6 @@ async function printRule() {
 module.exports = {
   genConcise,
   genConciseReact,
+  genConciseStyle,
   printRule,
 }
