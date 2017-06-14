@@ -3,12 +3,11 @@
 
 'use strict'
 
-const hasFlag = require('has-flag')
-const resolveCwd = require('resolve-cwd')
+const debug = require('debug')('csc')
+const importLocal = require('import-local')
 
-const localCLI = resolveCwd('csc/lib/cli')
-if (!hasFlag('no-local') && localCLI && localCLI !== __filename) {
-  require(localCLI)
+if (importLocal(__filename)) {
+  debug('Using local install of CSC')
 } else {
-  require('.').default()
+  require('.')()
 }
