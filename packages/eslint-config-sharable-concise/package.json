@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-sharable-concise",
   "version": "0.6.0",
-  "main": "lib/index.js",
+  "main": "index.js",
   "description": "Sharable, concise ESLint shareable.",
   "scripts": {},
   "dependencies": {},
