@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-control-freak",
   "version": "0.6.1",
-  "main": "lib/index.js",
+  "main": "index.js",
   "description": "Restrictive ESLint config for single style.",
   "dependencies": {
     "eslint-config-airbnb-base": "^11.0.0",
