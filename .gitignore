@@ -22,8 +22,5 @@ composer.lock
 # Project Specific
 node_modules
 *.log
-lib
 tmp
 package-lock.json
-!/packages/csc/lib
-!/packages/eslint-config-concise/lib
