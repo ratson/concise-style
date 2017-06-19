@@ -4,12 +4,11 @@
     "postinstall": "lerna bootstrap",
     "prepublish": "gulp build",
     "publish": "lerna publish",
-    "lint": "csc",
+    "lint": "node ./packages/csc/lib/cli.js",
     "test": "ava"
   },
   "devDependencies": {
     "ava": "^0.19.1",
-    "csc": "file:./packages/csc",
     "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-airbnb-base": "^11.2.0",
@@ -37,7 +36,8 @@
     "json-stringify-pretty-compact": "^1.0.4",
     "lerna": "^2.0.0-rc.5",
     "lodash": "^4.17.4",
-    "mz": "^2.6.0"
+    "mz": "^2.6.0",
+    "temp-write": "^3.3.0"
   },
   "ava": {
     "concurrency": 4

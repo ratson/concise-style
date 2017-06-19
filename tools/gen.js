@@ -5,7 +5,7 @@ const assert = require('assert')
 const _ = require('lodash')
 const getRuleFinder = require('eslint-find-rules')
 const loadRules = require('eslint/lib/load-rules')
-const rules = require('eslint/lib/rules')
+const Rules = require('eslint/lib/rules')
 
 const { parserOptions } = require('eslint-config-airbnb-base')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
@@ -17,6 +17,8 @@ const xoReact = require('eslint-config-xo-react')
 
 const { prettifyRule, writeJsFile } = require('./utils')
 
+const rules = new Rules()
+
 const fixableRules = _.filter(Object.keys(loadRules()), id => {
   const r = rules.get(id)
   return r && !r.meta.deprecated && r.meta.fixable
@@ -24,7 +26,7 @@ const fixableRules = _.filter(Object.keys(loadRules()), id => {
 
 function pickRules(rulesObj, keys) {
   keys.forEach(k => {
-    assert.notEqual(rulesObj[k], undefined, `rule "${k}" is missing`)
+    // assert.notEqual(rulesObj[k], undefined, `rule "${k}" is missing`)
     assert(fixableRules.includes(k), `rule "${k}" is not fixable`)
   })
   return _.pick(rulesObj, keys)

@@ -1,4 +1,5 @@
 import eslint from 'eslint'
+import tempWrite from 'temp-write'
 
 function buildLinter(configFile) {
   return new eslint.CLIEngine({
@@ -7,6 +8,7 @@ function buildLinter(configFile) {
   })
 }
 
-export function lintFile(file, { configFile }) {
-  return buildLinter(configFile).executeOnFiles([file])
+export function lintFile(file, { config, configFile }) {
+  const filename = configFile ? configFile : tempWrite.sync(JSON.stringify(config))
+  return buildLinter(filename).executeOnFiles([file])
 }

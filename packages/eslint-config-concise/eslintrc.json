@@ -84,13 +84,9 @@
     ],
     "linebreak-style": ["error", "unix"],
     "lines-around-comment": "off",
-    "lines-around-directive": [
-      "error",
-      {"before": "always", "after": "always"}
-    ],
     "new-parens": "error",
-    "newline-after-var": "off",
-    "newline-before-return": "off",
+    "no-confusing-arrow": ["error", {"allowParens": true}],
+    "no-debugger": "error",
     "no-else-return": "error",
     "no-extra-bind": "error",
     "no-extra-boolean-cast": "error",

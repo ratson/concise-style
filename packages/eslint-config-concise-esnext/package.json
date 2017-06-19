@@ -9,7 +9,7 @@
     "eslint-plugin-babel": "*"
   },
   "dependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.0-alpha.13",
     "eslint-plugin-babel": "^4.1.1"
   },
   "devDependencies": {
