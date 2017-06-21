@@ -3,7 +3,9 @@ import test from 'ava'
 import { lintFile } from './_utils'
 
 const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
-const conciseEsnextConfigFile = require.resolve('../packages/eslint-config-concise-esnext')
+const conciseEsnextConfigFile = require.resolve(
+  '../packages/eslint-config-concise-esnext'
+)
 
 test('[concise] good-style', t => {
   const { results } = lintFile(
@@ -20,10 +22,7 @@ test.skip('[concise-esnext] good-style', t => {
     require.resolve('./fixtures/concise-esnext/good-style'),
     {
       config: {
-        extends: [
-            conciseConfigFile,
-            conciseEsnextConfigFile,
-        ],
+        extends: [conciseConfigFile, conciseEsnextConfigFile],
       },
     }
   )
