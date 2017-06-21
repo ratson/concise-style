@@ -4,11 +4,13 @@
     "postinstall": "lerna bootstrap",
     "prepublish": "gulp build",
     "publish": "lerna publish",
+    "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
     "lint": "node ./packages/csc/lib/cli.js",
     "test": "ava"
   },
   "devDependencies": {
     "ava": "^0.19.1",
+    "del-cli": "^1.0.0",
     "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-airbnb-base": "^11.2.0",
