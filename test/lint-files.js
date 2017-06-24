@@ -17,7 +17,7 @@ test('[concise] good-style', t => {
   t.deepEqual(results[0].messages, [])
 })
 
-test.skip('[concise-esnext] good-style', t => {
+test('[concise-esnext] good-style', t => {
   const { results } = lintFile(
     require.resolve('./fixtures/concise-esnext/good-style'),
     {
