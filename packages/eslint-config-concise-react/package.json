@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-react",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "main": "eslintrc.json",
   "description": "ESLint config for React be used with eslint-plugin-concise.",
   "scripts": {},
@@ -11,7 +11,6 @@
   "dependencies": {
     "eslint-plugin-react": "^7.1.0"
   },
-  "devDependencies": {},
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react",
   "license": "MIT",
   "keywords": [
