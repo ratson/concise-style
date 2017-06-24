@@ -9,6 +9,6 @@ function buildLinter(configFile) {
 }
 
 export function lintFile(file, { config, configFile }) {
-  const filename = configFile ? configFile : tempWrite.sync(JSON.stringify(config))
+  const filename = configFile || tempWrite.sync(JSON.stringify(config))
   return buildLinter(filename).executeOnFiles([file])
 }

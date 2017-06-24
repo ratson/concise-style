@@ -8,13 +8,11 @@ ehthumbs.db
 Thumbs.db
 
 # IDE Specific
-nbproject
 .~lock.*
 .buildpath
 .idea
 .project
 .settings
-composer.lock
 *.sublime-workspace
 *.swp
 *.swo
