@@ -11,6 +11,7 @@ const { parserOptions } = require('eslint-config-airbnb-base')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
 const google = require('eslint-config-google')
 const mysticatea = require('eslint-config-mysticatea/base')
+const prettierReact = require('eslint-config-prettier/react')
 const standard = require('eslint-config-standard')
 const xo = require('eslint-config-xo')
 const xoReact = require('eslint-config-xo-react')
@@ -107,7 +108,9 @@ function genConciseReact() {
         'react/jsx-indent-props',
         'react/jsx-indent',
         'react/jsx-space-before-closing',
-      ])
+        'react/jsx-tag-spacing',
+      ]),
+      _.pick(prettierReact.rules, ['react/jsx-wrap-multilines'])
     ),
   })
   return writeJsFile(

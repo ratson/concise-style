@@ -12,7 +12,7 @@
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
-    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-control-freak",

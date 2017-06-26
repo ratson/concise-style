@@ -91,7 +91,7 @@
         ]
       }
     ],
-    "react/jsx-wrap-multilines": "error",
+    "react/jsx-wrap-multilines": "off",
     "react/jsx-first-prop-new-line": ["error", "multiline"],
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-indent": ["error", 2],
@@ -112,7 +112,7 @@
       "error",
       {
         "closingSlash": "never",
-        "beforeSelfClosing": "never",
+        "beforeSelfClosing": "always",
         "afterOpening": "never"
       }
     ],
