@@ -110,7 +110,10 @@ function genConciseReact() {
         'react/jsx-space-before-closing',
         'react/jsx-tag-spacing',
       ]),
-      _.pick(prettierReact.rules, ['react/jsx-wrap-multilines'])
+      _.pick(prettierReact.rules, ['react/jsx-wrap-multilines']),
+      {
+        'react/jsx-filename-extension': 'off',
+      }
     ),
   })
   return writeJsFile(
