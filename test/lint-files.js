@@ -17,7 +17,8 @@ test('[concise] good-style', t => {
       configFile: conciseConfigFile,
     }
   )
-  t.deepEqual(results[0].messages, [])
+  const { messages } = results[0]
+  t.true(messages.length === 0)
 })
 
 test('[concise-esnext] good-style', t => {
@@ -29,7 +30,8 @@ test('[concise-esnext] good-style', t => {
       },
     }
   )
-  t.deepEqual(results[0].messages, [])
+  const { messages } = results[0]
+  t.true(messages.length === 0)
 })
 
 test('[concise-react] good-style', t => {
@@ -37,6 +39,9 @@ test('[concise-react] good-style', t => {
     require.resolve('./fixtures/concise-react/good-style'),
     {
       config: {
+        env: {
+          browser: true,
+        },
         extends: [
           conciseConfigFile,
           conciseEsnextConfigFile,
@@ -45,5 +50,6 @@ test('[concise-react] good-style', t => {
       },
     }
   )
-  t.deepEqual(results[0].messages, [])
+  const { messages } = results[0]
+  t.true(messages.length === 0)
 })

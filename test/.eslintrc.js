@@ -2,7 +2,7 @@
 
 module.exports = {
   env: {
-    brower: true,
+    browser: true,
   },
   extends: [
     require.resolve('../packages/eslint-config-concise-esnext'),
