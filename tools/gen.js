@@ -33,12 +33,16 @@ function pickRules(rulesObj, keys) {
   return _.pick(rulesObj, keys)
 }
 
+function pickPickRules(rulesObj) {
+  return _.pickBy(rulesObj, (value, key) => !_.startsWith(key, 'import/'))
+}
+
 function buildFixableRules() {
   const airbnbRuleFinder = getRuleFinder(
     require.resolve('eslint-config-airbnb-base')
   )
   return Object.assign(
-    pickRules(airbnbRuleFinder.getCurrentRulesDetailed(), fixableRules),
+    pickPickRules(airbnbRuleFinder.getCurrentRulesDetailed()),
     pickRules(google.rules, ['space-before-function-paren']),
     pickRules(standard.rules, ['semi']),
     pickRules(xo.rules, ['arrow-parens']),
