@@ -387,7 +387,10 @@
     "sort-keys": ["off", "asc", {"caseSensitive": false, "natural": true}],
     "sort-vars": "off",
     "space-before-blocks": "error",
-    "space-before-function-paren": [2, "never"],
+    "space-before-function-paren": [
+      2,
+      {"asyncArrow": "always", "anonymous": "never", "named": "never"}
+    ],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "space-unary-ops": [
