@@ -1,7 +1,8 @@
 {
-  "env": {},
-  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "env": { "es6": true, "node": true },
+  "extends": ["eslint:recommended"],
   "globals": {},
+  "parserOptions": { "ecmaVersion": 8 },
   "plugins": [
     "eslint-comments",
     "html",
@@ -12,14 +13,16 @@
   ],
   "rules": {
     "accessor-pairs": "off",
+    "array-bracket-newline": "off",
     "array-bracket-spacing": ["error", "never"],
     "array-callback-return": "error",
+    "array-element-newline": "off",
     "arrow-body-style": [
       "error",
       "as-needed",
       { "requireReturnForObjectLiteral": false }
     ],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
     "arrow-spacing": ["error", { "after": true, "before": true }],
     "block-scoped-var": "error",
     "block-spacing": ["error", "always"],
@@ -66,7 +69,25 @@
     "dot-notation": ["error", { "allowKeywords": true }],
     "eol-last": ["error", "always"],
     "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "eslint-comments/disable-enable-pair": "error",
+    "eslint-comments/no-duplicate-disable": "error",
     "eslint-comments/no-unlimited-disable": "error",
+    "eslint-comments/no-unused-disable": "error",
+    "eslint-comments/no-unused-enable": "error",
+    "eslint-comments/no-use": [
+      "error",
+      {
+        "allow": [
+          "eslint-disable",
+          "eslint-disable-line",
+          "eslint-disable-next-line",
+          "eslint-enable",
+          "eslint-env",
+          "globals"
+        ]
+      }
+    ],
+    "for-direction": "error",
     "func-call-spacing": ["error", "never"],
     "func-name-matching": [
       "off",
@@ -140,8 +161,13 @@
     "max-statements": ["off", 10],
     "max-statements-per-line": ["off", { "max": 1 }],
     "multiline-ternary": ["off", "never"],
+    "mysticatea/block-scoped-var": "off",
     "mysticatea/no-instanceof-array": "error",
     "mysticatea/no-instanceof-wrapper": "error",
+    "mysticatea/no-literal-call": "error",
+    "mysticatea/no-this-in-static": "error",
+    "mysticatea/no-useless-rest-spread": "error",
+    "mysticatea/prefer-for-of": "error",
     "new-cap": [
       "error",
       {
@@ -163,6 +189,7 @@
     "no-array-constructor": "error",
     "no-await-in-loop": "error",
     "no-bitwise": "error",
+    "no-buffer-constructor": "off",
     "no-caller": "error",
     "no-case-declarations": "error",
     "no-catch-shadow": "off",
@@ -403,9 +430,15 @@
     ],
     "no-whitespace-before-property": "error",
     "no-with": "error",
+    "node/exports-style": ["warn", "module.exports"],
+    "node/no-deprecated-api": "warn",
+    "node/no-missing-import": "off",
+    "node/no-missing-require": "off",
+    "node/no-unpublished-bin": "error",
+    "node/no-unpublished-import": "off",
     "node/no-unpublished-require": "off",
     "node/no-unsupported-features": "off",
-    "node/shebang": "off",
+    "node/process-exit-as-throw": "off",
     "nonblock-statement-body-position": "off",
     "object-curly-newline": [
       "off",
@@ -429,6 +462,12 @@
     "operator-assignment": ["error", "always"],
     "operator-linebreak": "off",
     "padded-blocks": ["error", "never"],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "next": "*", "prev": "directive" },
+      { "blankLine": "always", "next": "function", "prev": "*" },
+      { "blankLine": "always", "next": "*", "prev": "function" }
+    ],
     "prefer-arrow-callback": [
       "error",
       { "allowNamedFunctions": false, "allowUnboundThis": true }
@@ -448,7 +487,18 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
-    "promise/param-names": "error",
+    "promise/always-catch": "off",
+    "promise/always-return": "error",
+    "promise/avoid-new": "off",
+    "promise/catch-or-return": "warn",
+    "promise/no-callback-in-promise": "off",
+    "promise/no-native": "off",
+    "promise/no-nesting": "warn",
+    "promise/no-promise-in-callback": "off",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "warn",
+    "promise/prefer-await-to-callbacks": "off",
+    "promise/prefer-await-to-then": "off",
     "quote-props": [
       "error",
       "as-needed",
@@ -462,6 +512,7 @@
     "rest-spread-spacing": ["error", "never"],
     "semi": ["error", "never"],
     "semi-spacing": ["error", { "after": true, "before": false }],
+    "semi-style": ["error", "first"],
     "sort-imports": [
       "off",
       {
@@ -474,8 +525,8 @@
     "sort-vars": "off",
     "space-before-blocks": "error",
     "space-before-function-paren": [
-      2,
-      { "anonymous": "never", "asyncArrow": "always", "named": "never" }
+      "error",
+      { "anonymous": "always", "asyncArrow": "always", "named": "never" }
     ],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
@@ -496,6 +547,7 @@
       }
     ],
     "strict": "error",
+    "switch-colon-spacing": "error",
     "symbol-description": "error",
     "template-curly-spacing": "error",
     "template-tag-spacing": ["off", "never"],

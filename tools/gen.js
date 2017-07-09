@@ -1,22 +1,11 @@
 'use strict'
 
-const assert = require('assert')
-
 const _ = require('lodash')
 const stringify = require('json-stringify-deterministic')
 
-const getRuleFinder = require('eslint-find-rules')
-const loadRules = require('eslint/lib/load-rules')
-const Rules = require('eslint/lib/rules')
-
-const { parserOptions } = require('eslint-config-airbnb-base')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
-const google = require('eslint-config-google')
-const mysticatea = require('eslint-config-mysticatea/base')
 const prettierReact = require('eslint-config-prettier/react')
 const shopify = require('eslint-plugin-shopify/lib/config/all')
-const standard = require('eslint-config-standard')
-const xo = require('eslint-config-xo')
 const xoReact = require('eslint-config-xo-react')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
@@ -27,6 +16,7 @@ function loadEslintConfigs() {
     'eslint-config-airbnb',
     'eslint-config-canonical',
     'eslint-config-google',
+    'eslint-config-mysticatea',
     'eslint-config-prettier',
     'eslint-config-standard',
     'eslint-config-xo-react',
@@ -45,84 +35,75 @@ function loadEslintConfigs() {
   )
 }
 
-const rules = new Rules()
-
-const fixableRules = _.filter(Object.keys(loadRules()), id => {
-  const r = rules.get(id)
-  return r && !r.meta.deprecated && r.meta.fixable
-})
-
-function pickRules(rulesObj, keys) {
-  keys.forEach(k => {
-    // assert.notEqual(rulesObj[k], undefined, `rule "${k}" is missing`)
-    assert(fixableRules.includes(k), `rule "${k}" is not fixable`)
-  })
-  return _.pick(rulesObj, keys)
-}
-
-function pickPickRules(rulesObj) {
-  return _.pickBy(rulesObj, (value, key) => !_.startsWith(key, 'import/'))
-}
-
-function buildFixableRules() {
-  const airbnbRuleFinder = getRuleFinder(
-    require.resolve('eslint-config-airbnb-base')
-  )
-  const airbnbRules = airbnbRuleFinder.getCurrentRulesDetailed()
-  return Object.assign(
-    pickPickRules(airbnbRules),
-    pickRules(google.rules, ['space-before-function-paren']),
-    pickRules(standard.rules, ['semi']),
-    pickRules(xo.rules, ['arrow-parens']),
-    {
-      'comma-dangle': [
-        'error',
-        {
-          arrays: 'always-multiline',
-          objects: 'always-multiline',
-          imports: 'always-multiline',
-          exports: 'always-multiline',
-          functions: 'ignore',
-        },
-      ],
-      'max-len': [
-        'error',
-        Object.assign(_.last(airbnbRules['max-len']), {
-          code: 80,
-          tabWidth: 2,
-        }),
-      ],
-    }
-  )
-}
-
 function buildConciseConfig() {
+  const configs = loadEslintConfigs()
+  const combinedRules = [
+    'eslint-config-standard',
+    'eslint-config-canonical',
+    'eslint-config-mysticatea',
+    'eslint-plugin-shopify',
+    'eslint-config-xo',
+    'eslint-config-google',
+    'eslint-config-airbnb-base',
+  ]
+    .map(k => configs[k].rules)
+    .concat(
+      [['eslint-config-standard', ['semi']]].map(([k, rules]) =>
+        _.pick(configs[k].rules, rules)
+      )
+    )
+    .reduce((r, rules) => Object.assign(r, rules), {})
+  const plugins = [
+    'eslint-comments',
+    'html',
+    'markdown',
+    'mysticatea',
+    'node',
+    'promise',
+  ]
   return {
-    env: {},
-    // parserOptions,
-    extends: ['eslint:recommended', 'plugin:node/recommended'],
+    parserOptions: {
+      ecmaVersion: 8,
+    },
+    env: {
+      es6: true,
+      node: true,
+    },
+    extends: ['eslint:recommended'],
     globals: {},
-    plugins: [
-      'eslint-comments',
-      'html',
-      'markdown',
-      'mysticatea',
-      'node',
-      'promise',
-    ],
+    plugins,
     rules: Object.assign(
-      buildFixableRules(),
-      _.pick(mysticatea.rules, [
-        'eslint-comments/no-unlimited-disable',
-        'mysticatea/no-instanceof-array',
-        'mysticatea/no-instanceof-wrapper',
-      ]),
+      _.pickBy(combinedRules, (v, k) => {
+        if (
+          [
+            'mysticatea/arrow-parens',
+            'mysticatea/no-use-ignored-vars',
+            // false-positive
+            'node/shebang',
+          ].includes(k)
+        ) {
+          return false
+        }
+        const parts = _.split(k, '/')
+        if (parts.length === 1) {
+          return true
+        }
+        return plugins.includes(parts[0])
+      }),
       {
-        'node/no-unpublished-require': 'off',
-        'node/no-unsupported-features': 'off',
-        'promise/param-names': 'error',
-        // false-positive
-        'node/shebang': 'off',
+        'comma-dangle': [
+          'error',
+          Object.assign(_.last(combinedRules['comma-dangle']), {
+            functions: 'ignore',
+          }),
+        ],
+        'max-len': [
+          'error',
+          Object.assign(_.last(combinedRules['max-len']), {
+            code: 80,
+            tabWidth: 2,
+          }),
+        ],
       }
     ),
   }
@@ -161,15 +142,8 @@ function genConciseReact() {
   )
 }
 
-function genConciseStyle() {
-  const config = {
-    parserOptions,
-    rules: buildFixableRules(),
-  }
-  return writeJsFile(
-    'packages/eslint-config-concise-style/eslintrc.json',
-    config
-  )
+async function genConciseStyle() {
+  // TODO
 }
 
 async function printRule() {
