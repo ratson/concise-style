@@ -3,6 +3,8 @@
 const _ = require('lodash')
 const stringify = require('json-stringify-deterministic')
 
+const loadRules = require('eslint/lib/load-rules')
+const Rules = require('eslint/lib/rules')
 const eslintRecommended = require('eslint/conf/eslint-recommended')
 const shopify = require('eslint-plugin-shopify/lib/config/all')
 const xoReact = require('eslint-config-xo-react')
@@ -27,12 +29,19 @@ function loadEslintConfigs() {
       [configFile]: config,
     })
   }, {})
+
   configs['eslint-config-canonical-react'] = canonicalReact
   configs['eslint-recommended'] = eslintRecommended
   configs['eslint-plugin-shopify'] = shopify
+
+  const rules = new Rules()
+  const deprecatedRules = _.filter(Object.keys(loadRules()), id => {
+    const r = rules.get(id)
+    return r && r.meta.deprecated
+  })
   return _.mapValues(configs, config =>
     Object.assign(config, {
-      rules: _.mapValues(config.rules, prettifyRule),
+      rules: _.omit(_.mapValues(config.rules, prettifyRule), deprecatedRules),
     }),
   )
 }

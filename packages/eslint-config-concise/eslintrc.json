@@ -133,10 +133,6 @@
     ],
     "linebreak-style": ["error", "unix"],
     "lines-around-comment": "off",
-    "lines-around-directive": [
-      "error",
-      { "after": "always", "before": "always" }
-    ],
     "max-depth": ["off", 4],
     "max-len": [
       "error",
@@ -180,8 +176,6 @@
       }
     ],
     "new-parens": "error",
-    "newline-after-var": "off",
-    "newline-before-return": "off",
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 4 }],
     "no-alert": "warn",
     "no-array-constructor": "error",
@@ -282,9 +276,7 @@
     "no-multi-spaces": "error",
     "no-multi-str": "error",
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
-    "no-native-reassign": "off",
     "no-negated-condition": "off",
-    "no-negated-in-lhs": "off",
     "no-nested-ternary": "error",
     "no-new": "error",
     "no-new-func": "error",
@@ -370,7 +362,6 @@
     "no-sequences": "error",
     "no-shadow": "error",
     "no-shadow-restricted-names": "error",
-    "no-spaced-func": "error",
     "no-sparse-arrays": "error",
     "no-sync": "off",
     "no-tabs": "error",
@@ -481,7 +472,6 @@
     ],
     "prefer-numeric-literals": "error",
     "prefer-promise-reject-errors": ["off", { "allowEmptyReject": true }],
-    "prefer-reflect": "off",
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",

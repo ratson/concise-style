@@ -11,7 +11,7 @@ const {
 
 gulp.task(
   'buildConfig',
-  gulp.parallel(genConcise, genConciseReact, genConciseStyle)
+  gulp.parallel(genConcise, genConciseReact, genConciseStyle),
 )
 
 gulp.task('build', gulp.series('buildConfig'))
@@ -20,5 +20,5 @@ function watch() {
   gulp.watch('./packages/*/src/**/*.js', ['build'])
 }
 
-exports.printRule = printRule
-exports.default = watch
+module.exports.printRule = printRule
+module.exports.default = watch
