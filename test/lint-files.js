@@ -4,22 +4,25 @@ import { lintFile } from './_utils'
 
 const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
 const conciseEsnextConfigFile = require.resolve(
-  '../packages/eslint-config-concise-esnext'
+  '../packages/eslint-config-concise-esnext',
 )
 const conciseReactConfigFile = require.resolve(
-  '../packages/eslint-config-concise-react'
+  '../packages/eslint-config-concise-react',
 )
 
-test('[concise] good-style', t => {
-  const { results } = lintFile(
-    require.resolve('./fixtures/concise/good-style'),
-    {
-      configFile: conciseConfigFile,
-    }
-  )
+function lintConciseGood(t, name) {
+  const { results } = lintFile(require.resolve(`./fixtures/concise/${name}`), {
+    configFile: conciseConfigFile,
+  })
   const { messages } = results[0]
   t.true(messages.length === 0)
-})
+}
+
+lintConciseGood.title = (providedTitle, name) =>
+  `${providedTitle} [concise] ${name}`.trim()
+
+test(lintConciseGood, 'good-style')
+test(lintConciseGood, 'good-comma-dangle')
 
 test('[concise-esnext] good-style', t => {
   const { results } = lintFile(
@@ -28,7 +31,7 @@ test('[concise-esnext] good-style', t => {
       config: {
         extends: [conciseConfigFile, conciseEsnextConfigFile],
       },
-    }
+    },
   )
   const { messages } = results[0]
   t.true(messages.length === 0)
@@ -48,7 +51,7 @@ test('[concise-react] good-style', t => {
           conciseReactConfigFile,
         ],
       },
-    }
+    },
   )
   const { messages } = results[0]
   t.true(messages.length === 0)

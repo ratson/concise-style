@@ -20,7 +20,7 @@
       "as-needed",
       { "requireReturnForObjectLiteral": false }
     ],
-    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
+    "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": ["error", { "after": true, "before": true }],
     "block-scoped-var": "error",
     "block-spacing": ["error", "always"],
@@ -49,7 +49,7 @@
       {
         "arrays": "always-multiline",
         "exports": "always-multiline",
-        "functions": "ignore",
+        "functions": "always-multiline",
         "imports": "always-multiline",
         "objects": "always-multiline"
       }

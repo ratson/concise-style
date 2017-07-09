@@ -33,7 +33,7 @@ function loadEslintConfigs() {
   return _.mapValues(configs, config =>
     Object.assign(config, {
       rules: _.mapValues(config.rules, prettifyRule),
-    })
+    }),
   )
 }
 
@@ -51,9 +51,10 @@ function buildConciseConfig() {
   ]
     .map(k => configs[k].rules)
     .concat(
-      [['eslint-config-standard', ['semi']]].map(([k, rules]) =>
-        _.pick(configs[k].rules, rules)
-      )
+      [
+        ['eslint-config-standard', ['semi']],
+        ['eslint-config-xo', ['arrow-parens']],
+      ].map(([k, rules]) => _.pick(configs[k].rules, rules)),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const plugins = [
@@ -94,12 +95,6 @@ function buildConciseConfig() {
         return plugins.includes(parts[0])
       }),
       {
-        'comma-dangle': [
-          'error',
-          Object.assign(_.last(combinedRules['comma-dangle']), {
-            functions: 'ignore',
-          }),
-        ],
         'max-len': [
           'error',
           Object.assign(_.last(combinedRules['max-len']), {
@@ -107,7 +102,7 @@ function buildConciseConfig() {
             tabWidth: 2,
           }),
         ],
-      }
+      },
     ),
   }
 }
@@ -115,7 +110,7 @@ function buildConciseConfig() {
 function genConcise() {
   return writeJsFile(
     'packages/eslint-config-concise/eslintrc.json',
-    buildConciseConfig()
+    buildConciseConfig(),
   )
 }
 
@@ -135,7 +130,7 @@ function genConciseReact() {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, xoReact, {
@@ -148,7 +143,7 @@ function genConciseReact() {
   })
   return writeJsFile(
     'packages/eslint-config-concise-react/eslintrc.json',
-    config
+    config,
   )
 }
 
@@ -164,10 +159,10 @@ async function printRule() {
     Object.assign({}, configs, {
       concise: buildConciseConfig(),
     }),
-    (v, k) => Object.assign(v, { name: k })
+    (v, k) => Object.assign(v, { name: k }),
   )
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['rules', rule]))
+    stringify(_.get(config, ['rules', rule])),
   )
   _.forEach(grouped, (config, ruleValue) => {
     console.log(rule, '=', ruleValue)
