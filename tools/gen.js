@@ -3,13 +3,14 @@
 const assert = require('assert')
 
 const _ = require('lodash')
+const stringify = require('json-stringify-deterministic')
+
 const getRuleFinder = require('eslint-find-rules')
 const loadRules = require('eslint/lib/load-rules')
 const Rules = require('eslint/lib/rules')
 
 const { parserOptions } = require('eslint-config-airbnb-base')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
-const canonical = require('eslint-config-canonical')
 const google = require('eslint-config-google')
 const mysticatea = require('eslint-config-mysticatea/base')
 const prettierReact = require('eslint-config-prettier/react')
@@ -18,7 +19,31 @@ const standard = require('eslint-config-standard')
 const xo = require('eslint-config-xo')
 const xoReact = require('eslint-config-xo-react')
 
-const { prettifyRule, writeJsFile } = require('./utils')
+const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
+
+function loadEslintConfigs() {
+  const configs = [
+    'eslint-config-airbnb-base',
+    'eslint-config-airbnb',
+    'eslint-config-canonical',
+    'eslint-config-google',
+    'eslint-config-prettier',
+    'eslint-config-standard',
+    'eslint-config-xo-react',
+    'eslint-config-xo',
+  ].reduce((r, configFile) => {
+    const config = getEslintConfig(configFile)
+    return Object.assign(r, {
+      [configFile]: config,
+    })
+  }, {})
+  configs['eslint-plugin-shopify'] = shopify
+  return _.mapValues(configs, config =>
+    Object.assign(config, {
+      rules: _.mapValues(config.rules, prettifyRule),
+    })
+  )
+}
 
 const rules = new Rules()
 
@@ -148,25 +173,23 @@ function genConciseStyle() {
 }
 
 async function printRule() {
-  const airbnbRuleFinder = getRuleFinder(
-    require.resolve('eslint-config-airbnb-base')
-  )
+  const configs = loadEslintConfigs()
   /* eslint-disable no-console */
   const rule = _.last(process.argv.slice(2))
-  console.log(rule)
-  _.forEach(
-    [
-      { rules: airbnbRuleFinder.getCurrentRulesDetailed() },
-      mysticatea,
-      xo,
-      standard,
-      google,
-      canonical,
-      shopify,
-      buildConciseConfig(),
-    ],
-    config => console.log(_.get(config, ['rules', rule]))
+  const named = _.mapValues(
+    Object.assign({}, configs, {
+      concise: buildConciseConfig(),
+    }),
+    (v, k) => Object.assign(v, { name: k })
   )
+  const grouped = _.groupBy(_.values(named), config =>
+    stringify(_.get(config, ['rules', rule]))
+  )
+  _.forEach(grouped, (config, ruleValue) => {
+    console.log(rule, '=', ruleValue)
+    console.log(_.map(config, 'name'))
+    console.log()
+  })
   /* eslint-enable no-console */
 }
 

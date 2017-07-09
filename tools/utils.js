@@ -2,10 +2,19 @@
 
 const path = require('path')
 
+const { CLIEngine } = require('eslint')
 const _ = require('lodash')
 const fs = require('mz/fs')
 const prettier = require('prettier')
 const stringify = require('json-stringify-deterministic')
+
+exports.getEslintConfig = function getEslintConfig(configFile) {
+  const cliEngine = new CLIEngine({
+    useEslintrc: false,
+    configFile,
+  })
+  return cliEngine.getConfigForFile()
+}
 
 exports.prettifyRule = function prettifyRule(ruleValue) {
   if (Array.isArray(ruleValue)) {
