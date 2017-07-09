@@ -2,7 +2,6 @@
   "parserOptions": { "ecmaFeatures": { "jsx": true } },
   "plugins": ["react"],
   "rules": {
-    "jsx-quotes": ["error", "prefer-double"],
     "class-methods-use-this": [
       "error",
       {
@@ -21,15 +20,25 @@
         ]
       }
     ],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/default-props-match-prop-types": "error",
     "react/display-name": ["off", { "ignoreTranspilerName": false }],
+    "react/forbid-component-props": "error",
+    "react/forbid-elements": ["off", { "forbid": [] }],
+    "react/forbid-foreign-prop-types": "off",
     "react/forbid-prop-types": [
       "error",
       { "forbid": ["any", "array", "object"] }
     ],
     "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+    "react/jsx-closing-tag-location": "error",
     "react/jsx-curly-spacing": ["error", "never"],
+    "react/jsx-equals-spacing": ["error", "never"],
+    "react/jsx-filename-extension": "off",
+    "react/jsx-first-prop-new-line": ["error", "multiline"],
     "react/jsx-handler-names": "error",
+    "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],
     "react/jsx-key": "error",
     "react/jsx-max-props-per-line": [
@@ -37,37 +46,53 @@
       { "maximum": 1, "when": "multiline" }
     ],
     "react/jsx-no-bind": "error",
+    "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],
     "react/jsx-no-literals": "off",
+    "react/jsx-no-target-blank": "error",
     "react/jsx-no-undef": "error",
     "react/jsx-pascal-case": "error",
-    "react/sort-prop-types": [
-      "off",
-      { "ignoreCase": true, "callbacksLast": false, "requiredFirst": false }
-    ],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
       "error",
       {
         "callbacksLast": true,
-        "shorthandFirst": true,
         "noSortAlphabetically": true,
-        "reservedFirst": true
+        "reservedFirst": true,
+        "shorthandFirst": true
+      }
+    ],
+    "react/jsx-space-before-closing": ["off", "always"],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "afterOpening": "never",
+        "beforeSelfClosing": "always",
+        "closingSlash": "never"
       }
     ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
+    "react/jsx-wrap-multilines": "off",
+    "react/no-array-index-key": "error",
+    "react/no-children-prop": "error",
     "react/no-danger": "error",
+    "react/no-danger-with-children": "error",
     "react/no-deprecated": "error",
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
-    "react/no-will-update-set-state": "error",
     "react/no-direct-mutation-state": "error",
+    "react/no-find-dom-node": "error",
     "react/no-is-mounted": "error",
     "react/no-multi-comp": ["error", { "ignoreStateless": true }],
+    "react/no-redundant-should-component-update": "error",
+    "react/no-render-return-value": "error",
     "react/no-set-state": "off",
     "react/no-string-refs": "error",
+    "react/no-unescaped-entities": "error",
     "react/no-unknown-property": "error",
+    "react/no-unused-prop-types": "error",
+    "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": ["error", "always"],
     "react/prefer-stateless-function": [
       "error",
@@ -75,6 +100,8 @@
     ],
     "react/prop-types": "error",
     "react/react-in-jsx-scope": "error",
+    "react/require-default-props": "error",
+    "react/require-optimization": ["off", { "allowDecorators": [] }],
     "react/require-render-return": "error",
     "react/self-closing-comp": "error",
     "react/sort-comp": [
@@ -91,39 +118,12 @@
         ]
       }
     ],
-    "react/jsx-wrap-multilines": "off",
-    "react/jsx-first-prop-new-line": ["error", "multiline"],
-    "react/jsx-equals-spacing": ["error", "never"],
-    "react/jsx-indent": ["error", 2],
-    "react/jsx-no-target-blank": "error",
-    "react/jsx-filename-extension": "off",
-    "react/jsx-no-comment-textnodes": "error",
-    "react/no-render-return-value": "error",
-    "react/require-optimization": ["off", { "allowDecorators": [] }],
-    "react/no-find-dom-node": "error",
-    "react/forbid-component-props": "error",
-    "react/forbid-elements": ["off", { "forbid": [] }],
-    "react/no-danger-with-children": "error",
-    "react/no-unused-prop-types": "error",
-    "react/style-prop-object": "error",
-    "react/no-unescaped-entities": "error",
-    "react/no-children-prop": "error",
-    "react/jsx-tag-spacing": [
-      "error",
-      {
-        "closingSlash": "never",
-        "beforeSelfClosing": "always",
-        "afterOpening": "never"
-      }
+    "react/sort-prop-types": [
+      "off",
+      { "callbacksLast": false, "ignoreCase": true, "requiredFirst": false }
     ],
-    "react/jsx-space-before-closing": ["off", "always"],
-    "react/no-array-index-key": "error",
-    "react/require-default-props": "error",
-    "react/forbid-foreign-prop-types": "off",
-    "react/void-dom-elements-no-children": "error",
-    "react/default-props-match-prop-types": "error",
-    "react/no-redundant-should-component-update": "error",
-    "react/jsx-closing-tag-location": "error"
+    "react/style-prop-object": "error",
+    "react/void-dom-elements-no-children": "error"
   }
 }
 

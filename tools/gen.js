@@ -9,9 +9,11 @@ const Rules = require('eslint/lib/rules')
 
 const { parserOptions } = require('eslint-config-airbnb-base')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
+const canonical = require('eslint-config-canonical')
 const google = require('eslint-config-google')
 const mysticatea = require('eslint-config-mysticatea/base')
 const prettierReact = require('eslint-config-prettier/react')
+const shopify = require('eslint-plugin-shopify/lib/config/all')
 const standard = require('eslint-config-standard')
 const xo = require('eslint-config-xo')
 const xoReact = require('eslint-config-xo-react')
@@ -41,8 +43,9 @@ function buildFixableRules() {
   const airbnbRuleFinder = getRuleFinder(
     require.resolve('eslint-config-airbnb-base')
   )
+  const airbnbRules = airbnbRuleFinder.getCurrentRulesDetailed()
   return Object.assign(
-    pickPickRules(airbnbRuleFinder.getCurrentRulesDetailed()),
+    pickPickRules(airbnbRules),
     pickRules(google.rules, ['space-before-function-paren']),
     pickRules(standard.rules, ['semi']),
     pickRules(xo.rules, ['arrow-parens']),
@@ -56,6 +59,13 @@ function buildFixableRules() {
           exports: 'always-multiline',
           functions: 'ignore',
         },
+      ],
+      'max-len': [
+        'error',
+        Object.assign(_.last(airbnbRules['max-len']), {
+          code: 80,
+          tabWidth: 2,
+        }),
       ],
     }
   )
@@ -138,11 +148,24 @@ function genConciseStyle() {
 }
 
 async function printRule() {
+  const airbnbRuleFinder = getRuleFinder(
+    require.resolve('eslint-config-airbnb-base')
+  )
   /* eslint-disable no-console */
   const rule = _.last(process.argv.slice(2))
   console.log(rule)
-  _.forEach([mysticatea, xo, standard, google, buildConciseConfig()], config =>
-    console.log(_.get(config, ['rules', rule]))
+  _.forEach(
+    [
+      { rules: airbnbRuleFinder.getCurrentRulesDetailed() },
+      mysticatea,
+      xo,
+      standard,
+      google,
+      canonical,
+      shopify,
+      buildConciseConfig(),
+    ],
+    config => console.log(_.get(config, ['rules', rule]))
   )
   /* eslint-enable no-console */
 }
