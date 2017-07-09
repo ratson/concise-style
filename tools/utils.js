@@ -8,7 +8,7 @@ const fs = require('mz/fs')
 const prettier = require('prettier')
 const stringify = require('json-stringify-deterministic')
 
-exports.getEslintConfig = function getEslintConfig(configFile) {
+module.exports.getEslintConfig = function getEslintConfig(configFile) {
   const cliEngine = new CLIEngine({
     useEslintrc: false,
     configFile,
@@ -16,9 +16,13 @@ exports.getEslintConfig = function getEslintConfig(configFile) {
   return cliEngine.getConfigForFile()
 }
 
-exports.prettifyRule = function prettifyRule(ruleValue) {
+module.exports.prettifyRule = function prettifyRule(ruleValue) {
   if (Array.isArray(ruleValue)) {
-    return [prettifyRule(ruleValue[0]), ..._.drop(ruleValue)]
+    const rule = [prettifyRule(ruleValue[0]), ..._.drop(ruleValue)]
+    if (rule.length === 1) {
+      return rule[0]
+    }
+    return rule
   }
   switch (ruleValue) {
     case 0:
@@ -30,7 +34,7 @@ exports.prettifyRule = function prettifyRule(ruleValue) {
   return ruleValue
 }
 
-exports.writeJsFile = function writeJsFile(filePath, config) {
+module.exports.writeJsFile = function writeJsFile(filePath, config) {
   const source = prettier.format(stringify(config), { parser: 'json' })
   return fs.writeFile(
     path.join(__dirname, '..', filePath),

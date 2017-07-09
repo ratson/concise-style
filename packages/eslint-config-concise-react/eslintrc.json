@@ -1,29 +1,112 @@
 {
   "parserOptions": { "ecmaFeatures": { "jsx": true } },
-  "plugins": ["react"],
+  "plugins": ["jsx-a11y", "react"],
   "rules": {
-    "class-methods-use-this": [
+    "jsx-a11y/accessible-emoji": "error",
+    "jsx-a11y/alt-text": [
       "error",
       {
-        "exceptMethods": [
-          "render",
-          "getInitialState",
-          "getDefaultProps",
-          "getChildContext",
-          "componentWillMount",
-          "componentDidMount",
-          "componentWillReceiveProps",
-          "shouldComponentUpdate",
-          "componentWillUpdate",
-          "componentDidUpdate",
-          "componentWillUnmount"
+        "area": [],
+        "elements": ["img", "object", "area", "input[type=\"image\"]"],
+        "img": [],
+        "input[type=\"image\"]": [],
+        "object": []
+      }
+    ],
+    "jsx-a11y/anchor-has-content": ["error", { "components": [""] }],
+    "jsx-a11y/aria-activedescendant-has-tabindex": "error",
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/aria-proptypes": "error",
+    "jsx-a11y/aria-role": ["error", { "ignoreNonDom": false }],
+    "jsx-a11y/aria-unsupported-elements": "error",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/heading-has-content": ["error", { "components": [""] }],
+    "jsx-a11y/html-has-lang": "error",
+    "jsx-a11y/iframe-has-title": "error",
+    "jsx-a11y/img-redundant-alt": "error",
+    "jsx-a11y/interactive-supports-focus": "error",
+    "jsx-a11y/label-has-for": ["error", { "components": ["label"] }],
+    "jsx-a11y/lang": "error",
+    "jsx-a11y/media-has-caption": [
+      "error",
+      { "audio": [], "track": [], "video": [] }
+    ],
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "jsx-a11y/no-access-key": "error",
+    "jsx-a11y/no-autofocus": ["error", { "ignoreNonDOM": true }],
+    "jsx-a11y/no-distracting-elements": [
+      "error",
+      { "elements": ["marquee", "blink"] }
+    ],
+    "jsx-a11y/no-interactive-element-to-noninteractive-role": [
+      "error",
+      { "tr": ["none", "presentation"] }
+    ],
+    "jsx-a11y/no-noninteractive-element-interactions": [
+      "error",
+      {
+        "handlers": [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp"
         ]
       }
     ],
-    "jsx-quotes": ["error", "prefer-double"],
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": [
+      "error",
+      {
+        "li": ["menuitem", "option", "row", "tab", "treeitem"],
+        "ol": [
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "tablist",
+          "tree",
+          "treegrid"
+        ],
+        "table": ["grid"],
+        "td": ["gridcell"],
+        "ul": [
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "tablist",
+          "tree",
+          "treegrid"
+        ]
+      }
+    ],
+    "jsx-a11y/no-noninteractive-tabindex": [
+      "error",
+      { "roles": ["tabpanel"], "tags": [] }
+    ],
+    "jsx-a11y/no-onchange": "off",
+    "jsx-a11y/no-redundant-roles": "error",
+    "jsx-a11y/no-static-element-interactions": [
+      "error",
+      {
+        "handlers": [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp"
+        ]
+      }
+    ],
+    "jsx-a11y/role-has-required-aria-props": "error",
+    "jsx-a11y/role-supports-aria-props": "error",
+    "jsx-a11y/scope": "error",
+    "jsx-a11y/tabindex-no-positive": "error",
     "react/default-props-match-prop-types": "error",
     "react/display-name": ["off", { "ignoreTranspilerName": false }],
-    "react/forbid-component-props": "error",
+    "react/forbid-component-props": ["off", { "forbid": [] }],
     "react/forbid-elements": ["off", { "forbid": [] }],
     "react/forbid-foreign-prop-types": "off",
     "react/forbid-prop-types": [
@@ -33,33 +116,40 @@
     "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-closing-bracket-location": ["error", "line-aligned"],
     "react/jsx-closing-tag-location": "error",
-    "react/jsx-curly-spacing": ["error", "never"],
+    "react/jsx-curly-spacing": ["error", "never", { "allowMultiline": true }],
     "react/jsx-equals-spacing": ["error", "never"],
-    "react/jsx-filename-extension": "off",
-    "react/jsx-first-prop-new-line": ["error", "multiline"],
-    "react/jsx-handler-names": "error",
+    "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+    "react/jsx-handler-names": [
+      "off",
+      { "eventHandlerPrefix": "handle", "eventHandlerPropPrefix": "on" }
+    ],
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],
-    "react/jsx-key": "error",
+    "react/jsx-key": "off",
     "react/jsx-max-props-per-line": [
       "error",
       { "maximum": 1, "when": "multiline" }
     ],
-    "react/jsx-no-bind": "error",
+    "react/jsx-no-bind": [
+      "error",
+      { "allowArrowFunctions": true, "allowBind": false, "ignoreRefs": true }
+    ],
     "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],
     "react/jsx-no-literals": "off",
     "react/jsx-no-target-blank": "error",
     "react/jsx-no-undef": "error",
-    "react/jsx-pascal-case": "error",
+    "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
-      "error",
+      "off",
       {
-        "callbacksLast": true,
-        "noSortAlphabetically": true,
+        "callbacksLast": false,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
         "reservedFirst": true,
-        "shorthandFirst": true
+        "shorthandFirst": false,
+        "shorthandLast": false
       }
     ],
     "react/jsx-space-before-closing": ["off", "always"],
@@ -73,15 +163,14 @@
     ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "react/jsx-wrap-multilines": "off",
     "react/no-array-index-key": "error",
     "react/no-children-prop": "error",
-    "react/no-danger": "error",
+    "react/no-danger": "warn",
     "react/no-danger-with-children": "error",
     "react/no-deprecated": "error",
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
-    "react/no-direct-mutation-state": "error",
+    "react/no-direct-mutation-state": "off",
     "react/no-find-dom-node": "error",
     "react/no-is-mounted": "error",
     "react/no-multi-comp": ["error", { "ignoreStateless": true }],
@@ -91,14 +180,20 @@
     "react/no-string-refs": "error",
     "react/no-unescaped-entities": "error",
     "react/no-unknown-property": "error",
-    "react/no-unused-prop-types": "error",
+    "react/no-unused-prop-types": [
+      "error",
+      { "customValidators": [], "skipShapeProps": true }
+    ],
     "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": ["error", "always"],
     "react/prefer-stateless-function": [
       "error",
       { "ignorePureComponents": true }
     ],
-    "react/prop-types": "error",
+    "react/prop-types": [
+      "error",
+      { "customValidators": [], "ignore": [], "skipUndeclared": false }
+    ],
     "react/react-in-jsx-scope": "error",
     "react/require-default-props": "error",
     "react/require-optimization": ["off", { "allowDecorators": [] }],

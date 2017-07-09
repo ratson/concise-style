@@ -6,9 +6,11 @@
   "scripts": {},
   "peerDependencies": {
     "eslint": "*",
+    "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-react": "*"
   },
   "dependencies": {
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.1.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react",

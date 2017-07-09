@@ -4,10 +4,9 @@ const _ = require('lodash')
 const stringify = require('json-stringify-deterministic')
 
 const eslintRecommended = require('eslint/conf/eslint-recommended')
-const airbnbReact = require('eslint-config-airbnb/rules/react')
-const prettierReact = require('eslint-config-prettier/react')
 const shopify = require('eslint-plugin-shopify/lib/config/all')
 const xoReact = require('eslint-config-xo-react')
+const canonicalReact = require('eslint-config-canonical/react')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
 
@@ -28,6 +27,7 @@ function loadEslintConfigs() {
       [configFile]: config,
     })
   }, {})
+  configs['eslint-config-canonical-react'] = canonicalReact
   configs['eslint-recommended'] = eslintRecommended
   configs['eslint-plugin-shopify'] = shopify
   return _.mapValues(configs, config =>
@@ -120,24 +120,31 @@ function genConcise() {
 }
 
 function genConciseReact() {
+  const configs = loadEslintConfigs()
+  const plugins = ['jsx-a11y', 'react']
+  const combinedRules = [
+    'eslint-plugin-shopify',
+    'eslint-config-canonical-react',
+    'eslint-config-xo-react',
+    'eslint-config-airbnb',
+  ]
+    .map(configKey =>
+      _.pickBy(configs[configKey].rules, (v, k) => {
+        const parts = _.split(k, '/')
+        if (parts.length === 1) {
+          return false
+        }
+        return plugins.includes(parts[0])
+      })
+    )
+    .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, xoReact, {
-    rules: Object.assign(
-      {},
-      airbnbReact.rules,
-      _.mapValues(xoReact.rules, prettifyRule),
-      _.pick(airbnbReact.rules, [
-        'react/jsx-boolean-value',
-        'react/jsx-closing-bracket-location',
-        'react/jsx-indent-props',
-        'react/jsx-indent',
-        'react/jsx-space-before-closing',
-        'react/jsx-tag-spacing',
-      ]),
-      _.pick(prettierReact.rules, ['react/jsx-wrap-multilines']),
-      {
-        'react/jsx-filename-extension': 'off',
-      }
-    ),
+    plugins,
+    rules: _.omit(combinedRules, [
+      'jsx-a11y/href-no-hash',
+      'react/jsx-filename-extension',
+      'react/jsx-wrap-multilines',
+    ]),
   })
   return writeJsFile(
     'packages/eslint-config-concise-react/eslintrc.json',
