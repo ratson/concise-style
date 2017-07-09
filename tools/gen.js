@@ -3,6 +3,7 @@
 const _ = require('lodash')
 const stringify = require('json-stringify-deterministic')
 
+const eslintRecommended = require('eslint/conf/eslint-recommended')
 const airbnbReact = require('eslint-config-airbnb/rules/react')
 const prettierReact = require('eslint-config-prettier/react')
 const shopify = require('eslint-plugin-shopify/lib/config/all')
@@ -27,6 +28,7 @@ function loadEslintConfigs() {
       [configFile]: config,
     })
   }, {})
+  configs['eslint-recommended'] = eslintRecommended
   configs['eslint-plugin-shopify'] = shopify
   return _.mapValues(configs, config =>
     Object.assign(config, {
@@ -38,6 +40,7 @@ function loadEslintConfigs() {
 function buildConciseConfig() {
   const configs = loadEslintConfigs()
   const combinedRules = [
+    'eslint-recommended',
     'eslint-config-standard',
     'eslint-config-canonical',
     'eslint-config-mysticatea',
@@ -69,13 +72,13 @@ function buildConciseConfig() {
       es6: true,
       node: true,
     },
-    extends: ['eslint:recommended'],
-    globals: {},
     plugins,
     rules: Object.assign(
       _.pickBy(combinedRules, (v, k) => {
         if (
           [
+            'getter-return',
+            'indent-legacy',
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
             // false-positive
