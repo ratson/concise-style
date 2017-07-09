@@ -1,5 +1,5 @@
 {
-  "parserOptions": {"ecmaFeatures": {"jsx": true}},
+  "parserOptions": { "ecmaFeatures": { "jsx": true } },
   "plugins": ["react"],
   "rules": {
     "jsx-quotes": ["error", "prefer-double"],
@@ -21,10 +21,10 @@
         ]
       }
     ],
-    "react/display-name": ["off", {"ignoreTranspilerName": false}],
+    "react/display-name": ["off", { "ignoreTranspilerName": false }],
     "react/forbid-prop-types": [
       "error",
-      {"forbid": ["any", "array", "object"]}
+      { "forbid": ["any", "array", "object"] }
     ],
     "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-closing-bracket-location": ["error", "line-aligned"],
@@ -34,16 +34,16 @@
     "react/jsx-key": "error",
     "react/jsx-max-props-per-line": [
       "error",
-      {"maximum": 1, "when": "multiline"}
+      { "maximum": 1, "when": "multiline" }
     ],
     "react/jsx-no-bind": "error",
-    "react/jsx-no-duplicate-props": ["error", {"ignoreCase": true}],
+    "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],
     "react/jsx-no-literals": "off",
     "react/jsx-no-undef": "error",
     "react/jsx-pascal-case": "error",
     "react/sort-prop-types": [
       "off",
-      {"ignoreCase": true, "callbacksLast": false, "requiredFirst": false}
+      { "ignoreCase": true, "callbacksLast": false, "requiredFirst": false }
     ],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
@@ -64,14 +64,14 @@
     "react/no-will-update-set-state": "error",
     "react/no-direct-mutation-state": "error",
     "react/no-is-mounted": "error",
-    "react/no-multi-comp": ["error", {"ignoreStateless": true}],
+    "react/no-multi-comp": ["error", { "ignoreStateless": true }],
     "react/no-set-state": "off",
     "react/no-string-refs": "error",
     "react/no-unknown-property": "error",
     "react/prefer-es6-class": ["error", "always"],
     "react/prefer-stateless-function": [
       "error",
-      {"ignorePureComponents": true}
+      { "ignorePureComponents": true }
     ],
     "react/prop-types": "error",
     "react/react-in-jsx-scope": "error",
@@ -99,10 +99,10 @@
     "react/jsx-filename-extension": "off",
     "react/jsx-no-comment-textnodes": "error",
     "react/no-render-return-value": "error",
-    "react/require-optimization": ["off", {"allowDecorators": []}],
+    "react/require-optimization": ["off", { "allowDecorators": [] }],
     "react/no-find-dom-node": "error",
     "react/forbid-component-props": "error",
-    "react/forbid-elements": ["off", {"forbid": []}],
+    "react/forbid-elements": ["off", { "forbid": [] }],
     "react/no-danger-with-children": "error",
     "react/no-unused-prop-types": "error",
     "react/style-prop-object": "error",
@@ -126,3 +126,4 @@
     "react/jsx-closing-tag-location": "error"
   }
 }
+

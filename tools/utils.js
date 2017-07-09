@@ -1,7 +1,10 @@
+'use strict'
+
 const path = require('path')
 
 const _ = require('lodash')
 const fs = require('mz/fs')
+const prettier = require('prettier')
 const stringify = require('json-stringify-pretty-compact')
 
 exports.prettifyRule = function prettifyRule(ruleValue) {
@@ -19,9 +22,6 @@ exports.prettifyRule = function prettifyRule(ruleValue) {
 }
 
 exports.writeJsFile = function writeJsFile(filePath, config) {
-  return fs.writeFile(
-    path.join(__dirname, '..', filePath),
-    `${stringify(config)}\n`,
-    'utf8'
-  )
+  const source = prettier.format(stringify(config), { parser: 'json' })
+  return fs.writeFile(path.join(__dirname, '..', filePath), `${source}\n`, 'utf8')
 }
