@@ -9,6 +9,7 @@ const eslintRecommended = require('eslint/conf/eslint-recommended')
 const shopify = require('eslint-plugin-shopify/lib/config/all')
 const xoReact = require('eslint-config-xo-react')
 const canonicalReact = require('eslint-config-canonical/react')
+const security = require('eslint-plugin-security')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
 
@@ -33,6 +34,7 @@ function loadEslintConfigs() {
   configs['eslint-config-canonical-react'] = canonicalReact
   configs['eslint-recommended'] = eslintRecommended
   configs['eslint-plugin-shopify'] = shopify
+  configs['eslint-plugin-security'] = security.configs.recommended
 
   const rules = new Rules()
   const deprecatedRules = _.filter(Object.keys(loadRules()), id => {
@@ -57,6 +59,7 @@ function buildConciseConfig() {
     'eslint-config-xo',
     'eslint-config-google',
     'eslint-config-airbnb-base',
+    'eslint-plugin-security',
   ]
     .map(k => configs[k].rules)
     .concat(
@@ -73,6 +76,7 @@ function buildConciseConfig() {
     'mysticatea',
     'node',
     'promise',
+    'security',
   ]
   return {
     parserOptions: {
