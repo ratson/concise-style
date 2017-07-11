@@ -161,7 +161,6 @@
     "mysticatea/no-literal-call": "error",
     "mysticatea/no-this-in-static": "error",
     "mysticatea/no-useless-rest-spread": "error",
-    "mysticatea/prefer-for-of": "error",
     "new-cap": [
       "error",
       {

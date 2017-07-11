@@ -91,6 +91,7 @@ function buildConciseConfig() {
             'indent-legacy',
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
+            'mysticatea/prefer-for-of',
             // false-positive
             'node/shebang',
           ].includes(k)

@@ -39,6 +39,6 @@ module.exports.writeJsFile = function writeJsFile(filePath, config) {
   return fs.writeFile(
     path.join(__dirname, '..', filePath),
     `${source}\n`,
-    'utf8'
+    'utf8',
   )
 }
