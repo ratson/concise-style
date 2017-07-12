@@ -4,6 +4,7 @@
   "plugins": [
     "eslint-comments",
     "html",
+    "jsdoc",
     "markdown",
     "mysticatea",
     "node",
@@ -115,6 +116,17 @@
       }
     ],
     "init-declarations": "off",
+    "jsdoc/check-param-names": "warn",
+    "jsdoc/check-tag-names": "warn",
+    "jsdoc/check-types": "warn",
+    "jsdoc/newline-after-description": ["warn", "always"],
+    "jsdoc/require-description-complete-sentence": "warn",
+    "jsdoc/require-hyphen-before-description": "off",
+    "jsdoc/require-param": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-description": "off",
+    "jsdoc/require-returns-type": "off",
     "jsx-quotes": ["off", "prefer-double"],
     "key-spacing": ["error", { "afterColon": true, "beforeColon": false }],
     "keyword-spacing": [
@@ -506,7 +518,6 @@
     "security/detect-eval-with-expression": "error",
     "security/detect-new-buffer": "off",
     "security/detect-no-csrf-before-method-override": "error",
-    "security/detect-non-literal-fs-filename": "error",
     "security/detect-non-literal-regexp": "error",
     "security/detect-non-literal-require": "error",
     "security/detect-pseudoRandomBytes": "error",

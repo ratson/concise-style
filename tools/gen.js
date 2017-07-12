@@ -80,6 +80,7 @@ function buildConciseConfig() {
   const plugins = [
     'eslint-comments',
     'html',
+    'jsdoc',
     'markdown',
     'mysticatea',
     'node',
@@ -107,6 +108,7 @@ function buildConciseConfig() {
             'mysticatea/prefer-for-of',
             'node/no-extraneous-import',
             'node/no-extraneous-require',
+            'security/detect-non-literal-fs-filename',
             'security/detect-object-injection',
             'security/detect-possible-timing-attacks',
             'unicorn/filename-case',
