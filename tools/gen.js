@@ -11,6 +11,7 @@ const xoReact = require('eslint-config-xo-react')
 const canonicalReact = require('eslint-config-canonical/react')
 const security = require('eslint-plugin-security')
 const simplifieldBackend = require('eslint-config-simplifield/lib/backend')
+const unicorn = require('eslint-plugin-unicorn')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
 
@@ -24,6 +25,7 @@ function loadEslintConfigs() {
     'eslint-config-prettier',
     'eslint-config-simplifield',
     'eslint-config-standard',
+    'eslint-config-videoamp-node',
     'eslint-config-xo-react',
     'eslint-config-xo',
   ].reduce((r, configFile) => {
@@ -38,6 +40,7 @@ function loadEslintConfigs() {
   configs['eslint-plugin-shopify'] = shopify
   configs['eslint-plugin-security'] = security.configs.recommended
   configs['eslint-config-simplifield-backend'] = simplifieldBackend
+  configs['eslint-plugin-unicorn'] = unicorn.configs.recommended
 
   const rules = new Rules()
   const deprecatedRules = _.filter(Object.keys(loadRules()), id => {
@@ -59,6 +62,7 @@ function buildConciseConfig() {
     'eslint-recommended',
     'eslint-config-standard',
     'eslint-config-canonical',
+    'eslint-config-videoamp-node',
     'eslint-config-mysticatea',
     'eslint-plugin-shopify',
     'eslint-config-xo',
@@ -81,6 +85,7 @@ function buildConciseConfig() {
     'node',
     'promise',
     'security',
+    'unicorn',
   ]
   return {
     parserOptions: {
@@ -100,7 +105,11 @@ function buildConciseConfig() {
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
             'mysticatea/prefer-for-of',
+            'node/no-extraneous-import',
+            'node/no-extraneous-require',
             'security/detect-object-injection',
+            'security/detect-possible-timing-attacks',
+            'unicorn/filename-case',
             // false-positive
             'node/shebang',
           ].includes(k)

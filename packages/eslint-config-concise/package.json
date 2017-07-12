@@ -11,7 +11,8 @@
     "eslint-plugin-mysticatea": "*",
     "eslint-plugin-node": "*",
     "eslint-plugin-promise": "*",
-    "eslint-plugin-security": "*"
+    "eslint-plugin-security": "*",
+    "eslint-plugin-unicorn": "*"
   },
   "dependencies": {
     "eslint-plugin-eslint-comments": "^1.0.2",
@@ -20,7 +21,8 @@
     "eslint-plugin-mysticatea": "^4.2.2",
     "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-security": "^1.4.0"
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-unicorn": "^2.1.2"
   },
   "devDependencies": {
     "eslint": "^4.2.0"
