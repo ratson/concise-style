@@ -10,6 +10,7 @@ const shopify = require('eslint-plugin-shopify/lib/config/all')
 const xoReact = require('eslint-config-xo-react')
 const canonicalReact = require('eslint-config-canonical/react')
 const security = require('eslint-plugin-security')
+const simplifieldBackend = require('eslint-config-simplifield/lib/backend')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
 
@@ -21,6 +22,7 @@ function loadEslintConfigs() {
     'eslint-config-google',
     'eslint-config-mysticatea',
     'eslint-config-prettier',
+    'eslint-config-simplifield',
     'eslint-config-standard',
     'eslint-config-xo-react',
     'eslint-config-xo',
@@ -35,6 +37,7 @@ function loadEslintConfigs() {
   configs['eslint-recommended'] = eslintRecommended
   configs['eslint-plugin-shopify'] = shopify
   configs['eslint-plugin-security'] = security.configs.recommended
+  configs['eslint-config-simplifield-backend'] = simplifieldBackend
 
   const rules = new Rules()
   const deprecatedRules = _.filter(Object.keys(loadRules()), id => {
@@ -51,6 +54,8 @@ function loadEslintConfigs() {
 function buildConciseConfig() {
   const configs = loadEslintConfigs()
   const combinedRules = [
+    'eslint-config-simplifield',
+    'eslint-config-simplifield-backend',
     'eslint-recommended',
     'eslint-config-standard',
     'eslint-config-canonical',
@@ -59,7 +64,6 @@ function buildConciseConfig() {
     'eslint-config-xo',
     'eslint-config-google',
     'eslint-config-airbnb-base',
-    'eslint-plugin-security',
   ]
     .map(k => configs[k].rules)
     .concat(
@@ -96,6 +100,7 @@ function buildConciseConfig() {
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
             'mysticatea/prefer-for-of',
+            'security/detect-object-injection',
             // false-positive
             'node/shebang',
           ].includes(k)
