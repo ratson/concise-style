@@ -113,8 +113,8 @@ function buildConciseConfig() {
             'security/detect-object-injection',
             'security/detect-possible-timing-attacks',
             'unicorn/filename-case',
-            // false-positive
-            'node/shebang',
+            'unicorn/no-abusive-eslint-disable', // in favor of `eslint-comments/no-unlimited-disable`
+            'node/shebang', // false-positive
           ].includes(k)
         ) {
           return false
