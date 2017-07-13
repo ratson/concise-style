@@ -2,11 +2,13 @@
   "private": true,
   "scripts": {
     "postinstall": "lerna bootstrap",
-    "prepublish": "gulp build",
+    "prepublish": "run-s build test",
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
+    "build": "gulp build",
     "lint": "node ./packages/csc/lib/cli.js",
-    "test": "ava"
+    "test": "ava",
+    "posttest": "npm run lint"
   },
   "devDependencies": {
     "ava": "^0.20.0",
@@ -50,6 +52,7 @@
     "lerna": "^2.0.0",
     "lodash": "^4.17.4",
     "mz": "^2.6.0",
+    "npm-run-all": "^4.0.2",
     "prettier": "^1.5.2",
     "temp-write": "^3.3.0"
   },
