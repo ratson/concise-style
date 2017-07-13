@@ -103,6 +103,7 @@ function buildConciseConfig() {
           [
             'getter-return',
             'indent-legacy',
+            'no-underscore-dangle',
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
             'mysticatea/prefer-for-of',

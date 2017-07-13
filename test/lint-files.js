@@ -23,6 +23,7 @@ lintConciseGood.title = (providedTitle, name) =>
 
 test(lintConciseGood, 'good-style')
 test(lintConciseGood, 'good-comma-dangle')
+test(lintConciseGood, 'good-underscore-dangle')
 
 test('[concise-esnext] good-style', t => {
   const { results } = lintFile(

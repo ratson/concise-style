@@ -387,7 +387,6 @@
     "no-undef": "error",
     "no-undef-init": "error",
     "no-undefined": "off",
-    "no-underscore-dangle": ["error", { "allowAfterThis": false }],
     "no-unexpected-multiline": "error",
     "no-unmodified-loop-condition": "off",
     "no-unneeded-ternary": ["error", { "defaultAssignment": false }],
