@@ -168,6 +168,7 @@ function genConciseReact() {
     plugins,
     rules: _.omit(combinedRules, [
       'jsx-a11y/href-no-hash',
+      'react/jsx-curly-spacing',
       'react/jsx-filename-extension',
       'react/jsx-wrap-multilines',
     ]),
