@@ -3,7 +3,6 @@
   "version": "0.8.0",
   "main": "index.js",
   "description": "Concise ESLint config using babel-eslint parser.",
-  "scripts": {},
   "peerDependencies": {
     "eslint": "*",
     "eslint-plugin-babel": "*"

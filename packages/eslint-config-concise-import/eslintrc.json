@@ -1,0 +1,74 @@
+{
+  "plugins": ["import"],
+  "rules": {
+    "import/default": "off",
+    "import/export": "error",
+    "import/extensions": ["error", "always", { "js": "never", "jsx": "never" }],
+    "import/first": ["error", "absolute-first"],
+    "import/imports-first": "off",
+    "import/max-dependencies": ["off", { "max": 10 }],
+    "import/named": "off",
+    "import/namespace": "off",
+    "import/newline-after-import": "error",
+    "import/no-absolute-path": "error",
+    "import/no-amd": "error",
+    "import/no-commonjs": "off",
+    "import/no-deprecated": "off",
+    "import/no-duplicates": "error",
+    "import/no-dynamic-require": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "test/**",
+          "tests/**",
+          "spec/**",
+          "**/__tests__/**",
+          "test.js",
+          "test-*.js",
+          "**/*.test.js",
+          "**/*.spec.js",
+          "**/webpack.config.js",
+          "**/webpack.config.*.js",
+          "**/rollup.config.js",
+          "**/rollup.config.*.js",
+          "**/gulpfile.js",
+          "**/gulpfile.*.js",
+          "**/Gruntfile"
+        ],
+        "optionalDependencies": false
+      }
+    ],
+    "import/no-internal-modules": ["off", { "allow": [] }],
+    "import/no-mutable-exports": "error",
+    "import/no-named-as-default": "error",
+    "import/no-named-as-default-member": "error",
+    "import/no-named-default": "error",
+    "import/no-namespace": "off",
+    "import/no-nodejs-modules": "off",
+    "import/no-restricted-paths": "off",
+    "import/no-unassigned-import": "off",
+    "import/no-unresolved": [
+      "error",
+      { "caseSensitive": true, "commonjs": true }
+    ],
+    "import/no-webpack-loader-syntax": "error",
+    "import/order": [
+      "off",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "never"
+      }
+    ],
+    "import/prefer-default-export": "error",
+    "import/unambiguous": "off"
+  }
+}
+

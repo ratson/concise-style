@@ -3,7 +3,6 @@
   "version": "0.9.1",
   "main": "eslintrc.json",
   "description": "ESLint config for React be used with eslint-plugin-concise.",
-  "scripts": {},
   "peerDependencies": {
     "eslint": "*",
     "eslint-plugin-jsx-a11y": "*",

@@ -54,8 +54,7 @@ function loadEslintConfigs() {
   )
 }
 
-function buildConciseConfig() {
-  const configs = loadEslintConfigs()
+function buildConciseConfig(configs = loadEslintConfigs()) {
   const combinedRules = [
     'eslint-config-simplifield',
     'eslint-config-simplifield-backend',
@@ -145,8 +144,7 @@ function genConcise() {
   )
 }
 
-function genConciseEsnext() {
-  const configs = loadEslintConfigs()
+function genConciseEsnext(configs = loadEslintConfigs()) {
   const plugins = ['babel']
   const config = {
     plugins,
@@ -166,8 +164,30 @@ function genConciseEsnext() {
   )
 }
 
-function genConciseReact() {
-  const configs = loadEslintConfigs()
+function genConciseImport(configs = loadEslintConfigs()) {
+  const plugins = ['import']
+  const combinedRules = ['eslint-config-airbnb-base']
+    .map(configKey =>
+      _.pickBy(configs[configKey].rules, (v, k) => {
+        const parts = _.split(k, '/')
+        if (parts.length === 1) {
+          return false
+        }
+        return plugins.includes(parts[0])
+      }),
+    )
+    .reduce((r, rules) => Object.assign(r, rules), {})
+  const config = {
+    plugins,
+    rules: combinedRules,
+  }
+  return writeJsFile(
+    'packages/eslint-config-concise-import/eslintrc.json',
+    config,
+  )
+}
+
+function genConciseReact(configs = loadEslintConfigs()) {
   const plugins = ['jsx-a11y', 'react']
   const combinedRules = [
     'eslint-plugin-shopify',
@@ -228,6 +248,7 @@ async function printRule() {
 module.exports = {
   genConcise,
   genConciseEsnext,
+  genConciseImport,
   genConciseReact,
   genConciseStyle,
   printRule,
