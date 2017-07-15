@@ -7,6 +7,7 @@ const loadRules = require('eslint/lib/load-rules')
 const Rules = require('eslint/lib/rules')
 const eslintRecommended = require('eslint/conf/eslint-recommended')
 const shopify = require('eslint-plugin-shopify/lib/config/all')
+const ava = require('eslint-plugin-ava')
 const xoReact = require('eslint-config-xo-react')
 const canonicalReact = require('eslint-config-canonical/react')
 const security = require('eslint-plugin-security')
@@ -40,6 +41,7 @@ function loadEslintConfigs() {
   configs['eslint-plugin-shopify'] = shopify
   configs['eslint-plugin-security'] = security.configs.recommended
   configs['eslint-config-simplifield-backend'] = simplifieldBackend
+  configs['eslint-plugin-ava'] = ava.configs.recommended
   configs['eslint-plugin-unicorn'] = unicorn.configs.recommended
 
   const rules = new Rules()
@@ -142,6 +144,30 @@ function genConcise() {
     'packages/eslint-config-concise/eslintrc.json',
     buildConciseConfig(),
   )
+}
+
+function genConciseAva(configs = loadEslintConfigs()) {
+  const plugins = ['ava']
+  const combinedRules = [
+    'eslint-config-canonical',
+    'eslint-plugin-shopify',
+    'eslint-plugin-ava',
+  ]
+    .map(configKey =>
+      _.pickBy(configs[configKey].rules, (v, k) => {
+        const parts = _.split(k, '/')
+        if (parts.length === 1) {
+          return false
+        }
+        return plugins.includes(parts[0])
+      }),
+    )
+    .reduce((r, rules) => Object.assign(r, rules), {})
+  const config = {
+    plugins,
+    rules: combinedRules,
+  }
+  return writeJsFile('packages/eslint-config-concise-ava/eslintrc.json', config)
 }
 
 function genConciseEsnext(configs = loadEslintConfigs()) {
@@ -247,9 +273,24 @@ async function printRule() {
 
 module.exports = {
   genConcise,
+  genConciseAva,
   genConciseEsnext,
   genConciseImport,
   genConciseReact,
   genConciseStyle,
   printRule,
+}
+
+function main() {
+  [
+    genConcise,
+    genConciseAva,
+    genConciseEsnext,
+    genConciseImport,
+    genConciseReact,
+  ].forEach(f => f())
+}
+
+if (require.main === module) {
+  main()
 }

@@ -5,8 +5,8 @@
     "prepublish": "run-s build test",
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
-    "build": "gulp build",
-    "lint": "node ./packages/csc/lib/cli.js",
+    "build": "node tools/gen.js",
+    "lint": "node packages/csc/lib/cli.js",
     "test": "ava",
     "posttest": "npm run lint"
   },
@@ -26,6 +26,7 @@
     "eslint-config-xo": "^0.18.2",
     "eslint-config-xo-react": "^0.13.0",
     "eslint-find-rules": "^3.1.1",
+    "eslint-plugin-ava": "^4.2.1",
     "eslint-plugin-eslint-comments": "^1.0.2",
     "eslint-plugin-filenames": "^1.2.0",
     "eslint-plugin-flowtype": "^2.35.0",
