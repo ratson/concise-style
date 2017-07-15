@@ -145,6 +145,27 @@ function genConcise() {
   )
 }
 
+function genConciseEsnext() {
+  const configs = loadEslintConfigs()
+  const plugins = ['babel']
+  const config = {
+    plugins,
+    rules: Object.assign(
+      {
+        'babel/object-curly-spacing': ['error', 'always'],
+      },
+      _.pick(configs['eslint-recommended'].rules, [
+        'strict',
+        'object-curly-spacing',
+      ]),
+    ),
+  }
+  return writeJsFile(
+    'packages/eslint-config-concise-esnext/eslintrc.json',
+    config,
+  )
+}
+
 function genConciseReact() {
   const configs = loadEslintConfigs()
   const plugins = ['jsx-a11y', 'react']
@@ -206,6 +227,7 @@ async function printRule() {
 
 module.exports = {
   genConcise,
+  genConciseEsnext,
   genConciseReact,
   genConciseStyle,
   printRule,

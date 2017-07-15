@@ -4,6 +4,7 @@ const gulp = require('gulp-v4')
 
 const {
   genConcise,
+  genConciseEsnext,
   genConciseReact,
   genConciseStyle,
   printRule,
@@ -11,7 +12,7 @@ const {
 
 gulp.task(
   'buildConfig',
-  gulp.parallel(genConcise, genConciseReact, genConciseStyle),
+  gulp.parallel(genConcise, genConciseEsnext, genConciseReact, genConciseStyle),
 )
 
 gulp.task('build', gulp.series('buildConfig'))

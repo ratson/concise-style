@@ -11,7 +11,7 @@
     "posttest": "npm run lint"
   },
   "devDependencies": {
-    "ava": "^0.20.0",
+    "ava": "^0.21.0",
     "del-cli": "^1.1.0",
     "eslint": "^4.2.0",
     "eslint-config-airbnb": "^15.0.2",
@@ -53,7 +53,7 @@
     "lodash": "^4.17.4",
     "mz": "^2.6.0",
     "npm-run-all": "^4.0.2",
-    "prettier": "^1.5.2",
+    "prettier": "^1.5.3",
     "temp-write": "^3.3.0"
   },
   "ava": {

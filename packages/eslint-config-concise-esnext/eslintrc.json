@@ -1,0 +1,9 @@
+{
+  "plugins": ["babel"],
+  "rules": {
+    "babel/object-curly-spacing": ["error", "always"],
+    "object-curly-spacing": "off",
+    "strict": "off"
+  }
+}
+
