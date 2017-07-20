@@ -8,7 +8,8 @@
     "build": "node tools/gen.js",
     "lint": "node packages/csc/lib/cli.js",
     "test": "ava",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "print-rule": "node tools/print-rule.js"
   },
   "devDependencies": {
     "ava": "^0.21.0",
@@ -30,14 +31,14 @@
     "eslint-plugin-eslint-comments": "^1.0.2",
     "eslint-plugin-filenames": "^1.2.0",
     "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-html": "^3.0.0",
+    "eslint-plugin-html": "^3.1.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsdoc": "^3.1.1",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-lodash": "^2.4.3",
     "eslint-plugin-markdown": "^1.0.0-beta.7",
     "eslint-plugin-mysticatea": "^4.2.2",
-    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-optimize-regex": "^1.1.3",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
@@ -48,7 +49,6 @@
     "eslint-plugin-unicorn": "^2.1.2",
     "execa": "^0.7.0",
     "globby": "^6.1.0",
-    "gulp-v4": "^4.0.0-alpha.4",
     "json-stringify-deterministic": "^1.0.1",
     "lerna": "^2.0.0",
     "lodash": "^4.17.4",
@@ -59,8 +59,5 @@
   },
   "ava": {
     "concurrency": 4
-  },
-  "gulp-cli": {
-    "package": "gulp-v4"
   }
 }

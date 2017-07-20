@@ -1,7 +1,6 @@
 'use strict'
 
 const _ = require('lodash')
-const stringify = require('json-stringify-deterministic')
 
 const loadRules = require('eslint/lib/load-rules')
 const Rules = require('eslint/lib/rules')
@@ -250,35 +249,15 @@ async function genConciseStyle() {
   // TODO
 }
 
-async function printRule() {
-  const configs = loadEslintConfigs()
-  /* eslint-disable no-console */
-  const rule = _.last(process.argv.slice(2))
-  const named = _.mapValues(
-    Object.assign({}, configs, {
-      concise: buildConciseConfig(),
-    }),
-    (v, k) => Object.assign(v, { name: k }),
-  )
-  const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['rules', rule])),
-  )
-  _.forEach(grouped, (config, ruleValue) => {
-    console.log(rule, '=', ruleValue)
-    console.log(_.map(config, 'name'))
-    console.log()
-  })
-  /* eslint-enable no-console */
-}
-
 module.exports = {
+  loadEslintConfigs,
+  buildConciseConfig,
   genConcise,
   genConciseAva,
   genConciseEsnext,
   genConciseImport,
   genConciseReact,
   genConciseStyle,
-  printRule,
 }
 
 function main() {
