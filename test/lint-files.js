@@ -4,10 +4,10 @@ import { lintFile } from './_utils'
 
 const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
 const conciseEsnextConfigFile = require.resolve(
-  '../packages/eslint-config-concise-esnext',
+  '../packages/eslint-config-concise-esnext'
 )
 const conciseReactConfigFile = require.resolve(
-  '../packages/eslint-config-concise-react',
+  '../packages/eslint-config-concise-react'
 )
 
 function lintConciseGood(t, name) {
@@ -23,6 +23,7 @@ lintConciseGood.title = (providedTitle, name) =>
 
 test(lintConciseGood, 'good-style')
 test(lintConciseGood, 'good-comma-dangle')
+test(lintConciseGood, 'good-mixed-operators')
 test(lintConciseGood, 'good-underscore-dangle')
 
 test('[concise-esnext] good-style', t => {
@@ -32,7 +33,7 @@ test('[concise-esnext] good-style', t => {
       config: {
         extends: [conciseConfigFile, conciseEsnextConfigFile],
       },
-    },
+    }
   )
   const { messages } = results[0]
   t.true(messages.length === 0)
@@ -52,7 +53,7 @@ test('[concise-react] good-style', t => {
           conciseReactConfigFile,
         ],
       },
-    },
+    }
   )
   const { messages } = results[0]
   t.true(messages.length === 0)

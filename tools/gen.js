@@ -72,7 +72,8 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
     .map(k => configs[k].rules)
     .concat(
       [
-        ['eslint-config-standard', ['semi']],
+        ['eslint-recommended', ['no-bitwise']],
+        ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens']],
       ].map(([k, rules]) => _.pick(configs[k].rules, rules)),
     )

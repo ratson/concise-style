@@ -14,7 +14,7 @@
   "devDependencies": {
     "ava": "^0.21.0",
     "del-cli": "^1.1.0",
-    "eslint": "^4.2.0",
+    "eslint": "^4.3.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-config-canonical": "^9.3.1",

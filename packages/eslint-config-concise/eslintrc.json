@@ -193,7 +193,7 @@
     "no-alert": "warn",
     "no-array-constructor": "error",
     "no-await-in-loop": "error",
-    "no-bitwise": "error",
+    "no-bitwise": "off",
     "no-buffer-constructor": "off",
     "no-caller": "error",
     "no-case-declarations": "error",
@@ -273,10 +273,8 @@
     "no-mixed-operators": [
       "error",
       {
-        "allowSamePrecedence": false,
+        "allowSamePrecedence": true,
         "groups": [
-          ["+", "-", "*", "/", "%", "**"],
-          ["&", "|", "^", "~", "<<", ">>", ">>>"],
           ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
           ["&&", "||"],
           ["in", "instanceof"]
