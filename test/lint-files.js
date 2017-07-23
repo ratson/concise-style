@@ -1,4 +1,7 @@
+import path from 'path'
+
 import test from 'ava'
+import globby from 'globby'
 
 import { lintFile } from './_utils'
 
@@ -21,10 +24,12 @@ function lintConciseGood(t, name) {
 lintConciseGood.title = (providedTitle, name) =>
   `${providedTitle} [concise] ${name}`.trim()
 
-test(lintConciseGood, 'good-style')
-test(lintConciseGood, 'good-comma-dangle')
-test(lintConciseGood, 'good-mixed-operators')
-test(lintConciseGood, 'good-underscore-dangle')
+globby
+  .sync(['./fixtures/concise/good-*.js'], { cwd: __dirname })
+  .map(p => path.basename(p, '.js'))
+  .forEach(name => {
+    test(lintConciseGood, name)
+  })
 
 test('[concise-esnext] good-style', t => {
   const { results } = lintFile(
