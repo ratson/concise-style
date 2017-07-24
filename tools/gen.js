@@ -163,10 +163,10 @@ function genConciseAva(configs = loadEslintConfigs()) {
       }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
-  const config = {
+  const config = Object.assign({}, configs['eslint-plugin-ava'], {
     plugins,
     rules: combinedRules,
-  }
+  })
   return writeJsFile('packages/eslint-config-concise-ava/eslintrc.json', config)
 }
 
