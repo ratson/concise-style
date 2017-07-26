@@ -12,6 +12,17 @@
     "import/newline-after-import": "error",
     "import/no-absolute-path": "error",
     "import/no-amd": "error",
+    "import/no-anonymous-default-export": [
+      "off",
+      {
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowLiteral": false,
+        "allowObject": false
+      }
+    ],
     "import/no-commonjs": "off",
     "import/no-deprecated": "off",
     "import/no-duplicates": "error",
@@ -24,17 +35,17 @@
           "tests/**",
           "spec/**",
           "**/__tests__/**",
-          "test.js",
-          "test-*.js",
-          "**/*.test.js",
-          "**/*.spec.js",
+          "test.{js,jsx}",
+          "test-*.{js,jsx}",
+          "**/*.{test,spec}.{js,jsx}",
           "**/webpack.config.js",
           "**/webpack.config.*.js",
           "**/rollup.config.js",
           "**/rollup.config.*.js",
           "**/gulpfile.js",
           "**/gulpfile.*.js",
-          "**/Gruntfile"
+          "**/Gruntfile",
+          "**/protractor.conf.*.js"
         ],
         "optionalDependencies": false
       }
