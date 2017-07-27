@@ -238,6 +238,7 @@ function genConciseReact(configs = loadEslintConfigs()) {
       'react/jsx-curly-spacing',
       'react/jsx-filename-extension',
       'react/jsx-wrap-multilines',
+      'react/prop-types',
     ]),
   })
   return writeJsFile(

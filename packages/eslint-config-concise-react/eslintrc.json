@@ -200,10 +200,6 @@
       "error",
       { "ignorePureComponents": true }
     ],
-    "react/prop-types": [
-      "error",
-      { "customValidators": [], "ignore": [], "skipUndeclared": false }
-    ],
     "react/react-in-jsx-scope": "error",
     "react/require-default-props": "error",
     "react/require-optimization": ["off", { "allowDecorators": [] }],
