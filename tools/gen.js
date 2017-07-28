@@ -35,6 +35,9 @@ function loadEslintConfigs() {
     })
   }, {})
 
+  configs['readable-code'] = getEslintConfig(
+    require.resolve('readable-code/.eslintrc.yml'),
+  )
   configs['eslint-config-canonical-react'] = canonicalReact
   configs['eslint-recommended'] = eslintRecommended
   configs['eslint-plugin-shopify'] = shopify
