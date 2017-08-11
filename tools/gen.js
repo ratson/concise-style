@@ -137,6 +137,13 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
             tabWidth: 2,
           }),
         ],
+        'no-param-reassign': combinedRules['no-param-reassign'].map((v, i) => {
+          if (i === 1) {
+            v.ignorePropertyModificationsFor.push('t')
+            v.ignorePropertyModificationsFor.sort()
+          }
+          return v
+        }),
       },
     ),
   }

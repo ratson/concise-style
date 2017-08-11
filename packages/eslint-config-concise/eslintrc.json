@@ -304,14 +304,15 @@
       "error",
       {
         "ignorePropertyModificationsFor": [
+          "$scope",
           "acc",
-          "e",
           "ctx",
+          "e",
           "req",
           "request",
           "res",
           "response",
-          "$scope"
+          "t"
         ],
         "props": true
       }
