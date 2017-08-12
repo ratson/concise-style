@@ -13,22 +13,46 @@ const conciseReactConfigFile = require.resolve(
   '../packages/eslint-config-concise-react'
 )
 
-function lintConciseGood(t, name) {
-  const { results } = lintFile(require.resolve(`./fixtures/concise/${name}`), {
+const lintConfigs = {
+  concise: {
     configFile: conciseConfigFile,
-  })
+  },
+  'concise-ava': {
+    config: {
+      extends: [
+        conciseConfigFile,
+        conciseEsnextConfigFile,
+        require.resolve('../packages/eslint-config-concise-ava'),
+      ],
+      rules: {
+        'ava/no-ignored-test-files': 'off',
+      },
+    },
+  },
+}
+
+function lintConciseGood(t, configKey, name) {
+  const { results } = lintFile(
+    require.resolve(`./fixtures/${configKey}/${name}`),
+    lintConfigs[configKey]
+  )
   const { messages } = results[0]
   t.true(messages.length === 0)
 }
 
-lintConciseGood.title = (providedTitle, name) =>
-  `${providedTitle} [concise] ${name}`.trim()
+lintConciseGood.title = (providedTitle, configKey, name) =>
+  `${providedTitle} [${configKey}] ${name}`.trim()
 
 globby
-  .sync(['./fixtures/concise/good-*.js'], { cwd: __dirname })
-  .map(p => path.basename(p, '.js'))
-  .forEach(name => {
-    test(lintConciseGood, name)
+  .sync(['./fixtures/concise/good-*.js', './fixtures/concise-ava/good-*.js'], {
+    cwd: __dirname,
+  })
+  .map(p => ({
+    configKey: path.basename(path.dirname(p)),
+    name: path.basename(p, '.js'),
+  }))
+  .forEach(({ configKey, name }) => {
+    test(lintConciseGood, configKey, name)
   })
 
 test('[concise-esnext] good-style', t => {
