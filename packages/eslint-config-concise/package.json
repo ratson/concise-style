@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "eslint-plugin-eslint-comments": "^1.0.3",
-    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-html": "^3.2.0",
     "eslint-plugin-jsdoc": "^3.1.2",
     "eslint-plugin-markdown": "^1.0.0-beta.7",
     "eslint-plugin-mysticatea": "^4.2.2",

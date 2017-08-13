@@ -31,28 +31,27 @@ const lintConfigs = {
   },
 }
 
-function lintConciseGood(t, configKey, name) {
+function lintConciseGood(t, configKey, filename) {
   const { results } = lintFile(
-    require.resolve(`./fixtures/${configKey}/${name}`),
+    require.resolve(filename),
     lintConfigs[configKey]
   )
   const { messages } = results[0]
   t.true(messages.length === 0)
 }
 
-lintConciseGood.title = (providedTitle, configKey, name) =>
-  `${providedTitle} [${configKey}] ${name}`.trim()
+lintConciseGood.title = (providedTitle, configKey, filename) => {
+  const name = path.basename(filename, '.js')
+  return `${providedTitle} [${configKey}] ${name}`.trim()
+}
 
 globby
   .sync(['./fixtures/concise/good-*.js', './fixtures/concise-ava/good-*.js'], {
     cwd: __dirname,
   })
-  .map(p => ({
-    configKey: path.basename(path.dirname(p)),
-    name: path.basename(p, '.js'),
-  }))
-  .forEach(({ configKey, name }) => {
-    test(lintConciseGood, configKey, name)
+  .forEach(filename => {
+    const configKey = path.basename(path.dirname(filename))
+    test(lintConciseGood, configKey, filename)
   })
 
 test('[concise-esnext] good-style', t => {
