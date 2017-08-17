@@ -20,6 +20,8 @@ function loadEslintConfigs() {
     'eslint-config-airbnb-base',
     'eslint-config-airbnb',
     'eslint-config-canonical',
+    'eslint-config-ebay',
+    'eslint-config-fbjs',
     'eslint-config-google',
     'eslint-config-mysticatea',
     'eslint-config-prettier',
@@ -183,6 +185,7 @@ function genConciseAva(configs = loadEslintConfigs()) {
 function genConciseEsnext(configs = loadEslintConfigs()) {
   const plugins = ['babel']
   const config = {
+    parserOptions: configs['eslint-config-standard'].parserOptions,
     plugins,
     rules: Object.assign(
       {

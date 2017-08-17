@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable import/no-dynamic-require */
 
 'use strict'
 
@@ -9,5 +8,6 @@ const importLocal = require('import-local')
 if (importLocal(__filename)) {
   debug('Using local install of CSC')
 } else {
+  // eslint-disable-next-line global-require
   require('.')()
 }

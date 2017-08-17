@@ -1,4 +1,13 @@
 {
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "globalReturn": true,
+      "jsx": true
+    },
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
   "plugins": ["babel"],
   "rules": {
     "babel/object-curly-spacing": ["error", "always"],
