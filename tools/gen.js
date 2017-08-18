@@ -98,10 +98,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
     parserOptions: {
       ecmaVersion: 8,
     },
-    env: {
-      es6: true,
-      node: true,
-    },
+    env: configs['eslint-config-xo'].env,
     plugins,
     rules: Object.assign(
       _.pickBy(combinedRules, (v, k) => {
@@ -218,7 +215,12 @@ function genConciseImport(configs = loadEslintConfigs()) {
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
     plugins,
-    rules: combinedRules,
+    rules: Object.assign(
+      combinedRules,
+      _.pick(configs['eslint-config-canonical'].rules, [
+        'import/no-extraneous-dependencies',
+      ]),
+    ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-import/eslintrc.json',

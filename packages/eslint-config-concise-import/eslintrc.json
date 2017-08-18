@@ -30,24 +30,9 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "test/**",
-          "tests/**",
-          "spec/**",
-          "**/__tests__/**",
-          "test.{js,jsx}",
-          "test-*.{js,jsx}",
-          "**/*.{test,spec}.{js,jsx}",
-          "**/webpack.config.js",
-          "**/webpack.config.*.js",
-          "**/rollup.config.js",
-          "**/rollup.config.*.js",
-          "**/gulpfile.js",
-          "**/gulpfile.*.js",
-          "**/Gruntfile",
-          "**/protractor.conf.*.js"
-        ],
-        "optionalDependencies": false
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
       }
     ],
     "import/no-internal-modules": ["off", { "allow": [] }],

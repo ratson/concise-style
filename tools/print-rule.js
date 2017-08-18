@@ -6,6 +6,8 @@ const yargs = require('yargs')
 
 const { buildConciseConfig, loadEslintConfigs } = require('./gen')
 
+const conciseImportConfig = require('../packages/eslint-config-concise-import')
+
 /* eslint-disable no-console */
 function printParserOptions(named) {
   const grouped = _.groupBy(_.values(named), config =>
@@ -37,6 +39,7 @@ async function main() {
   const named = _.mapValues(
     Object.assign({}, configs, {
       concise: buildConciseConfig(),
+      'concise-import': conciseImportConfig,
     }),
     (v, k) => Object.assign(v, { name: k }),
   )
