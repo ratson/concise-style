@@ -23,6 +23,8 @@ function loadEslintConfigs() {
     'eslint-config-ebay',
     'eslint-config-fbjs',
     'eslint-config-google',
+    'eslint-config-javascript',
+    'eslint-config-jquery',
     'eslint-config-mysticatea',
     'eslint-config-prettier',
     'eslint-config-simplifield',
@@ -62,6 +64,8 @@ function loadEslintConfigs() {
 
 function buildConciseConfig(configs = loadEslintConfigs()) {
   const combinedRules = [
+    'eslint-config-jquery',
+    'eslint-config-javascript',
     'eslint-config-simplifield',
     'eslint-config-simplifield-backend',
     'eslint-recommended',
