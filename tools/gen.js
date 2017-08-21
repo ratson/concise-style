@@ -27,6 +27,7 @@ function loadEslintConfigs() {
     'eslint-config-jquery',
     'eslint-config-mysticatea',
     'eslint-config-prettier',
+    'eslint-config-react-app',
     'eslint-config-simplifield',
     'eslint-config-standard',
     'eslint-config-videoamp-node',
@@ -72,6 +73,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
     'eslint-config-standard',
     'eslint-config-canonical',
     'eslint-config-videoamp-node',
+    'eslint-config-react-app',
     'eslint-config-mysticatea',
     'eslint-plugin-shopify',
     'eslint-config-xo',
@@ -235,6 +237,7 @@ function genConciseImport(configs = loadEslintConfigs()) {
 function genConciseReact(configs = loadEslintConfigs()) {
   const plugins = ['jsx-a11y', 'react']
   const combinedRules = [
+    'eslint-config-react-app',
     'eslint-plugin-shopify',
     'eslint-config-canonical-react',
     'eslint-config-xo-react',

@@ -7,6 +7,7 @@ const yargs = require('yargs')
 const { buildConciseConfig, loadEslintConfigs } = require('./gen')
 
 const conciseImportConfig = require('../packages/eslint-config-concise-import')
+const conciseReactConfig = require('../packages/eslint-config-concise-react')
 
 /* eslint-disable no-console */
 function printParserOptions(named) {
@@ -40,6 +41,7 @@ async function main() {
     Object.assign({}, configs, {
       concise: buildConciseConfig(),
       'concise-import': conciseImportConfig,
+      'concise-react': conciseReactConfig,
     }),
     (v, k) => Object.assign(v, { name: k }),
   )
