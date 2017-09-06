@@ -88,7 +88,7 @@
         ]
       }
     ],
-    "for-direction": "off",
+    "for-direction": "error",
     "func-call-spacing": ["error", "never"],
     "func-name-matching": [
       "off",
@@ -97,6 +97,7 @@
     ],
     "func-names": "warn",
     "func-style": ["off", "expression"],
+    "function-paren-newline": "off",
     "generator-star-spacing": ["error", { "after": true, "before": false }],
     "global-require": "error",
     "guard-for-in": "error",
@@ -108,10 +109,16 @@
       "error",
       2,
       {
+        "ArrayExpression": 1,
+        "CallExpression": { "arguments": 1 },
         "FunctionDeclaration": { "body": 1, "parameters": 1 },
         "FunctionExpression": { "body": 1, "parameters": 1 },
+        "ImportDeclaration": 1,
+        "ObjectExpression": 1,
         "SwitchCase": 1,
         "VariableDeclarator": 1,
+        "flatTernaryExpressions": false,
+        "ignoredNodes": ["JSXElement *"],
         "outerIIFEBody": 1
       }
     ],
@@ -194,12 +201,12 @@
     "no-array-constructor": "error",
     "no-await-in-loop": "error",
     "no-bitwise": "off",
-    "no-buffer-constructor": "off",
+    "no-buffer-constructor": "error",
     "no-caller": "error",
     "no-case-declarations": "error",
     "no-catch-shadow": "off",
     "no-class-assign": "error",
-    "no-compare-neg-zero": "off",
+    "no-compare-neg-zero": "error",
     "no-cond-assign": ["error", "always"],
     "no-confusing-arrow": ["error", { "allowParens": true }],
     "no-console": "warn",
@@ -286,7 +293,7 @@
     "no-mixed-requires": ["off", false],
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-assign": "error",
-    "no-multi-spaces": ["error", {}],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": false }],
     "no-multi-str": "error",
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
     "no-negated-condition": "off",
@@ -327,7 +334,9 @@
     "no-regex-spaces": "error",
     "no-reserved-keys": "off",
     "no-restricted-globals": [
-      "off",
+      "error",
+      "isFinite",
+      "isNaN",
       "addEventListener",
       "blur",
       "close",
@@ -397,6 +406,36 @@
         "property": "callee"
       },
       {
+        "message": "Please use Number.isFinite instead",
+        "object": "global",
+        "property": "isFinite"
+      },
+      {
+        "message": "Please use Number.isFinite instead",
+        "object": "self",
+        "property": "isFinite"
+      },
+      {
+        "message": "Please use Number.isFinite instead",
+        "object": "window",
+        "property": "isFinite"
+      },
+      {
+        "message": "Please use Number.isNaN instead",
+        "object": "global",
+        "property": "isNaN"
+      },
+      {
+        "message": "Please use Number.isNaN instead",
+        "object": "self",
+        "property": "isNaN"
+      },
+      {
+        "message": "Please use Number.isNaN instead",
+        "object": "window",
+        "property": "isNaN"
+      },
+      {
         "message": "Please use Object.defineProperty instead.",
         "property": "__defineGetter__"
       },
@@ -413,19 +452,23 @@
     "no-restricted-syntax": [
       "error",
       {
-        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
+        "message":
+          "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
         "selector": "ForInStatement"
       },
       {
-        "message": "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.",
+        "message":
+          "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.",
         "selector": "ForOfStatement"
       },
       {
-        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",
+        "message":
+          "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",
         "selector": "LabeledStatement"
       },
       {
-        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
+        "message":
+          "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
         "selector": "WithStatement"
       }
     ],
@@ -444,7 +487,10 @@
     "no-ternary": "off",
     "no-this-before-super": "error",
     "no-throw-literal": "error",
-    "no-trailing-spaces": ["error", { "skipBlankLines": false }],
+    "no-trailing-spaces": [
+      "error",
+      { "ignoreComments": false, "skipBlankLines": false }
+    ],
     "no-undef": "error",
     "no-undef-init": "error",
     "no-undefined": "off",
@@ -504,16 +550,16 @@
     "node/process-exit-as-throw": "off",
     "nonblock-statement-body-position": "off",
     "object-curly-newline": [
-      "off",
+      "error",
       {
         "ObjectExpression": {
           "consistent": true,
-          "minProperties": 3,
+          "minProperties": 4,
           "multiline": true
         },
         "ObjectPattern": {
           "consistent": true,
-          "minProperties": 3,
+          "minProperties": 4,
           "multiline": true
         }
       }
@@ -532,7 +578,10 @@
     "one-var-declaration-per-line": ["error", "always"],
     "operator-assignment": ["error", "always"],
     "operator-linebreak": "off",
-    "padded-blocks": ["error", "never"],
+    "padded-blocks": [
+      "error",
+      { "blocks": "never", "classes": "never", "switches": "never" }
+    ],
     "padding-line-between-statements": "off",
     "prefer-arrow-callback": [
       "error",
@@ -543,7 +592,7 @@
       { "destructuring": "any", "ignoreReadBeforeAssign": true }
     ],
     "prefer-destructuring": [
-      "off",
+      "error",
       {
         "AssignmentExpression": { "array": true, "object": true },
         "VariableDeclarator": { "array": false, "object": true }
@@ -551,7 +600,7 @@
       { "enforceForRenamedProperties": false }
     ],
     "prefer-numeric-literals": "error",
-    "prefer-promise-reject-errors": ["off", { "allowEmptyReject": true }],
+    "prefer-promise-reject-errors": ["error", { "allowEmptyReject": true }],
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
@@ -590,7 +639,7 @@
     "security/detect-unsafe-regex": "error",
     "semi": ["error", "never"],
     "semi-spacing": ["error", { "after": true, "before": false }],
-    "semi-style": ["off", "last"],
+    "semi-style": ["error", "first"],
     "sort-imports": [
       "off",
       {
@@ -626,10 +675,10 @@
       }
     ],
     "strict": "error",
-    "switch-colon-spacing": ["off", { "after": true, "before": false }],
+    "switch-colon-spacing": ["error", { "after": true, "before": false }],
     "symbol-description": "error",
     "template-curly-spacing": "error",
-    "template-tag-spacing": ["off", "never"],
+    "template-tag-spacing": ["error", "never"],
     "unicode-bom": ["error", "never"],
     "unicorn/catch-error-name": "off",
     "unicorn/custom-error-definition": "error",
