@@ -119,6 +119,8 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
             'mysticatea/prefer-for-of',
             'node/no-extraneous-import',
             'node/no-extraneous-require',
+            'promise/always-return',
+            'promise/catch-or-return',
             'security/detect-non-literal-fs-filename',
             'security/detect-object-injection',
             'security/detect-possible-timing-attacks',

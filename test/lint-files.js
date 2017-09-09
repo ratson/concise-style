@@ -29,6 +29,23 @@ const lintConfigs = {
       },
     },
   },
+  'concise-esnext': {
+    config: {
+      extends: [conciseConfigFile, conciseEsnextConfigFile],
+    },
+  },
+  'concise-react': {
+    config: {
+      env: {
+        browser: true,
+      },
+      extends: [
+        conciseConfigFile,
+        conciseEsnextConfigFile,
+        conciseReactConfigFile,
+      ],
+    },
+  },
 }
 
 function lintConciseGood(t, configKey, filename) {
@@ -46,43 +63,18 @@ lintConciseGood.title = (providedTitle, configKey, filename) => {
 }
 
 globby
-  .sync(['./fixtures/concise/good-*.js', './fixtures/concise-ava/good-*.js'], {
-    cwd: __dirname,
-  })
+  .sync(
+    [
+      './fixtures/concise/good-*.js',
+      './fixtures/concise-ava/good-*.js',
+      './fixtures/concise-esnext/good-*.js',
+      './fixtures/concise-react/good-*.js',
+    ],
+    {
+      cwd: __dirname,
+    }
+  )
   .forEach(filename => {
     const configKey = path.basename(path.dirname(filename))
     test(lintConciseGood, configKey, filename)
   })
-
-test('[concise-esnext] good-style', t => {
-  const { results } = lintFile(
-    require.resolve('./fixtures/concise-esnext/good-style'),
-    {
-      config: {
-        extends: [conciseConfigFile, conciseEsnextConfigFile],
-      },
-    }
-  )
-  const { messages } = results[0]
-  t.true(messages.length === 0)
-})
-
-test('[concise-react] good-style', t => {
-  const { results } = lintFile(
-    require.resolve('./fixtures/concise-react/good-style'),
-    {
-      config: {
-        env: {
-          browser: true,
-        },
-        extends: [
-          conciseConfigFile,
-          conciseEsnextConfigFile,
-          conciseReactConfigFile,
-        ],
-      },
-    }
-  )
-  const { messages } = results[0]
-  t.true(messages.length === 0)
-})
