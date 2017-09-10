@@ -38,9 +38,5 @@ module.exports.prettifyRule = function prettifyRule(ruleValue) {
 
 module.exports.writeJsFile = function writeJsFile(filePath, config) {
   const source = prettier.format(stringify(config), { parser: 'json' })
-  return fs.writeFile(
-    path.join(__dirname, '..', filePath),
-    `${source}\n`,
-    'utf8',
-  )
+  return fs.writeFile(path.join(__dirname, '..', filePath), source, 'utf8')
 }

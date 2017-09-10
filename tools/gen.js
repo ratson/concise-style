@@ -11,6 +11,7 @@ const xoReact = require('eslint-config-xo-react')
 const canonicalReact = require('eslint-config-canonical/react')
 const security = require('eslint-plugin-security')
 const simplifieldBackend = require('eslint-config-simplifield/lib/backend')
+const flowtype = require('eslint-plugin-flowtype')
 const unicorn = require('eslint-plugin-unicorn')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
@@ -49,6 +50,7 @@ function loadEslintConfigs() {
   configs['eslint-plugin-security'] = security.configs.recommended
   configs['eslint-config-simplifield-backend'] = simplifieldBackend
   configs['eslint-plugin-ava'] = ava.configs.recommended
+  configs['eslint-plugin-flowtype'] = flowtype.configs.recommended
   configs['eslint-plugin-unicorn'] = unicorn.configs.recommended
 
   const rules = new Rules()
@@ -209,6 +211,29 @@ function genConciseEsnext(configs = loadEslintConfigs()) {
   )
 }
 
+function genConciseFlow(configs = loadEslintConfigs()) {
+  const plugins = ['flowtype']
+  const combinedRules = ['eslint-plugin-flowtype']
+    .map(configKey =>
+      _.pickBy(configs[configKey].rules, (v, k) => {
+        const parts = _.split(k, '/')
+        if (parts.length === 1) {
+          return false
+        }
+        return plugins.includes(parts[0])
+      }),
+    )
+    .reduce((r, rules) => Object.assign(r, rules), {})
+  const config = {
+    plugins,
+    rules: Object.assign(combinedRules),
+  }
+  return writeJsFile(
+    'packages/eslint-config-concise-flow/eslintrc.json',
+    config,
+  )
+}
+
 function genConciseImport(configs = loadEslintConfigs()) {
   const plugins = ['import']
   const combinedRules = ['eslint-config-airbnb-base']
@@ -292,6 +317,7 @@ function main() {
     genConcise,
     genConciseAva,
     genConciseEsnext,
+    genConciseFlow,
     genConciseImport,
     genConciseReact,
   ].forEach(f => f())
