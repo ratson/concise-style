@@ -5,6 +5,7 @@
   "bin": "lib/cli.js",
   "dependencies": {
     "chalk": "^2.1.0",
+    "child-process-promise": "^2.2.1",
     "debug": "^3.0.1",
     "eslint": "^4.6.1",
     "eslint-config-concise": "^0.11.0",
@@ -32,7 +33,7 @@
     "yargs-parser": "^7.0.0"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/csc",
   "license": "MIT"
