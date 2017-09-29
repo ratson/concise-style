@@ -118,7 +118,7 @@
         "SwitchCase": 1,
         "VariableDeclarator": 1,
         "flatTernaryExpressions": false,
-        "ignoredNodes": ["JSXElement *"],
+        "ignoredNodes": ["JSXElement", "JSXElement *"],
         "outerIIFEBody": 1
       }
     ],

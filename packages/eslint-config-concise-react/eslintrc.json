@@ -112,6 +112,7 @@
     "jsx-a11y/role-supports-aria-props": "error",
     "jsx-a11y/scope": "error",
     "jsx-a11y/tabindex-no-positive": "error",
+    "react/boolean-prop-naming": "off",
     "react/default-props-match-prop-types": [
       "off",
       { "allowRequiredDefaults": false }
@@ -188,12 +189,14 @@
     "react/no-render-return-value": "error",
     "react/no-set-state": "off",
     "react/no-string-refs": "error",
+    "react/no-typos": "error",
     "react/no-unescaped-entities": "error",
     "react/no-unknown-property": "error",
     "react/no-unused-prop-types": [
       "error",
       { "customValidators": [], "skipShapeProps": true }
     ],
+    "react/no-unused-state": "error",
     "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": ["error", "always"],
     "react/prefer-stateless-function": [
