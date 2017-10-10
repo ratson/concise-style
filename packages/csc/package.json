@@ -28,7 +28,7 @@
     "parse-gitignore": "^0.4.0",
     "path-exists": "^3.0.0",
     "read-pkg-up": "^2.0.0",
-    "update-notifier": "^2.2.0",
+    "update-notifier": "^2.3.0",
     "yargs": "^9.0.1",
     "yargs-parser": "^8.0.0"
   },

@@ -8,7 +8,7 @@
     "eslint-plugin-compat": "*"
   },
   "dependencies": {
-    "eslint-plugin-compat": "^2.0.0"
+    "eslint-plugin-compat": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^4.8.0"
