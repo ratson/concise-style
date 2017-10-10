@@ -85,7 +85,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
     .map(k => configs[k].rules)
     .concat(
       [
-        ['eslint-config-mysticatea', ['semi-style']],
+        ['eslint-config-mysticatea', ['comma-dangle', 'semi-style']],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens']],
         ['eslint-recommended', ['no-bitwise', 'function-paren-newline']],
