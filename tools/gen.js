@@ -42,7 +42,7 @@ function loadEslintConfigs() {
   }, {})
 
   configs['readable-code'] = getEslintConfig(
-    require.resolve('readable-code/.eslintrc.yml'),
+    require.resolve('readable-code/.eslintrc.yml')
   )
   configs['eslint-config-canonical-react'] = canonicalReact
   configs['eslint-recommended'] = eslintRecommended
@@ -61,7 +61,7 @@ function loadEslintConfigs() {
   return _.mapValues(configs, config =>
     Object.assign(config, {
       rules: _.omit(_.mapValues(config.rules, prettifyRule), deprecatedRules),
-    }),
+    })
   )
 }
 
@@ -89,7 +89,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens']],
         ['eslint-recommended', ['no-bitwise', 'function-paren-newline']],
-      ].map(([k, rules]) => _.pick(configs[k].rules, rules)),
+      ].map(([k, rules]) => _.pick(configs[k].rules, rules))
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const plugins = [
@@ -118,6 +118,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
             'no-underscore-dangle',
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
+            'mysticatea/no-useless-rest-spread',
             'mysticatea/prefer-for-of',
             'node/no-extraneous-import',
             'node/no-extraneous-require',
@@ -154,7 +155,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
           }
           return v
         }),
-      },
+      }
     ),
   }
 }
@@ -162,7 +163,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
 function genConcise() {
   return writeJsFile(
     'packages/eslint-config-concise/eslintrc.json',
-    buildConciseConfig(),
+    buildConciseConfig()
   )
 }
 
@@ -180,7 +181,7 @@ function genConciseAva(configs = loadEslintConfigs()) {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, configs['eslint-plugin-ava'], {
@@ -202,12 +203,12 @@ function genConciseEsnext(configs = loadEslintConfigs()) {
       _.pick(configs['eslint-recommended'].rules, [
         'strict',
         'object-curly-spacing',
-      ]),
+      ])
     ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-esnext/eslintrc.json',
-    config,
+    config
   )
 }
 
@@ -221,7 +222,7 @@ function genConciseFlow(configs = loadEslintConfigs()) {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
@@ -230,7 +231,7 @@ function genConciseFlow(configs = loadEslintConfigs()) {
   }
   return writeJsFile(
     'packages/eslint-config-concise-flow/eslintrc.json',
-    config,
+    config
   )
 }
 
@@ -244,7 +245,7 @@ function genConciseImport(configs = loadEslintConfigs()) {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
@@ -253,12 +254,12 @@ function genConciseImport(configs = loadEslintConfigs()) {
       combinedRules,
       _.pick(configs['eslint-config-canonical'].rules, [
         'import/no-extraneous-dependencies',
-      ]),
+      ])
     ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-import/eslintrc.json',
-    config,
+    config
   )
 }
 
@@ -278,7 +279,7 @@ function genConciseReact(configs = loadEslintConfigs()) {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, xoReact, {
@@ -293,7 +294,7 @@ function genConciseReact(configs = loadEslintConfigs()) {
   })
   return writeJsFile(
     'packages/eslint-config-concise-react/eslintrc.json',
-    config,
+    config
   )
 }
 

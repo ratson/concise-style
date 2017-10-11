@@ -172,7 +172,6 @@
     "mysticatea/no-instanceof-wrapper": "error",
     "mysticatea/no-literal-call": "error",
     "mysticatea/no-this-in-static": "error",
-    "mysticatea/no-useless-rest-spread": "error",
     "new-cap": [
       "error",
       {
