@@ -13,6 +13,7 @@ const security = require('eslint-plugin-security')
 const simplifieldBackend = require('eslint-config-simplifield/lib/backend')
 const flowtype = require('eslint-plugin-flowtype')
 const unicorn = require('eslint-plugin-unicorn')
+const jest = require('eslint-plugin-jest')
 
 const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
 
@@ -52,6 +53,7 @@ function loadEslintConfigs() {
   configs['eslint-plugin-ava'] = ava.configs.recommended
   configs['eslint-plugin-flowtype'] = flowtype.configs.recommended
   configs['eslint-plugin-unicorn'] = unicorn.configs.recommended
+  configs['eslint-plugin-jest'] = jest.configs.recommended
 
   const rules = new Rules()
   const deprecatedRules = _.filter(Object.keys(loadRules()), id => {
@@ -235,6 +237,30 @@ function genConciseFlow(configs = loadEslintConfigs()) {
   )
 }
 
+function genConciseJest(configs = loadEslintConfigs()) {
+  const plugins = ['jest']
+  const combinedRules = ['eslint-plugin-jest']
+    .map(configKey =>
+      _.pickBy(configs[configKey].rules, (v, k) => {
+        const parts = _.split(k, '/')
+        if (parts.length === 1) {
+          return false
+        }
+        return plugins.includes(parts[0])
+      })
+    )
+    .reduce((r, rules) => Object.assign(r, rules), {})
+  const config = {
+    env: { jasmine: true, jest: true },
+    plugins,
+    rules: Object.assign(combinedRules),
+  }
+  return writeJsFile(
+    'packages/eslint-config-concise-jest/eslintrc.json',
+    config
+  )
+}
+
 function genConciseImport(configs = loadEslintConfigs()) {
   const plugins = ['import']
   const combinedRules = ['eslint-config-airbnb-base']
@@ -320,6 +346,7 @@ function main() {
     genConciseEsnext,
     genConciseFlow,
     genConciseImport,
+    genConciseJest,
     genConciseReact,
   ].forEach(f => f())
 }
