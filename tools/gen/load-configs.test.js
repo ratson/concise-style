@@ -9,9 +9,13 @@ describe('load-configs', () => {
     configs = await loadConfigs()
   })
 
-  it('has airbnb rules', async () => {
+  it('has airbnb rules', () => {
     expect(configs['eslint-config-airbnb'].rules['global-require']).toBe(
       'error'
     )
+  })
+
+  it('has readable-code rules', () => {
+    expect(configs['readable-code'].rules['global-require']).toBe('off')
   })
 })

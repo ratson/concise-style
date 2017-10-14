@@ -4,32 +4,21 @@ const _ = require('lodash')
 
 const loadRules = require('eslint/lib/load-rules')
 const Rules = require('eslint/lib/rules')
-const eslintRecommended = require('eslint/conf/eslint-recommended')
-const shopify = require('eslint-plugin-shopify/lib/config/all')
 const ava = require('eslint-plugin-ava')
 const xoReact = require('eslint-config-xo-react')
-const canonicalReact = require('eslint-config-canonical/react')
 const security = require('eslint-plugin-security')
-const simplifieldBackend = require('eslint-config-simplifield/lib/backend')
 const flowtype = require('eslint-plugin-flowtype')
 const unicorn = require('eslint-plugin-unicorn')
 const jest = require('eslint-plugin-jest')
 
-const { getEslintConfig, prettifyRule, writeJsFile } = require('../utils')
+const { prettifyRule, writeJsFile } = require('../utils')
 
 const loadConfigs = require('./load-configs')
 
 async function loadEslintConfigs() {
   const configs = await loadConfigs()
 
-  configs['readable-code'] = getEslintConfig(
-    require.resolve('readable-code/.eslintrc.yml')
-  )
-  configs['eslint-config-canonical-react'] = canonicalReact
-  configs['eslint-recommended'] = eslintRecommended
-  configs['eslint-plugin-shopify'] = shopify
   configs['eslint-plugin-security'] = security.configs.recommended
-  configs['eslint-config-simplifield-backend'] = simplifieldBackend
   configs['eslint-plugin-ava'] = ava.configs.recommended
   configs['eslint-plugin-flowtype'] = flowtype.configs.recommended
   configs['eslint-plugin-unicorn'] = unicorn.configs.recommended
@@ -52,7 +41,7 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
     'eslint-config-jquery',
     'eslint-config-javascript',
     'eslint-config-simplifield',
-    'eslint-config-simplifield-backend',
+    'eslint-config-simplifield/backend',
     'eslint-recommended',
     'eslint-config-standard',
     'eslint-config-canonical',
@@ -274,7 +263,7 @@ function genConciseReact(configs = loadEslintConfigs()) {
   const combinedRules = [
     'eslint-config-react-app',
     'eslint-plugin-shopify',
-    'eslint-config-canonical-react',
+    'eslint-config-canonical/react',
     'eslint-config-xo-react',
     'eslint-config-airbnb',
   ]

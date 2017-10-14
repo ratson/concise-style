@@ -17,11 +17,23 @@ module.exports = async () => {
           'eslint-config-majestic',
         ].includes(dep)
     )
-    .reduce((r, configFile) => {
-      const config = getEslintConfig(configFile)
-      return Object.assign(r, {
-        [configFile]: config,
-      })
-    }, {})
+    .concat([
+      'eslint-config-canonical/react',
+      ['eslint-plugin-shopify', 'eslint-plugin-shopify/lib/config/all'],
+      ['eslint-recommended', 'eslint/conf/eslint-recommended'],
+      ['readable-code', 'readable-code/.eslintrc.yml'],
+      [
+        'eslint-config-simplifield/backend',
+        'eslint-config-simplifield/lib/backend',
+      ],
+    ])
+    .map(x => (Array.isArray(x) ? x : [x, x]))
+    .reduce(
+      (r, [configName, configFile]) =>
+        Object.assign(r, {
+          [configName]: getEslintConfig(require.resolve(configFile)),
+        }),
+      {}
+    )
   return configs
 }
