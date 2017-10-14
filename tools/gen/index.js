@@ -2,41 +2,13 @@
 
 const _ = require('lodash')
 
-const loadRules = require('eslint/lib/load-rules')
-const Rules = require('eslint/lib/rules')
-const ava = require('eslint-plugin-ava')
 const xoReact = require('eslint-config-xo-react')
-const security = require('eslint-plugin-security')
-const flowtype = require('eslint-plugin-flowtype')
-const unicorn = require('eslint-plugin-unicorn')
-const jest = require('eslint-plugin-jest')
 
-const { prettifyRule, writeJsFile } = require('../utils')
+const { writeJsFile } = require('../utils')
 
 const loadConfigs = require('./load-configs')
 
-async function loadEslintConfigs() {
-  const configs = await loadConfigs()
-
-  configs['eslint-plugin-security'] = security.configs.recommended
-  configs['eslint-plugin-ava'] = ava.configs.recommended
-  configs['eslint-plugin-flowtype'] = flowtype.configs.recommended
-  configs['eslint-plugin-unicorn'] = unicorn.configs.recommended
-  configs['eslint-plugin-jest'] = jest.configs.recommended
-
-  const rules = new Rules()
-  const deprecatedRules = _.filter(Object.keys(loadRules()), id => {
-    const r = rules.get(id)
-    return r && r.meta.deprecated
-  })
-  return _.mapValues(configs, config =>
-    Object.assign(config, {
-      rules: _.omit(_.mapValues(config.rules, prettifyRule), deprecatedRules),
-    })
-  )
-}
-
-function buildConciseConfig(configs = loadEslintConfigs()) {
+function buildConciseConfig(configs) {
   const combinedRules = [
     'eslint-config-jquery',
     'eslint-config-javascript',
@@ -138,7 +110,7 @@ function genConcise(configs) {
   )
 }
 
-function genConciseAva(configs = loadEslintConfigs()) {
+function genConciseAva(configs) {
   const plugins = ['ava']
   const combinedRules = [
     'eslint-config-canonical',
@@ -162,7 +134,7 @@ function genConciseAva(configs = loadEslintConfigs()) {
   return writeJsFile('packages/eslint-config-concise-ava/eslintrc.json', config)
 }
 
-function genConciseEsnext(configs = loadEslintConfigs()) {
+function genConciseEsnext(configs) {
   const plugins = ['babel']
   const config = {
     parserOptions: configs['eslint-config-standard'].parserOptions,
@@ -183,7 +155,7 @@ function genConciseEsnext(configs = loadEslintConfigs()) {
   )
 }
 
-function genConciseFlow(configs = loadEslintConfigs()) {
+function genConciseFlow(configs) {
   const plugins = ['flowtype']
   const combinedRules = ['eslint-plugin-flowtype']
     .map(configKey =>
@@ -206,7 +178,7 @@ function genConciseFlow(configs = loadEslintConfigs()) {
   )
 }
 
-function genConciseJest(configs = loadEslintConfigs()) {
+function genConciseJest(configs) {
   const plugins = ['jest']
   const combinedRules = ['eslint-plugin-jest']
     .map(configKey =>
@@ -230,7 +202,7 @@ function genConciseJest(configs = loadEslintConfigs()) {
   )
 }
 
-function genConciseImport(configs = loadEslintConfigs()) {
+function genConciseImport(configs) {
   const plugins = ['import']
   const combinedRules = ['eslint-config-airbnb-base']
     .map(configKey =>
@@ -258,7 +230,7 @@ function genConciseImport(configs = loadEslintConfigs()) {
   )
 }
 
-function genConciseReact(configs = loadEslintConfigs()) {
+function genConciseReact(configs) {
   const plugins = ['jsx-a11y', 'react']
   const combinedRules = [
     'eslint-config-react-app',
@@ -298,7 +270,7 @@ async function genConciseStyle() {
 }
 
 module.exports = {
-  loadEslintConfigs,
+  loadConfigs,
   buildConciseConfig,
   genConcise,
   genConciseAva,
@@ -309,7 +281,7 @@ module.exports = {
 }
 
 async function main() {
-  const configs = await loadEslintConfigs()
+  const configs = await loadConfigs()
   return Promise.all(
     [
       genConcise,
@@ -324,5 +296,8 @@ async function main() {
 }
 
 if (require.main === module) {
-  main()
+  main().catch(err => {
+    console.trace(err)
+    process.exit(-1)
+  })
 }

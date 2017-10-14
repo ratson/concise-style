@@ -2,7 +2,7 @@
 
 const loadConfigs = require('./load-configs')
 
-describe('load-configs', () => {
+describe('loadConfigs', () => {
   let configs
 
   beforeAll(async () => {
@@ -17,5 +17,20 @@ describe('load-configs', () => {
 
   it('has readable-code rules', () => {
     expect(configs['readable-code'].rules['global-require']).toBe('off')
+  })
+
+  it('has ava plugin recommended rules', () => {
+    expect(configs['eslint-plugin-ava'].rules['ava/assertion-arguments']).toBe(
+      'error'
+    )
+  })
+})
+
+describe('loadDeprecatedRules', () => {
+  const { loadDeprecatedRules } = loadConfigs
+  const deprecatedRules = loadDeprecatedRules()
+
+  it('has deprecated rules', () => {
+    expect(deprecatedRules).toContain('indent-legacy')
   })
 })
