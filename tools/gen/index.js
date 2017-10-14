@@ -15,32 +15,12 @@ const flowtype = require('eslint-plugin-flowtype')
 const unicorn = require('eslint-plugin-unicorn')
 const jest = require('eslint-plugin-jest')
 
-const { getEslintConfig, prettifyRule, writeJsFile } = require('./utils')
+const { getEslintConfig, prettifyRule, writeJsFile } = require('../utils')
 
-function loadEslintConfigs() {
-  const configs = [
-    'eslint-config-airbnb-base',
-    'eslint-config-airbnb',
-    'eslint-config-canonical',
-    'eslint-config-ebay',
-    'eslint-config-fbjs',
-    'eslint-config-google',
-    'eslint-config-javascript',
-    'eslint-config-jquery',
-    'eslint-config-mysticatea',
-    'eslint-config-prettier',
-    'eslint-config-react-app',
-    'eslint-config-simplifield',
-    'eslint-config-standard',
-    'eslint-config-videoamp-node',
-    'eslint-config-xo-react',
-    'eslint-config-xo',
-  ].reduce((r, configFile) => {
-    const config = getEslintConfig(configFile)
-    return Object.assign(r, {
-      [configFile]: config,
-    })
-  }, {})
+const loadConfigs = require('./load-configs')
+
+async function loadEslintConfigs() {
+  const configs = await loadConfigs()
 
   configs['readable-code'] = getEslintConfig(
     require.resolve('readable-code/.eslintrc.yml')
@@ -162,10 +142,10 @@ function buildConciseConfig(configs = loadEslintConfigs()) {
   }
 }
 
-function genConcise() {
+function genConcise(configs) {
   return writeJsFile(
     'packages/eslint-config-concise/eslintrc.json',
-    buildConciseConfig()
+    buildConciseConfig(configs)
   )
 }
 
@@ -339,16 +319,19 @@ module.exports = {
   genConciseStyle,
 }
 
-function main() {
-  [
-    genConcise,
-    genConciseAva,
-    genConciseEsnext,
-    genConciseFlow,
-    genConciseImport,
-    genConciseJest,
-    genConciseReact,
-  ].forEach(f => f())
+async function main() {
+  const configs = await loadEslintConfigs()
+  return Promise.all(
+    [
+      genConcise,
+      genConciseAva,
+      genConciseEsnext,
+      genConciseFlow,
+      genConciseImport,
+      genConciseJest,
+      genConciseReact,
+    ].map(f => f(configs))
+  )
 }
 
 if (require.main === module) {
