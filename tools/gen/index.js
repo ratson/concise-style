@@ -14,7 +14,7 @@ function buildConciseConfig(configs) {
     'eslint-config-javascript',
     'eslint-config-simplifield',
     'eslint-config-simplifield/backend',
-    'eslint-recommended',
+    'eslint/recommended',
     'eslint-config-standard',
     'eslint-config-canonical',
     'eslint-config-videoamp-node',
@@ -31,7 +31,7 @@ function buildConciseConfig(configs) {
         ['eslint-config-mysticatea', ['comma-dangle', 'semi-style']],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens']],
-        ['eslint-recommended', ['no-bitwise', 'function-paren-newline']],
+        ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
       ].map(([k, rules]) => _.pick(configs[k].rules, rules))
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
@@ -143,7 +143,7 @@ function genConciseEsnext(configs) {
       {
         'babel/object-curly-spacing': ['error', 'always'],
       },
-      _.pick(configs['eslint-recommended'].rules, [
+      _.pick(configs['eslint/recommended'].rules, [
         'strict',
         'object-curly-spacing',
       ])
@@ -297,7 +297,9 @@ async function main() {
 
 if (require.main === module) {
   main().catch(err => {
+    // eslint-disable-next-line no-console
     console.trace(err)
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(-1)
   })
 }

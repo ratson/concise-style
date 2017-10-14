@@ -7,10 +7,10 @@ import { lintFile } from './_utils'
 
 const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
 const conciseEsnextConfigFile = require.resolve(
-  '../packages/eslint-config-concise-esnext',
+  '../packages/eslint-config-concise-esnext'
 )
 const conciseReactConfigFile = require.resolve(
-  '../packages/eslint-config-concise-react',
+  '../packages/eslint-config-concise-react'
 )
 
 const lintConfigs = {
@@ -51,7 +51,7 @@ const lintConfigs = {
 function lintConciseGood(t, configKey, filename) {
   const { results } = lintFile(
     require.resolve(filename),
-    lintConfigs[configKey],
+    lintConfigs[configKey]
   )
   const { messages } = results[0]
   t.true(messages.length === 0)
@@ -72,7 +72,7 @@ globby
     ],
     {
       cwd: __dirname,
-    },
+    }
   )
   .forEach(filename => {
     const configKey = path.basename(path.dirname(filename))
