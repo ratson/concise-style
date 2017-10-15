@@ -2,6 +2,7 @@
 
 const _ = require('lodash')
 
+const exit = require('promise-exit')
 const xoReact = require('eslint-config-xo-react')
 
 const { writeJsFile } = require('../utils')
@@ -296,10 +297,5 @@ async function main() {
 }
 
 if (require.main === module) {
-  main().catch(err => {
-    // eslint-disable-next-line no-console
-    console.trace(err)
-    // eslint-disable-next-line unicorn/no-process-exit
-    process.exit(-1)
-  })
+  exit(main)
 }

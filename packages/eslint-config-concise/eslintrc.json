@@ -145,6 +145,7 @@
     ],
     "linebreak-style": ["error", "unix"],
     "lines-around-comment": "off",
+    "lines-between-class-members": "off",
     "max-depth": ["off", 4],
     "max-len": [
       "error",
@@ -166,6 +167,7 @@
     "max-params": ["off", 3],
     "max-statements": ["off", 10],
     "max-statements-per-line": ["off", { "max": 1 }],
+    "multiline-comment-style": "off",
     "multiline-ternary": ["off", "never"],
     "mysticatea/block-scoped-var": "off",
     "mysticatea/no-instanceof-array": "error",

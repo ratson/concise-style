@@ -18,7 +18,7 @@
     "ava": "^0.22.0",
     "babel-plugin-module-resolver": "^3.0.0-beta.5",
     "del-cli": "^1.1.0",
-    "eslint": "^4.8.0",
+    "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-config-airbnb-base": "^12.0.2",
     "eslint-config-algolia": "^13.0.0-beta.1",
@@ -88,6 +88,7 @@
     "mz": "^2.7.0",
     "npm-run-all": "^4.1.1",
     "prettier": "^1.7.4",
+    "promise-exit": "^0.0.2",
     "readable-code": "^3.4.14",
     "temp-write": "^3.3.0",
     "yargs": "^9.0.1"
