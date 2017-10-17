@@ -14,7 +14,7 @@
   ],
   "rules": {
     "accessor-pairs": "off",
-    "array-bracket-newline": ["off", { "minItems": 3, "multiline": true }],
+    "array-bracket-newline": ["off", "consistent"],
     "array-bracket-spacing": ["error", "never"],
     "array-callback-return": "error",
     "array-element-newline": ["off", { "minItems": 3, "multiline": true }],
@@ -145,7 +145,11 @@
     ],
     "linebreak-style": ["error", "unix"],
     "lines-around-comment": "off",
-    "lines-between-class-members": "off",
+    "lines-between-class-members": [
+      "off",
+      "always",
+      { "exceptAfterSingleLine": false }
+    ],
     "max-depth": ["off", 4],
     "max-len": [
       "error",
@@ -167,7 +171,7 @@
     "max-params": ["off", 3],
     "max-statements": ["off", 10],
     "max-statements-per-line": ["off", { "max": 1 }],
-    "multiline-comment-style": "off",
+    "multiline-comment-style": ["off", "starred-block"],
     "multiline-ternary": ["off", "never"],
     "mysticatea/block-scoped-var": "off",
     "mysticatea/no-instanceof-array": "error",
@@ -214,7 +218,7 @@
     "no-dupe-keys": "error",
     "no-duplicate-case": "error",
     "no-duplicate-imports": "off",
-    "no-else-return": "error",
+    "no-else-return": ["error", { "allowElseIf": true }],
     "no-empty": "error",
     "no-empty-character-class": "error",
     "no-empty-function": [
