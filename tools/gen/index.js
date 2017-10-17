@@ -8,8 +8,9 @@ const xoReact = require('eslint-config-xo-react')
 const { writeJsFile } = require('../utils')
 
 const loadConfigs = require('./load-configs')
+const collectPackagesInfo = require('./pkgs-info')
 
-function buildConciseConfig(configs) {
+function buildConciseConfig(configs, pkgs) {
   const combinedRules = [
     'eslint-config-jquery',
     'eslint-config-javascript',
@@ -36,17 +37,7 @@ function buildConciseConfig(configs) {
       ].map(([k, rules]) => _.pick(configs[k].rules, rules))
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
-  const plugins = [
-    'eslint-comments',
-    'html',
-    'jsdoc',
-    'markdown',
-    'mysticatea',
-    'node',
-    'promise',
-    'security',
-    'unicorn',
-  ]
+  const { plugins } = pkgs.concise
   return {
     parserOptions: {
       ecmaVersion: 8,
@@ -104,15 +95,15 @@ function buildConciseConfig(configs) {
   }
 }
 
-function genConcise(configs) {
+function genConcise(configs, pkgs) {
   return writeJsFile(
     'packages/eslint-config-concise/eslintrc.json',
-    buildConciseConfig(configs)
+    buildConciseConfig(configs, pkgs)
   )
 }
 
-function genConciseAva(configs) {
-  const plugins = ['ava']
+function genConciseAva(configs, pkgs) {
+  const { plugins } = pkgs['concise-ava']
   const combinedRules = [
     'eslint-config-canonical',
     'eslint-plugin-shopify',
@@ -135,8 +126,8 @@ function genConciseAva(configs) {
   return writeJsFile('packages/eslint-config-concise-ava/eslintrc.json', config)
 }
 
-function genConciseEsnext(configs) {
-  const plugins = ['babel']
+function genConciseEsnext(configs, pkgs) {
+  const { plugins } = pkgs['concise-esnext']
   const config = {
     parserOptions: configs['eslint-config-standard'].parserOptions,
     plugins,
@@ -156,8 +147,8 @@ function genConciseEsnext(configs) {
   )
 }
 
-function genConciseFlow(configs) {
-  const plugins = ['flowtype']
+function genConciseFlow(configs, pkgs) {
+  const { plugins } = pkgs['concise-flow']
   const combinedRules = ['eslint-plugin-flowtype']
     .map(configKey =>
       _.pickBy(configs[configKey].rules, (v, k) => {
@@ -179,8 +170,8 @@ function genConciseFlow(configs) {
   )
 }
 
-function genConciseJest(configs) {
-  const plugins = ['jest']
+function genConciseJest(configs, pkgs) {
+  const { plugins } = pkgs['concise-jest']
   const combinedRules = ['eslint-plugin-jest']
     .map(configKey =>
       _.pickBy(configs[configKey].rules, (v, k) => {
@@ -203,8 +194,8 @@ function genConciseJest(configs) {
   )
 }
 
-function genConciseImport(configs) {
-  const plugins = ['import']
+function genConciseImport(configs, pkgs) {
+  const { plugins } = pkgs['concise-import']
   const combinedRules = ['eslint-config-airbnb-base']
     .map(configKey =>
       _.pickBy(configs[configKey].rules, (v, k) => {
@@ -231,8 +222,8 @@ function genConciseImport(configs) {
   )
 }
 
-function genConciseReact(configs) {
-  const plugins = ['jsx-a11y', 'react']
+function genConciseReact(configs, pkgs) {
+  const { plugins } = pkgs['concise-react']
   const combinedRules = [
     'eslint-config-react-app',
     'eslint-plugin-shopify',
@@ -283,6 +274,7 @@ module.exports = {
 
 async function main() {
   const configs = await loadConfigs()
+  const pkgs = await collectPackagesInfo()
   return Promise.all(
     [
       genConcise,
@@ -292,7 +284,7 @@ async function main() {
       genConciseImport,
       genConciseJest,
       genConciseReact,
-    ].map(f => f(configs))
+    ].map(f => f(configs, pkgs))
   )
 }
 

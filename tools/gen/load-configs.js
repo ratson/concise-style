@@ -7,6 +7,7 @@ const loadRules = require('eslint/lib/load-rules')
 const Rules = require('eslint/lib/rules')
 
 const { getEslintConfig, prettifyRule } = require('../utils')
+const { isEslintPlugin } = require('./utils')
 
 const loadDeprecatedRules = () => {
   const rules = new Rules()
@@ -20,9 +21,7 @@ module.exports = async () => {
   const { pkg: { devDependencies } } = await readPkgUp(__dirname)
   const configs = Object.keys(devDependencies)
     .filter(
-      dep =>
-        _.startsWith(dep, 'eslint-plugin-') &&
-        !['eslint-plugin-local'].includes(dep)
+      dep => isEslintPlugin(dep) && !['eslint-plugin-local'].includes(dep)
     )
     .reduce(
       (acc, configName) =>
