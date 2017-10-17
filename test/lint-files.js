@@ -1,5 +1,6 @@
 import path from 'path'
 
+import _ from 'lodash'
 import test from 'ava'
 import globby from 'globby'
 
@@ -7,51 +8,54 @@ import { lintFile } from './_utils'
 
 const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
 const conciseEsnextConfigFile = require.resolve(
-  '../packages/eslint-config-concise-esnext'
+  '../packages/eslint-config-concise-esnext',
 )
 const conciseReactConfigFile = require.resolve(
-  '../packages/eslint-config-concise-react'
+  '../packages/eslint-config-concise-react',
 )
 
-const lintConfigs = {
-  concise: {
-    configFile: conciseConfigFile,
-  },
-  'concise-ava': {
-    config: {
-      extends: [
-        conciseConfigFile,
-        conciseEsnextConfigFile,
-        require.resolve('../packages/eslint-config-concise-ava'),
-      ],
-      rules: {
-        'ava/no-ignored-test-files': 'off',
+const lintConfigs = _.mapValues(
+  {
+    concise: {
+      configFile: conciseConfigFile,
+    },
+    'concise-ava': {
+      config: {
+        extends: [
+          conciseConfigFile,
+          conciseEsnextConfigFile,
+          require.resolve('../packages/eslint-config-concise-ava'),
+        ],
+        rules: {
+          'ava/no-ignored-test-files': 'off',
+        },
+      },
+    },
+    'concise-esnext': {
+      config: {
+        extends: [conciseConfigFile, conciseEsnextConfigFile],
+      },
+    },
+    'concise-react': {
+      config: {
+        env: {
+          browser: true,
+        },
+        extends: [
+          conciseConfigFile,
+          conciseEsnextConfigFile,
+          conciseReactConfigFile,
+        ],
       },
     },
   },
-  'concise-esnext': {
-    config: {
-      extends: [conciseConfigFile, conciseEsnextConfigFile],
-    },
-  },
-  'concise-react': {
-    config: {
-      env: {
-        browser: true,
-      },
-      extends: [
-        conciseConfigFile,
-        conciseEsnextConfigFile,
-        conciseReactConfigFile,
-      ],
-    },
-  },
-}
+  x => Object.assign(x, { root: true }),
+)
 
 function lintConciseGood(t, configKey, filename) {
   const { results } = lintFile(
     require.resolve(filename),
-    lintConfigs[configKey]
+    lintConfigs[configKey],
   )
   const { messages } = results[0]
   t.true(messages.length === 0)
@@ -72,7 +76,7 @@ globby
     ],
     {
       cwd: __dirname,
-    }
+    },
   )
   .forEach(filename => {
     const configKey = path.basename(path.dirname(filename))

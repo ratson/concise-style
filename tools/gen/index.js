@@ -135,6 +135,7 @@ function genConciseEsnext(configs, pkgs) {
       {
         'babel/object-curly-spacing': ['error', 'always'],
       },
+      _.pick(configs['eslint-config-airbnb'].rules, ['comma-dangle']),
       _.pick(configs['eslint/recommended'].rules, [
         'strict',
         'object-curly-spacing',

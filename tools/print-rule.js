@@ -6,6 +6,7 @@ const yargs = require('yargs')
 
 const { buildConciseConfig } = require('./gen')
 const loadConfigs = require('./gen/load-configs')
+const collectPackagesInfo = require('./gen/pkgs-info')
 
 const conciseImportConfig = require('../packages/eslint-config-concise-import')
 const conciseReactConfig = require('../packages/eslint-config-concise-react')
@@ -39,11 +40,12 @@ async function main() {
     .alias('h', 'help')
     .recommendCommands()
   const configs = await loadConfigs()
+  const pkgs = await collectPackagesInfo()
   const { env, parserOptions, rule } = argv
 
   const named = _.mapValues(
     Object.assign({}, configs, {
-      concise: buildConciseConfig(configs),
+      concise: buildConciseConfig(configs, pkgs),
       'concise-import': conciseImportConfig,
       'concise-react': conciseReactConfig,
     }),
