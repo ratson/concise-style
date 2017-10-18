@@ -32,7 +32,7 @@ function buildConciseConfig(configs, pkgs) {
       [
         ['eslint-config-mysticatea', ['comma-dangle', 'semi-style']],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
-        ['eslint-config-xo', ['arrow-parens']],
+        ['eslint-config-xo', ['arrow-parens', 'no-empty']],
         ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
       ].map(([k, rules]) => _.pick(configs[k].rules, rules))
     )
