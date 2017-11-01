@@ -245,13 +245,18 @@ function genConciseReact(configs, pkgs) {
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, xoReact, {
     plugins,
-    rules: _.omit(combinedRules, [
-      'jsx-a11y/href-no-hash',
-      'react/jsx-curly-spacing',
-      'react/jsx-filename-extension',
-      'react/jsx-wrap-multilines',
-      'react/prop-types',
-    ]),
+    rules: Object.assign(
+      _.omit(combinedRules, [
+        'jsx-a11y/href-no-hash',
+        'react/jsx-curly-spacing',
+        'react/jsx-filename-extension',
+        'react/jsx-wrap-multilines',
+        'react/prop-types',
+      ]),
+      _.pick(configs['eslint-config-react-tools'].rules, [
+        'class-methods-use-this',
+      ])
+    ),
   })
   return writeJsFile(
     'packages/eslint-config-concise-react/eslintrc.json',

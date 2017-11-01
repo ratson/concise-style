@@ -2,6 +2,24 @@
   "parserOptions": { "ecmaFeatures": { "jsx": true } },
   "plugins": ["jsx-a11y", "react"],
   "rules": {
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "render",
+          "getInitialState",
+          "getDefaultProps",
+          "getChildContext",
+          "componentWillMount",
+          "componentDidMount",
+          "componentWillReceiveProps",
+          "shouldComponentUpdate",
+          "componentWillUpdate",
+          "componentDidUpdate",
+          "componentWillUnmount"
+        ]
+      }
+    ],
     "jsx-a11y/accessible-emoji": "error",
     "jsx-a11y/alt-text": [
       "error",
