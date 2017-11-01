@@ -49,7 +49,7 @@ module.exports = async () => {
       'eslint-config-canonical/jest',
       'eslint-config-canonical/react',
       'eslint-config-umbrellio/jest',
-      ['eslint-plugin-shopify', 'eslint-plugin-shopify/lib/config/all'],
+      ['eslint-plugin-shopify', 'eslint-plugin-shopify/lib/config/esnext'],
       ['eslint/recommended', 'eslint/conf/eslint-recommended'],
       ['readable-code', 'readable-code/.eslintrc.yml'],
       [
