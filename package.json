@@ -80,7 +80,7 @@
     "eslint-plugin-unicorn": "^3.0.0",
     "eslint-plugin-variables": "^1.0.1",
     "execa": "^0.8.0",
-    "globby": "^6.1.0",
+    "globby": "^7.0.0",
     "jest": "^21.2.1",
     "json-stringify-deterministic": "^1.0.1",
     "lerna": "^2.5.1",
