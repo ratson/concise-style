@@ -26,7 +26,6 @@ module.exports = async () => {
     .reduce(
       (acc, configName) =>
         Object.assign(acc, {
-          // eslint-disable-next-line max-len
           // eslint-disable-next-line global-require,security/detect-non-literal-require
           [configName]: _.get(require(configName), 'configs.recommended'),
         }),

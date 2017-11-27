@@ -81,6 +81,7 @@ function buildConciseConfig(configs, pkgs) {
           'error',
           Object.assign(_.last(combinedRules['max-len']), {
             code: 80,
+            ignoreComments: true,
             tabWidth: 2,
           }),
         ],

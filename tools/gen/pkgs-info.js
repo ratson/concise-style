@@ -20,7 +20,6 @@ module.exports = async () =>
       nodir: false,
     }),
     (acc, p) => {
-      // eslint-disable-next-line max-len
       // eslint-disable-next-line global-require,security/detect-non-literal-require
       const pkg = require(Path.join(p, 'package.json'))
       const key = pkg.name.replace('eslint-config-', '')
