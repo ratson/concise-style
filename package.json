@@ -8,7 +8,7 @@
     "build": "node tools/gen",
     "lint": "run-s lint:*",
     "lint:csc": "node packages/csc/lib/cli.js",
-    "lint:eslint": "eslint --ignore-path .gitignore .",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern test/fixtures .",
     "test": "run-p test:* lint:*",
     "test:ava": "ava",
     "test:jest": "jest",
