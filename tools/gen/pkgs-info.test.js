@@ -6,6 +6,7 @@ describe('collectPackagesInfo', () => {
   let info
 
   beforeAll(async () => {
+    // eslint-disable-next-line no-console
     info = await collectPackagesInfo().catch(console.trace)
   })
 

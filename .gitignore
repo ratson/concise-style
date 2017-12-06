@@ -20,5 +20,6 @@ Thumbs.db
 # Project Specific
 node_modules
 *.log
+*.dump
 tmp
 package-lock.json
