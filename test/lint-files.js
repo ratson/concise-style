@@ -10,6 +10,9 @@ const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
 const conciseEsnextConfigFile = require.resolve(
   '../packages/eslint-config-concise-esnext',
 )
+const conciseFlowConfigFile = require.resolve(
+  '../packages/eslint-config-concise-flow',
+)
 const conciseReactConfigFile = require.resolve(
   '../packages/eslint-config-concise-react',
 )
@@ -34,6 +37,15 @@ const lintConfigs = _.mapValues(
     'concise-esnext': {
       config: {
         extends: [conciseConfigFile, conciseEsnextConfigFile],
+      },
+    },
+    'concise-flow': {
+      config: {
+        extends: [
+          conciseConfigFile,
+          conciseEsnextConfigFile,
+          conciseFlowConfigFile,
+        ],
       },
     },
     'concise-react': {
@@ -67,17 +79,9 @@ lintConciseGood.title = (providedTitle, configKey, filename) => {
 }
 
 globby
-  .sync(
-    [
-      './fixtures/concise/good-*.js',
-      './fixtures/concise-ava/good-*.js',
-      './fixtures/concise-esnext/good-*.js',
-      './fixtures/concise-react/good-*.js',
-    ],
-    {
-      cwd: __dirname,
-    },
-  )
+  .sync(['./fixtures/concise/good-*.js', './fixtures/concise-*/good-*.js'], {
+    cwd: __dirname,
+  })
   .forEach(filename => {
     const configKey = path.basename(path.dirname(filename))
     test(lintConciseGood, configKey, filename)

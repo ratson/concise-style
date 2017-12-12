@@ -4,6 +4,7 @@ import tempWrite from 'temp-write'
 function buildLinter(configFile) {
   return new eslint.CLIEngine({
     useEslintrc: false,
+    ignore: false,
     configFile,
   })
 }
