@@ -165,7 +165,10 @@ function genConciseFlow(configs, pkgs) {
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
     plugins,
-    rules: Object.assign(combinedRules),
+    rules: Object.assign(
+      combinedRules,
+      _.pick(configs['eslint-config-standard'].rules, ['spaced-comment'])
+    ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-flow/eslintrc.json',

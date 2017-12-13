@@ -17,6 +17,18 @@
     "flowtype/type-id-match": "off",
     "flowtype/union-intersection-spacing": ["error", "always"],
     "flowtype/use-flow-type": "warn",
-    "flowtype/valid-syntax": "warn"
+    "flowtype/valid-syntax": "warn",
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "block": {
+          "balanced": true,
+          "exceptions": ["*"],
+          "markers": ["*package", "!", ",", ":", "::", "flow-include"]
+        },
+        "line": { "markers": ["*package", "!", "/", ","] }
+      }
+    ]
   }
 }
