@@ -27,7 +27,7 @@
           "exceptions": ["*"],
           "markers": ["*package", "!", ",", ":", "::", "flow-include"]
         },
-        "line": { "markers": ["*package", "!", "/", ","] }
+        "line": { "markers": ["*package", "!", "/", ",", "="] }
       }
     ]
   }
