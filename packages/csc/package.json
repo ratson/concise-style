@@ -22,7 +22,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.5.1",
     "has-flag": "^2.0.0",
-    "import-local": "^0.1.1",
+    "import-local": "^1.0.0",
     "inquirer": "^4.0.1",
     "lodash": "^4.17.4",
     "parse-gitignore": "^0.4.0",

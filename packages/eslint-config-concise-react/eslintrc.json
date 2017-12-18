@@ -137,10 +137,12 @@
         "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"
       }
     ],
+    "react/button-has-type": "error",
     "react/default-props-match-prop-types": [
       "error",
       { "allowRequiredDefaults": false }
     ],
+    "react/destructuring-assignment": ["error", "always"],
     "react/display-name": ["off", { "ignoreTranspilerName": false }],
     "react/forbid-component-props": ["off", { "forbid": [] }],
     "react/forbid-elements": ["off", { "forbid": [] }],
@@ -178,6 +180,7 @@
     "react/jsx-no-literals": ["off", { "noStrings": true }],
     "react/jsx-no-target-blank": "error",
     "react/jsx-no-undef": "error",
+    "react/jsx-one-expression-per-line": "error",
     "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
@@ -202,6 +205,7 @@
     ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
+    "react/no-access-state-in-setstate": "error",
     "react/no-array-index-key": "error",
     "react/no-children-prop": "error",
     "react/no-danger": "warn",
