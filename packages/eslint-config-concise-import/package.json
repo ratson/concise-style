@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-import",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "main": "eslintrc.json",
   "description": "Concise ESLint config for import rules.",
   "peerDependencies": {
