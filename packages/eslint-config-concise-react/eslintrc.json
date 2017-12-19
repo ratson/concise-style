@@ -180,7 +180,7 @@
     "react/jsx-no-literals": ["off", { "noStrings": true }],
     "react/jsx-no-target-blank": "error",
     "react/jsx-no-undef": "error",
-    "react/jsx-one-expression-per-line": "error",
+    "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [

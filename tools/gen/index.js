@@ -257,6 +257,9 @@ function genConciseReact(configs, pkgs) {
         'react/jsx-wrap-multilines',
         'react/prop-types',
       ]),
+      _.pick(configs['eslint-config-universe'].rules, [
+        'react/jsx-one-expression-per-line',
+      ]),
       _.pick(configs['eslint-config-react-tools'].rules, [
         'class-methods-use-this',
       ])
