@@ -142,7 +142,6 @@
       "error",
       { "allowRequiredDefaults": false }
     ],
-    "react/destructuring-assignment": ["error", "always"],
     "react/display-name": ["off", { "ignoreTranspilerName": false }],
     "react/forbid-component-props": ["off", { "forbid": [] }],
     "react/forbid-elements": ["off", { "forbid": [] }],

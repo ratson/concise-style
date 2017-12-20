@@ -252,6 +252,7 @@ function genConciseReact(configs, pkgs) {
     rules: Object.assign(
       _.omit(combinedRules, [
         'jsx-a11y/href-no-hash',
+        'react/destructuring-assignment',
         'react/jsx-curly-spacing',
         'react/jsx-filename-extension',
         'react/jsx-wrap-multilines',
