@@ -63,6 +63,7 @@ function buildConciseConfig(configs, pkgs) {
             'security/detect-non-literal-fs-filename',
             'security/detect-object-injection',
             'security/detect-possible-timing-attacks',
+            'unicorn/custom-error-definition',
             'unicorn/filename-case',
             'unicorn/no-abusive-eslint-disable', // in favor of `eslint-comments/no-unlimited-disable`
             'node/shebang', // false-positive

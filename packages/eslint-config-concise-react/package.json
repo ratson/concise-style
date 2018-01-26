@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1"
+    "eslint-plugin-react": "^7.6.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react",
   "license": "MIT",
