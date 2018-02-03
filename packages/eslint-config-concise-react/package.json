@@ -4,13 +4,11 @@
   "main": "eslintrc.json",
   "description": "ESLint config for React be used with eslint-plugin-concise.",
   "peerDependencies": {
-    "eslint": "*",
-    "eslint-plugin-jsx-a11y": "*",
-    "eslint-plugin-react": "*"
+    "eslint": "*"
   },
   "dependencies": {
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.0"
+    "eslint-plugin-react": "^7.6.1"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react",
   "license": "MIT",

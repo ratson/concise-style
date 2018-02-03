@@ -4,14 +4,13 @@
   "main": "eslintrc.json",
   "description": "Concise ESLint config for Jest.",
   "peerDependencies": {
-    "eslint": "*",
-    "eslint-plugin-jest": "*"
+    "eslint": "*"
   },
   "dependencies": {
     "eslint-plugin-jest": "^21.7.0"
   },
   "devDependencies": {
-    "eslint": "^4.16.0"
+    "eslint": "^4.17.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-jest",
   "license": "MIT",

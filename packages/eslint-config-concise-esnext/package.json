@@ -4,15 +4,14 @@
   "main": "index.js",
   "description": "Concise ESLint config using babel-eslint parser.",
   "peerDependencies": {
-    "eslint": "*",
-    "eslint-plugin-babel": "*"
+    "eslint": "*"
   },
   "dependencies": {
     "babel-eslint": "^8.2.1",
     "eslint-plugin-babel": "^4.1.2"
   },
   "devDependencies": {
-    "eslint": "^4.16.0"
+    "eslint": "^4.17.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-esnext",
   "license": "MIT",
