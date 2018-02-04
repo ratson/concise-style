@@ -151,6 +151,7 @@
       { "forbid": ["any", "array", "object"] }
     ],
     "react/jsx-boolean-value": ["error", "never", { "always": [] }],
+    "react/jsx-child-element-spacing": "error",
     "react/jsx-closing-bracket-location": ["error", "line-aligned"],
     "react/jsx-closing-tag-location": "error",
     "react/jsx-curly-brace-presence": [
@@ -220,6 +221,7 @@
     "react/no-render-return-value": "error",
     "react/no-set-state": "off",
     "react/no-string-refs": "error",
+    "react/no-this-in-sfc": "error",
     "react/no-typos": "error",
     "react/no-unescaped-entities": "error",
     "react/no-unknown-property": "error",

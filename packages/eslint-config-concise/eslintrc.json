@@ -678,7 +678,6 @@
     "template-tag-spacing": ["error", "never"],
     "unicode-bom": ["error", "never"],
     "unicorn/catch-error-name": "off",
-    "unicorn/custom-error-definition": "error",
     "unicorn/escape-case": "error",
     "unicorn/explicit-length-check": "error",
     "unicorn/no-array-instanceof": "error",
