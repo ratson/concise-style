@@ -17,7 +17,7 @@ module.exports = async () =>
     await globby('packages/eslint-config-*', {
       cwd: Path.join(__dirname, '../..'),
       absolute: true,
-      nodir: false,
+      onlyFiles: false,
     }),
     (acc, p) => {
       // eslint-disable-next-line global-require,security/detect-non-literal-require

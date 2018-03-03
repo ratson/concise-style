@@ -9,16 +9,16 @@
   "dependencies": {
     "eslint-plugin-eslint-comments": "^2.0.2",
     "eslint-plugin-html": "^4.0.2",
-    "eslint-plugin-jsdoc": "^3.3.1",
+    "eslint-plugin-jsdoc": "^3.5.0",
     "eslint-plugin-markdown": "^1.0.0-beta.7",
     "eslint-plugin-mysticatea": "^4.2.4",
-    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-security": "^1.4.0",
-    "eslint-plugin-unicorn": "^3.0.1"
+    "eslint-plugin-unicorn": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^4.17.0"
+    "eslint": "^4.18.2"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise",
   "license": "MIT",

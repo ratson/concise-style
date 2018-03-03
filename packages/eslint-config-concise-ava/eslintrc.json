@@ -1,6 +1,6 @@
 {
   "env": { "es6": true },
-  "parserOptions": { "ecmaVersion": 2017, "sourceType": "module" },
+  "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
   "plugins": ["ava"],
   "rules": {
     "ava/assertion-arguments": "error",

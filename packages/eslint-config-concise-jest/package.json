@@ -7,10 +7,10 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-jest": "^21.7.0"
+    "eslint-plugin-jest": "^21.12.3"
   },
   "devDependencies": {
-    "eslint": "^4.17.0"
+    "eslint": "^4.18.2"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-jest",
   "license": "MIT",
