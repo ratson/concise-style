@@ -165,6 +165,7 @@ function genConciseFlow(configs, pkgs) {
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
+    parser: 'babel-eslint',
     plugins,
     rules: Object.assign(
       combinedRules,

@@ -13,7 +13,7 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-markdown": "^1.0.0-beta.7",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.6.0"
+    "eslint-plugin-promise": "^3.7.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-control-freak",
   "license": "MIT",
