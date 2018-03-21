@@ -137,7 +137,6 @@
         "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"
       }
     ],
-    "react/button-has-type": "error",
     "react/default-props-match-prop-types": [
       "error",
       { "allowRequiredDefaults": false }
