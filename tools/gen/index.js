@@ -41,7 +41,7 @@ function buildConciseConfig(configs, pkgs) {
   const { plugins } = pkgs.concise
   return {
     parserOptions: {
-      ecmaVersion: 8,
+      ecmaVersion: 2018,
     },
     env: configs['eslint-config-xo'].env,
     plugins,
@@ -132,7 +132,12 @@ function genConciseAva(configs, pkgs) {
 function genConciseEsnext(configs, pkgs) {
   const { plugins } = pkgs['concise-esnext']
   const config = {
-    parserOptions: configs['eslint-config-standard'].parserOptions,
+    parserOptions: {
+      ecmaFeatures: {
+        globalReturn: true,
+      },
+      sourceType: 'module',
+    },
     plugins,
     rules: Object.assign(
       {

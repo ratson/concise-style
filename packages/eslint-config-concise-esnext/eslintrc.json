@@ -1,11 +1,6 @@
 {
   "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "globalReturn": true,
-      "jsx": true
-    },
-    "ecmaVersion": 8,
+    "ecmaFeatures": { "globalReturn": true },
     "sourceType": "module"
   },
   "plugins": ["babel"],
