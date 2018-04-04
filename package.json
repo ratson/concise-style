@@ -27,7 +27,6 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-algolia": "^13.1.0",
     "eslint-config-alloy": "^1.4.1",
-    "eslint-config-anvilabs": "^16.0.1",
     "eslint-config-callstack-io": "^1.1.1",
     "eslint-config-canonical": "^9.3.2",
     "eslint-config-ebay": "^1.0.0",
@@ -50,6 +49,7 @@
     "eslint-config-react-app": "^2.1.0",
     "eslint-config-react-native": "^2.0.0",
     "eslint-config-react-tools": "^1.2.5",
+    "eslint-config-readable": "^1.10.2",
     "eslint-config-simplabs": "^0.4.0",
     "eslint-config-simplifield": "^7.1.0",
     "eslint-config-standard": "^11.0.0",
@@ -103,7 +103,6 @@
     "npm-run-all": "^4.1.2",
     "prettier": "^1.11.1",
     "promise-exit": "^1.0.1",
-    "readable-code": "^3.4.15",
     "temp-write": "^3.4.0",
     "yargs": "^11.0.0"
   },

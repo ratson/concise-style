@@ -37,20 +37,19 @@ module.exports = async () => {
       dep =>
         _.startsWith(dep, 'eslint-config-') &&
         ![
-          'eslint-config-anvilabs',
+          '@anvilabs/eslint-config',
           'eslint-config-get-off-my-lawn',
           'eslint-config-logux',
           'eslint-config-majestic',
         ].includes(dep)
     )
     .concat([
-      'eslint-config-anvilabs/jest',
+      '@anvilabs/eslint-config/jest',
       'eslint-config-canonical/jest',
       'eslint-config-canonical/react',
       'eslint-config-umbrellio/jest',
       ['eslint-plugin-shopify', 'eslint-plugin-shopify/lib/config/esnext'],
       ['eslint/recommended', 'eslint/conf/eslint-recommended'],
-      ['readable-code', 'readable-code/.eslintrc.yml'],
       [
         'eslint-config-simplifield/backend',
         'eslint-config-simplifield/lib/backend',

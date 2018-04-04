@@ -34,7 +34,6 @@ function buildConciseConfig(configs, pkgs) {
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens', 'no-empty']],
         ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
-        ['readable-code', ['node/no-unsupported-features']],
       ].map(([k, rules]) => _.pick(configs[k].rules, rules))
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
@@ -58,6 +57,7 @@ function buildConciseConfig(configs, pkgs) {
             'mysticatea/prefer-for-of',
             'node/no-extraneous-import',
             'node/no-extraneous-require',
+            'node/no-unsupported-features',
             'promise/always-return',
             'promise/catch-or-return',
             'security/detect-non-literal-fs-filename',

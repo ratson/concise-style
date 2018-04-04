@@ -15,8 +15,10 @@ describe('loadConfigs', () => {
     )
   })
 
-  it('has readable-code rules', () => {
-    expect(configs['readable-code'].rules['global-require']).toBe('off')
+  it('has readable rules', () => {
+    expect(configs['eslint-config-readable'].rules['global-require']).toBe(
+      'off'
+    )
   })
 
   it('has ava plugin recommended rules', () => {

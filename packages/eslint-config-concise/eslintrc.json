@@ -545,7 +545,6 @@
     "node/no-unpublished-bin": "error",
     "node/no-unpublished-import": "off",
     "node/no-unpublished-require": "off",
-    "node/no-unsupported-features": "off",
     "node/process-exit-as-throw": "error",
     "nonblock-statement-body-position": "off",
     "object-curly-newline": [
