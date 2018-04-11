@@ -1,0 +1,32 @@
+{
+  "name": "preslint",
+  "version": "0.0.0",
+  "main": "index.js",
+  "description": "prettier-eslint + esLint in one pass.",
+  "bin": "cli.js",
+  "peerDependencies": {
+    "eslint": "*",
+    "prettier-eslint": "*"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "fs-extra": "^5.0.0",
+    "promise-exit": "^1.0.1",
+    "yargs": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/preslint",
+  "license": "MIT",
+  "keywords": [
+    "prettier",
+    "eslint",
+    "prettier-eslint",
+    "cli"
+  ],
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "prettier-eslint": "^8.8.1"
+  }
+}
