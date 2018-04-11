@@ -226,6 +226,7 @@ function genConciseImport(configs, pkgs) {
       combinedRules,
       _.pick(configs['eslint-config-canonical'].rules, [
         'import/no-extraneous-dependencies',
+        'import/prefer-default-export',
       ])
     ),
   }
