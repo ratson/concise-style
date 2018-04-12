@@ -4,6 +4,7 @@
 const execa = require('execa')
 const yargs = require('yargs')
 const exit = require('promise-exit')
+const debug = require('debug')('preslint:cli')
 
 const lint = require('.')
 
@@ -21,6 +22,11 @@ async function main() {
     })
     .help()
   const { fix, files } = argv
+  debug(`linting files: ${files}`)
+  if (!files || files.length === 0) {
+    yargs.showHelp()
+    return
+  }
 
   let results
   try {
