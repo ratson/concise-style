@@ -1,6 +1,6 @@
 {
   "name": "csc",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "description": "Concise Style Checker for JavaScript",
   "bin": "lib/cli.js",
   "dependencies": {

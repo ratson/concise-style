@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-control-freak",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "main": "index.js",
   "description": "Restrictive ESLint config for single style.",
   "dependencies": {
