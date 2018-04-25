@@ -272,6 +272,7 @@ function genConciseReact(configs, pkgs) {
       ]),
       _.pick(configs['eslint-config-react-tools'].rules, [
         'class-methods-use-this',
+        'jsx-a11y/anchor-is-valid',
       ])
     ),
   })

@@ -7,7 +7,7 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-flowtype": "^2.46.1"
+    "eslint-plugin-flowtype": "^2.46.3"
   },
   "devDependencies": {
     "eslint": "^4.19.1"

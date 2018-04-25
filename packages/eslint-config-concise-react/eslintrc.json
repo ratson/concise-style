@@ -34,11 +34,7 @@
     "jsx-a11y/anchor-has-content": ["error", { "components": [] }],
     "jsx-a11y/anchor-is-valid": [
       "error",
-      {
-        "aspects": ["noHref", "invalidHref", "preferButton"],
-        "components": ["Link"],
-        "specialLink": []
-      }
+      { "components": ["Link"], "specialLink": ["to"] }
     ],
     "jsx-a11y/aria-activedescendant-has-tabindex": "error",
     "jsx-a11y/aria-props": "error",
