@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "concise-style-monorepo",
   "scripts": {
     "prepublish": "run-s build test",
     "publish": "lerna publish",
@@ -99,7 +100,7 @@
     "globby": "^8.0.1",
     "jest": "^22.4.3",
     "json-stringify-deterministic": "^1.0.1",
-    "lerna": "^2.11.0",
+    "lerna": "^3.0.0-beta.18",
     "lodash": "^4.17.10",
     "mz": "^2.7.0",
     "npm-run-all": "^4.1.2",
