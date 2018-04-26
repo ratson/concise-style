@@ -86,9 +86,11 @@ function buildConciseConfig(configs, pkgs) {
             tabWidth: 2,
           }),
         ],
-        'no-param-reassign': combinedRules['no-param-reassign'].map((v, i) => {
+        'no-param-reassign': _.cloneDeep(
+          combinedRules['no-param-reassign']
+        ).map((v, i) => {
           if (i === 1) {
-            v.ignorePropertyModificationsFor.push('t')
+            v.ignorePropertyModificationsFor.push('doc', 't')
             v.ignorePropertyModificationsFor.sort()
           }
           return v

@@ -313,6 +313,7 @@
           "$scope",
           "acc",
           "ctx",
+          "doc",
           "e",
           "req",
           "request",
