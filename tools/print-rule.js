@@ -14,7 +14,7 @@ const conciseReactConfig = require('../packages/eslint-config-concise-react')
 /* eslint-disable no-console */
 function printParserOptions(named) {
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['parserOptions']))
+    stringify(_.get(config, ['parserOptions'])),
   )
   _.forEach(grouped, (config, parserOptions) => {
     console.log(parserOptions)
@@ -25,7 +25,7 @@ function printParserOptions(named) {
 
 function printEnv(named) {
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['env']))
+    stringify(_.get(config, ['env'])),
   )
   _.forEach(grouped, (config, env) => {
     console.log(env)
@@ -49,7 +49,7 @@ async function main() {
       'concise-import': conciseImportConfig,
       'concise-react': conciseReactConfig,
     }),
-    (v, k) => Object.assign(v, { name: k })
+    (v, k) => Object.assign(v, { name: k }),
   )
   if (parserOptions) {
     printParserOptions(named)
@@ -61,7 +61,7 @@ async function main() {
   }
 
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['rules', rule]))
+    stringify(_.get(config, ['rules', rule])),
   )
   _.forEach(grouped, (config, ruleValue) => {
     console.log(rule, '=', ruleValue)

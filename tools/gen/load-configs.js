@@ -21,7 +21,7 @@ module.exports = async () => {
   const { pkg: { devDependencies } } = await readPkgUp(__dirname)
   const configs = Object.keys(devDependencies)
     .filter(
-      dep => isEslintPlugin(dep) && !['eslint-plugin-local'].includes(dep)
+      dep => isEslintPlugin(dep) && !['eslint-plugin-local'].includes(dep),
     )
     .reduce(
       (acc, configName) =>
@@ -29,7 +29,7 @@ module.exports = async () => {
           // eslint-disable-next-line global-require,security/detect-non-literal-require
           [configName]: _.get(require(configName), 'configs.recommended'),
         }),
-      {}
+      {},
     )
 
   Object.keys(devDependencies)
@@ -41,7 +41,7 @@ module.exports = async () => {
           'eslint-config-get-off-my-lawn',
           'eslint-config-logux',
           'eslint-config-majestic',
-        ].includes(dep)
+        ].includes(dep),
     )
     .concat([
       '@anvilabs/eslint-config/jest',
@@ -61,7 +61,7 @@ module.exports = async () => {
         Object.assign(acc, {
           [configName]: getEslintConfig(require.resolve(configFile)),
         }),
-      configs
+      configs,
     )
 
   const deprecatedRules = loadDeprecatedRules()
@@ -69,7 +69,7 @@ module.exports = async () => {
   return _.mapValues(_.omitBy(configs, _.isUndefined), config =>
     Object.assign(config, {
       rules: _.omit(_.mapValues(config.rules, prettifyRule), deprecatedRules),
-    })
+    }),
   )
 }
 

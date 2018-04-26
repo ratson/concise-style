@@ -2,9 +2,7 @@
 
 const config = require('./eslintrc.json')
 
-module.exports = Object.assign(
-  {
-    parser: require.resolve('babel-eslint'),
-  },
-  config
-)
+module.exports = {
+  ...config,
+  parser: require.resolve('babel-eslint'),
+}

@@ -29,5 +29,5 @@ module.exports = async () =>
       }
       return acc
     },
-    {}
+    {},
   )

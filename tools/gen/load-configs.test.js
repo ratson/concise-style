@@ -1,38 +1,29 @@
-'use strict'
+import test from 'ava'
 
-const loadConfigs = require('./load-configs')
+import loadConfigs from './load-configs'
 
-describe('loadConfigs', () => {
-  let configs
-
-  beforeAll(async () => {
-    configs = await loadConfigs()
-  })
-
-  it('has airbnb rules', () => {
-    expect(configs['eslint-config-airbnb'].rules['global-require']).toBe(
-      'error'
-    )
-  })
-
-  it('has readable rules', () => {
-    expect(configs['eslint-config-readable'].rules['global-require']).toBe(
-      'off'
-    )
-  })
-
-  it('has ava plugin recommended rules', () => {
-    expect(configs['eslint-plugin-ava'].rules['ava/assertion-arguments']).toBe(
-      'error'
-    )
-  })
+test.beforeEach(async t => {
+  t.context.configs = await loadConfigs()
 })
 
-describe('loadDeprecatedRules', () => {
+test('loadConfigs has airbnb rules', async t => {
+  const { configs } = t.context
+  t.is(configs['eslint-config-airbnb'].rules['global-require'], 'error')
+})
+
+test('loadConfigs has readable rules', async t => {
+  const { configs } = t.context
+  t.is(configs['eslint-config-readable'].rules['global-require'], 'off')
+})
+
+test('loadConfigs has ava plugin recommended rules', async t => {
+  const { configs } = t.context
+  t.is(configs['eslint-plugin-ava'].rules['ava/assertion-arguments'], 'error')
+})
+
+test('loadDeprecatedRules has deprecated rules', t => {
   const { loadDeprecatedRules } = loadConfigs
   const deprecatedRules = loadDeprecatedRules()
 
-  it('has deprecated rules', () => {
-    expect(deprecatedRules).toContain('indent-legacy')
-  })
+  t.true(deprecatedRules.includes('indent-legacy'))
 })

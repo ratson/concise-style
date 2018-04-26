@@ -30,11 +30,11 @@ function buildConciseConfig(configs, pkgs) {
     .map(k => configs[k].rules)
     .concat(
       [
-        ['eslint-config-mysticatea', ['comma-dangle', 'semi-style']],
+        ['eslint-config-mysticatea', ['semi-style']],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens', 'no-empty']],
         ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
-      ].map(([k, rules]) => _.pick(configs[k].rules, rules))
+      ].map(([k, rules]) => _.pick(configs[k].rules, rules)),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const { plugins } = pkgs.concise
@@ -87,7 +87,7 @@ function buildConciseConfig(configs, pkgs) {
           }),
         ],
         'no-param-reassign': _.cloneDeep(
-          combinedRules['no-param-reassign']
+          combinedRules['no-param-reassign'],
         ).map((v, i) => {
           if (i === 1) {
             v.ignorePropertyModificationsFor.push('doc', 't')
@@ -95,7 +95,7 @@ function buildConciseConfig(configs, pkgs) {
           }
           return v
         }),
-      }
+      },
     ),
   }
 }
@@ -103,7 +103,7 @@ function buildConciseConfig(configs, pkgs) {
 function genConcise(configs, pkgs) {
   return writeJsFile(
     'packages/eslint-config-concise/eslintrc.json',
-    buildConciseConfig(configs, pkgs)
+    buildConciseConfig(configs, pkgs),
   )
 }
 
@@ -121,7 +121,7 @@ function genConciseAva(configs, pkgs) {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, configs['eslint-plugin-ava'], {
@@ -145,16 +145,15 @@ function genConciseEsnext(configs, pkgs) {
       {
         'babel/object-curly-spacing': ['error', 'always'],
       },
-      _.pick(configs['eslint-config-airbnb'].rules, ['comma-dangle']),
       _.pick(configs['eslint/recommended'].rules, [
         'strict',
         'object-curly-spacing',
-      ])
+      ]),
     ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-esnext/eslintrc.json',
-    config
+    config,
   )
 }
 
@@ -168,7 +167,7 @@ function genConciseFlow(configs, pkgs) {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
@@ -176,12 +175,12 @@ function genConciseFlow(configs, pkgs) {
     plugins,
     rules: Object.assign(
       combinedRules,
-      _.pick(configs['eslint-config-standard'].rules, ['spaced-comment'])
+      _.pick(configs['eslint-config-standard'].rules, ['spaced-comment']),
     ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-flow/eslintrc.json',
-    config
+    config,
   )
 }
 
@@ -195,7 +194,7 @@ function genConciseJest(configs, pkgs) {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
@@ -205,7 +204,7 @@ function genConciseJest(configs, pkgs) {
   }
   return writeJsFile(
     'packages/eslint-config-concise-jest/eslintrc.json',
-    config
+    config,
   )
 }
 
@@ -219,7 +218,7 @@ function genConciseImport(configs, pkgs) {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = {
@@ -229,12 +228,12 @@ function genConciseImport(configs, pkgs) {
       _.pick(configs['eslint-config-canonical'].rules, [
         'import/no-extraneous-dependencies',
         'import/prefer-default-export',
-      ])
+      ]),
     ),
   }
   return writeJsFile(
     'packages/eslint-config-concise-import/eslintrc.json',
-    config
+    config,
   )
 }
 
@@ -254,7 +253,7 @@ function genConciseReact(configs, pkgs) {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   const config = Object.assign({}, xoReact, {
@@ -275,12 +274,12 @@ function genConciseReact(configs, pkgs) {
       _.pick(configs['eslint-config-react-tools'].rules, [
         'class-methods-use-this',
         'jsx-a11y/anchor-is-valid',
-      ])
+      ]),
     ),
   })
   return writeJsFile(
     'packages/eslint-config-concise-react/eslintrc.json',
-    config
+    config,
   )
 }
 
@@ -311,7 +310,7 @@ async function main() {
       genConciseImport,
       genConciseJest,
       genConciseReact,
-    ].map(f => f(configs, pkgs))
+    ].map(f => f(configs, pkgs)),
   )
 }
 

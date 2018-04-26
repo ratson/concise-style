@@ -4,6 +4,7 @@
     "compat"
   ],
   "rules": {
+    "comma-dangle": ["error", "always-multiline"],
     "compat/compat": "error"
   }
 }
