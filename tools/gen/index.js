@@ -78,6 +78,7 @@ function buildConciseConfig(configs, pkgs) {
         return plugins.includes(parts[0])
       }),
       {
+        'eslint-comments/no-unlimited-disable': 'warn',
         'max-len': [
           'error',
           Object.assign(_.last(combinedRules['max-len']), {
