@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import loadConfigs from './load-configs'
+import loadConfigs, { loadDeprecatedRules } from './load-configs'
 
 test.beforeEach(async t => {
   t.context.configs = await loadConfigs()
@@ -22,7 +22,6 @@ test('loadConfigs has ava plugin recommended rules', async t => {
 })
 
 test('loadDeprecatedRules has deprecated rules', t => {
-  const { loadDeprecatedRules } = loadConfigs
   const deprecatedRules = loadDeprecatedRules()
 
   t.true(deprecatedRules.includes('indent-legacy'))

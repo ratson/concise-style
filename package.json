@@ -5,13 +5,13 @@
     "prepublish": "run-s build test",
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
-    "build": "node tools/gen",
+    "build": "node --experimental-modules scripts/build",
     "lint": "run-s lint:*",
     "lint:csc": "node packages/csc/lib/cli.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern test/fixtures .",
     "test": "run-p test:* lint:*",
     "test:ava": "ava",
-    "print-rule": "node tools/print-rule.js"
+    "print-rule": "node --experimental-modules scripts/print-rule"
   },
   "devDependencies": {
     "@anvilabs/eslint-config": "^17.5.2",
@@ -19,7 +19,7 @@
     "@researchgate/eslint-config-rg-react": "^2.0.1",
     "@scottnonnenberg/eslint-compare-config": "^1.0.1",
     "@scottnonnenberg/eslint-config-thehelp": "^0.8.0",
-    "ava": "^0.25.0",
+    "ava": "^1.0.0-beta.4",
     "babel-plugin-module-resolver": "^3.1.1",
     "del-cli": "^1.1.0",
     "eslint": "^4.19.1",
@@ -77,7 +77,7 @@
     "eslint-plugin-flowtype-errors": "^3.5.1",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-github": "^1.0.0",
-    "eslint-plugin-graphql": "^2.1.0",
+    "eslint-plugin-graphql": "^2.1.1",
     "eslint-plugin-html": "^4.0.3",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jest": "^21.15.1",
@@ -105,6 +105,8 @@
     "eslint-plugin-variables": "^1.0.3",
     "eslint-plugin-xss": "^0.1.9",
     "eslint-watch": "^3.1.4",
+    "esm": "^3.0.28",
+    "esmeta": "^0.1.0",
     "esprint": "^0.4.0",
     "execa": "^0.10.0",
     "globby": "^8.0.1",
@@ -114,12 +116,20 @@
     "mz": "^2.7.0",
     "npm-run-all": "^4.1.2",
     "prettier": "^1.12.1",
+    "prettier-eslint-cli": "^4.7.1",
     "promise-exit": "^1.0.1",
     "temp-write": "^3.4.0",
     "yargs": "^11.0.0"
   },
   "ava": {
-    "concurrency": 4
+    "babel": false,
+    "require": [
+      "esm"
+    ],
+    "sources": [
+      "**/*.js",
+      "**/*.mjs"
+    ]
   },
   "workspaces": [
     "packages/*"

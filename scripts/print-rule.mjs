@@ -1,15 +1,12 @@
-'use strict'
-
-const _ = require('lodash')
-const stringify = require('json-stringify-deterministic')
-const yargs = require('yargs')
-
-const { buildConciseConfig } = require('./gen')
-const loadConfigs = require('./gen/load-configs')
-const collectPackagesInfo = require('./gen/pkgs-info')
-
-const conciseImportConfig = require('../packages/eslint-config-concise-import')
-const conciseReactConfig = require('../packages/eslint-config-concise-react')
+import stringify from 'json-stringify-deterministic'
+import _ from 'lodash'
+import exit from 'promise-exit'
+import yargs from 'yargs'
+import { build as buildConciseConfig } from './build/builders/concise'
+import conciseImportConfig from '../packages/eslint-config-concise-import'
+import conciseReactConfig from '../packages/eslint-config-concise-react'
+import loadConfigs from './build/load-configs'
+import collectPackagesInfo from './build/pkgs-info'
 
 /* eslint-disable no-console */
 function printParserOptions(named) {
@@ -71,6 +68,4 @@ async function main() {
 }
 /* eslint-enable no-console */
 
-if (require.main === module) {
-  main()
-}
+exit(main)

@@ -3,7 +3,11 @@
   "rules": {
     "import/default": "off",
     "import/export": "error",
-    "import/extensions": ["error", "always", { "js": "never", "jsx": "never" }],
+    "import/extensions": [
+      "error",
+      "always",
+      { "js": "never", "jsx": "never", "mjs": "never" }
+    ],
     "import/first": ["error", "absolute-first"],
     "import/imports-first": "off",
     "import/max-dependencies": ["off", { "max": 10 }],
@@ -50,7 +54,7 @@
     ],
     "import/no-webpack-loader-syntax": "error",
     "import/order": [
-      "off",
+      "warn",
       {
         "groups": [
           "builtin",
@@ -60,7 +64,7 @@
           "sibling",
           "index"
         ],
-        "newlines-between": "never"
+        "newlines-between": "ignore"
       }
     ],
     "import/prefer-default-export": "warn",
