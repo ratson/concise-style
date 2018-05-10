@@ -1,6 +1,6 @@
 import Bluebird from 'bluebird'
 import esmeta from 'esmeta'
-import fs from 'fs/promises'
+import FS from 'fs'
 import globby from 'globby'
 import stringify from 'json-stringify-deterministic'
 import Path from 'path'
@@ -9,6 +9,7 @@ import exit from 'promise-exit'
 import loadConfigs from './load-configs'
 import collectPackagesInfo from './pkgs-info'
 
+const fs = FS.promises
 const importMeta = esmeta(import.meta)
 
 function writeJsFile(filePath, config) {

@@ -8,7 +8,7 @@
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
     "eslint": "^4.19.1",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^6.0.1",
     "prettier-eslint": "^8.8.1",
     "promise-exit": "^1.0.1",
     "yargs": "^11.0.0"
