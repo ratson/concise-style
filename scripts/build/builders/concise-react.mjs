@@ -33,6 +33,10 @@ export const build = (configs, pkgs) => {
         'react/jsx-filename-extension',
         'react/jsx-wrap-multilines',
         'react/prop-types',
+        // invalid rules
+        'react/default-props-match-prop-types ',
+        'react/react/jsx-closing-tag-location',
+        'react/react/no-redundant-should-component-update',
       ]),
       _.pick(configs['eslint-config-universe'].rules, [
         'react/jsx-one-expression-per-line',

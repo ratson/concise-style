@@ -139,6 +139,7 @@
     ],
     "react/display-name": ["off", { "ignoreTranspilerName": false }],
     "react/forbid-component-props": ["off", { "forbid": [] }],
+    "react/forbid-dom-props": "off",
     "react/forbid-elements": ["off", { "forbid": [] }],
     "react/forbid-foreign-prop-types": "off",
     "react/forbid-prop-types": [
@@ -177,6 +178,7 @@
     "react/jsx-no-undef": "error",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
+    "react/jsx-sort-default-props": "error",
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
       "off",

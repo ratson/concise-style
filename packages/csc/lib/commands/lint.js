@@ -49,7 +49,7 @@ function getFormatter(format, engine) {
     default:
       try {
         return engine.getFormatter(format)
-      } catch (err) {
+      } catch (_err) {
         return friendlyFormatter
       }
   }
