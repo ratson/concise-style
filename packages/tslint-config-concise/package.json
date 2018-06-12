@@ -1,6 +1,6 @@
 {
   "name": "tslint-config-concise",
-  "version": "0.25.0",
+  "version": "0.26.0",
   "description": "A TSLint config for Concise Style",
   "main": "tslint.json",
   "peerDependencies": {
