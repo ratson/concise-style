@@ -73,11 +73,12 @@ export const build = (configs, pkgs) => {
         'eslint-comments/no-unlimited-disable': 'warn',
         'max-len': [
           'error',
-          Object.assign(_.last(combinedRules['max-len']), {
+          {
+            ..._.last(combinedRules['max-len']),
             code: 80,
             ignoreComments: true,
             tabWidth: 2,
-          }),
+          },
         ],
         'no-param-reassign': _.cloneDeep(
           combinedRules['no-param-reassign'],
@@ -88,6 +89,7 @@ export const build = (configs, pkgs) => {
           }
           return v
         }),
+        'no-unused-vars': ['warn', ...combinedRules['no-unused-vars'].slice(1)],
       },
     ),
   }
