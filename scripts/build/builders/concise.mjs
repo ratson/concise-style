@@ -22,7 +22,10 @@ export const build = (configs, pkgs) => {
     .map(k => configs[k].rules)
     .concat(
       [
-        ['eslint-config-mysticatea', ['no-unused-vars', 'semi-style']],
+        [
+          'eslint-config-mysticatea',
+          ['no-unused-vars', 'operator-linebreak', 'semi-style'],
+        ],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens', 'no-empty']],
         ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
