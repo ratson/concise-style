@@ -127,7 +127,7 @@
     "id-match": "off",
     "implicit-arrow-linebreak": "off",
     "indent": [
-      "error",
+      "warn",
       2,
       {
         "ArrayExpression": 1,
@@ -642,11 +642,7 @@
     "one-var": ["error", "never"],
     "one-var-declaration-per-line": ["error", "always"],
     "operator-assignment": ["error", "always"],
-    "operator-linebreak": [
-      "error",
-      "after",
-      { "overrides": { ":": "ignore", "?": "ignore" } }
-    ],
+    "operator-linebreak": ["warn", "after"],
     "padded-blocks": [
       "error",
       { "blocks": "never", "classes": "never", "switches": "never" }
