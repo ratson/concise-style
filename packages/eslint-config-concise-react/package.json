@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-react",
-  "version": "0.27.0",
+  "version": "0.27.3",
   "main": "eslintrc.json",
   "description": "ESLint config for React be used with eslint-plugin-concise.",
   "peerDependencies": {
