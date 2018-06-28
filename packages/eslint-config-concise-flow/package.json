@@ -10,7 +10,7 @@
     "eslint-plugin-flowtype": "^2.49.3"
   },
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^5.0.1"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-flow",
   "license": "MIT",

@@ -196,6 +196,7 @@
       "always",
       { "exceptAfterSingleLine": false }
     ],
+    "max-classes-per-file": "off",
     "max-depth": ["off", 4],
     "max-len": [
       "error",
@@ -213,6 +214,7 @@
       "off",
       { "max": 300, "skipBlankLines": true, "skipComments": true }
     ],
+    "max-lines-per-function": "off",
     "max-nested-callbacks": "off",
     "max-params": ["off", 3],
     "max-statements": ["off", 10],
@@ -667,6 +669,7 @@
       { "enforceForRenamedProperties": false }
     ],
     "prefer-numeric-literals": "error",
+    "prefer-object-spread": "off",
     "prefer-promise-reject-errors": ["error", { "allowEmptyReject": true }],
     "prefer-rest-params": "error",
     "prefer-spread": "error",
