@@ -5,8 +5,9 @@ export const outputPath = 'eslint-config-concise-import/eslintrc.json'
 export const build = (configs, pkgs) => {
   const { plugins } = pkgs['concise-import']
   const combinedRules = ['eslint-config-airbnb-base']
-    .map(configKey =>
-      _.pickBy(configs[configKey].rules, (v, k) => {
+    .map(configKey => configs[configKey].rules)
+    .map(rules =>
+      _.pickBy(rules, (v, k) => {
         const parts = _.split(k, '/')
         if (parts.length === 1) {
           return false
@@ -28,6 +29,7 @@ export const build = (configs, pkgs) => {
         'always',
         { js: 'never', jsx: 'never', mjs: 'never' },
       ],
+      'import/no-cycle': ['error', { maxDepth: 1 }],
       'import/order': [
         'warn',
         {

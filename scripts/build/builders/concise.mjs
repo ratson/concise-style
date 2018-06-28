@@ -24,7 +24,12 @@ export const build = (configs, pkgs) => {
       [
         [
           'eslint-config-mysticatea',
-          ['no-unused-vars', 'operator-linebreak', 'semi-style'],
+          [
+            'no-unused-vars',
+            'implicit-arrow-linebreak',
+            'operator-linebreak',
+            'semi-style',
+          ],
         ],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens', 'no-empty']],

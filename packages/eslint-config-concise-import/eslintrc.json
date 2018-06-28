@@ -34,7 +34,7 @@
       }
     ],
     "import/no-commonjs": "off",
-    "import/no-cycle": ["error", { "maxDepth": null }],
+    "import/no-cycle": ["error", { "maxDepth": 1 }],
     "import/no-default-export": "off",
     "import/no-deprecated": "off",
     "import/no-duplicates": "error",
