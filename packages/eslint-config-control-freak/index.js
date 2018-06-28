@@ -2,8 +2,7 @@
 
 const { rules } = require('eslint-config-airbnb-base/rules/imports')
 
-const noExtraneousDependenciesOptions =
-  rules['import/no-extraneous-dependencies'][1]
+const noExtraneousDependenciesOptions = rules['import/no-extraneous-dependencies'][1]
 noExtraneousDependenciesOptions.devDependencies.push('**/*.spec.js')
 noExtraneousDependenciesOptions.optionalDependencies = true
 

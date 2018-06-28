@@ -45,6 +45,10 @@ export const build = (configs, pkgs) => {
         'class-methods-use-this',
         'jsx-a11y/anchor-is-valid',
       ]),
+      _.mapValues(_.pick(combinedRules, ['react/jsx-indent']), v => [
+        'warn',
+        ...v.slice(1),
+      ]),
     ),
   })
 }
