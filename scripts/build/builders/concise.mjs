@@ -24,13 +24,9 @@ export const build = (configs, pkgs) => {
       [
         [
           'eslint-config-mysticatea',
-          [
-            'no-unused-vars',
-            'implicit-arrow-linebreak',
-            'operator-linebreak',
-            'semi-style',
-          ],
+          ['no-unused-vars', 'implicit-arrow-linebreak', 'semi-style'],
         ],
+        ['eslint-config-readable', ['operator-linebreak', 'react/jsx-indent']],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         ['eslint-config-xo', ['arrow-parens', 'no-empty']],
         ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
@@ -97,6 +93,7 @@ export const build = (configs, pkgs) => {
           }
           return v
         }),
+        indent: ['warn', ...combinedRules.indent.slice(1)],
         'no-unused-vars': ['warn', ...combinedRules['no-unused-vars'].slice(1)],
       },
     ),
