@@ -166,6 +166,7 @@
       "error",
       { "children": "never", "props": "never" }
     ],
+    "react/jsx-curly-spacing": "warn",
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
     "react/jsx-handler-names": [
@@ -237,6 +238,7 @@
     "react/no-typos": "error",
     "react/no-unescaped-entities": "error",
     "react/no-unknown-property": "error",
+    "react/no-unsafe": "off",
     "react/no-unused-prop-types": [
       "error",
       { "customValidators": [], "skipShapeProps": true }

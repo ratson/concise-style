@@ -19,7 +19,7 @@ export const build = (configs, pkgs) => {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   return Object.assign({}, xoReact, {
@@ -29,7 +29,6 @@ export const build = (configs, pkgs) => {
         'jsx-a11y/href-no-hash',
         'react/button-has-type',
         'react/destructuring-assignment',
-        'react/jsx-curly-spacing',
         'react/jsx-filename-extension',
         'react/jsx-wrap-multilines',
         'react/prop-types',
@@ -41,6 +40,10 @@ export const build = (configs, pkgs) => {
       _.pick(configs['eslint-config-universe'].rules, [
         'react/jsx-one-expression-per-line',
       ]),
+      _.pick(configs['eslint-config-readable'].rules, [
+        'react/jsx-curly-spacing',
+        'react/no-unsafe',
+      ]),
       _.pick(configs['eslint-config-react-tools'].rules, [
         'class-methods-use-this',
         'jsx-a11y/anchor-is-valid',
@@ -48,7 +51,7 @@ export const build = (configs, pkgs) => {
       _.mapValues(_.pick(combinedRules, ['react/jsx-indent']), v => [
         'warn',
         ...v.slice(1),
-      ]),
+      ])
     ),
   })
 }
