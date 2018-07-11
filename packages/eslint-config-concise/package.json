@@ -18,7 +18,7 @@
     "eslint-plugin-unicorn": "^4.0.3"
   },
   "devDependencies": {
-    "eslint": "^5.0.1"
+    "eslint": "^5.1.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise",
   "license": "MIT",
