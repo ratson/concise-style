@@ -1,0 +1,27 @@
+{
+  "name": "neutrino-preset-concise",
+  "version": "0.29.0",
+  "main": "index.js",
+  "description": "Neutrino Preset for Concise ESLint config.",
+  "peerDependencies": {
+    "eslint": "^5.1.0",
+    "neutrino": "^8.3.0"
+  },
+  "dependencies": {
+    "@neutrinojs/eslint": "^8.3.0",
+    "eslint-config-concise": "^0.29.0",
+    "eslint-config-concise-esnext": "^0.29.0",
+    "eslint-config-concise-react": "^0.29.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "neutrino": "^8.3.0"
+  },
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/neutrino-preset-concise",
+  "license": "MIT",
+  "keywords": [
+    "neutrino",
+    "neutrino-preset",
+    "eslint"
+  ]
+}

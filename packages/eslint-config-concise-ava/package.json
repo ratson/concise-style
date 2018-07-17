@@ -1,13 +1,13 @@
 {
   "name": "eslint-config-concise-ava",
-  "version": "0.28.2",
+  "version": "0.29.0",
   "main": "eslintrc.json",
   "description": "Concise ESLint config for ava.",
   "peerDependencies": {
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-ava": "^4.5.1"
+    "eslint-plugin-ava": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "^5.1.0"

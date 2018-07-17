@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-cypress",
-  "version": "0.28.2",
+  "version": "0.29.0",
   "main": "eslintrc.json",
   "description": "Concise ESLint config for Cypress.",
   "peerDependencies": {
