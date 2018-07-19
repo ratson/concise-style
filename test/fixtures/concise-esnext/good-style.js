@@ -17,7 +17,7 @@ function doSomeMath() {
 
 function main() {
   const answer = doSomeMath()
-  assert.equal(answer, 6)
+  assert.strictEqual(answer, 6)
 
   path.join(
     '/tmp',
