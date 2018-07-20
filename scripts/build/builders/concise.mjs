@@ -82,6 +82,7 @@ export const build = (configs, pkgs) => {
           'indent',
           'no-unused-vars',
           'operator-linebreak',
+          'class-methods-use-this',
         ]),
         v => ['warn', ...v.slice(1)],
       ),

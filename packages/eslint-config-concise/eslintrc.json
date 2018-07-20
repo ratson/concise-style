@@ -46,7 +46,7 @@
         }
       }
     ],
-    "class-methods-use-this": ["error", { "exceptMethods": [] }],
+    "class-methods-use-this": ["warn", { "exceptMethods": [] }],
     "comma-dangle": [
       "error",
       {
