@@ -11,7 +11,7 @@
     "eslint-plugin-babel": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.1.0"
+    "eslint": "^5.2.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-esnext",
   "license": "MIT",

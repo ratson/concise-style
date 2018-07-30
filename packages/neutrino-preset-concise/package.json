@@ -4,7 +4,7 @@
   "main": "index.js",
   "description": "Neutrino Preset for Concise ESLint config.",
   "peerDependencies": {
-    "eslint": "^5.1.0",
+    "eslint": "^5.2.0",
     "neutrino": "^8.3.0"
   },
   "dependencies": {
@@ -14,7 +14,7 @@
     "eslint-config-concise-react": "^0.28.2"
   },
   "devDependencies": {
-    "eslint": "^5.1.0",
+    "eslint": "^5.2.0",
     "neutrino": "^8.3.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/neutrino-preset-concise",
