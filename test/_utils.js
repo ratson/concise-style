@@ -1,7 +1,7 @@
 import eslint from 'eslint'
 import tempWrite from 'temp-write'
 
-function buildLinter(configFile) {
+export function buildLinter(configFile) {
   return new eslint.CLIEngine({
     useEslintrc: false,
     ignore: false,

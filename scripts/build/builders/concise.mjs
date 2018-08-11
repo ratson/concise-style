@@ -80,7 +80,6 @@ export const build = (configs, pkgs) => {
       _.mapValues(
         _.pick(combinedRules, [
           'indent',
-          'no-unused-vars',
           'operator-linebreak',
           'class-methods-use-this',
         ]),
@@ -95,6 +94,13 @@ export const build = (configs, pkgs) => {
             code: 80,
             ignoreComments: true,
             tabWidth: 2,
+          },
+        ],
+        'no-unused-vars': [
+          'warn',
+          {
+            ..._.last(combinedRules['no-unused-vars']),
+            args: 'after-used',
           },
         ],
         'no-param-reassign': _.cloneDeep(

@@ -555,7 +555,7 @@
     "no-unused-vars": [
       "warn",
       {
-        "args": "all",
+        "args": "after-used",
         "argsIgnorePattern": "^_(?:[^_].*)?$",
         "caughtErrors": "all",
         "vars": "all",
