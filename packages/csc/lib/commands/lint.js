@@ -1,7 +1,7 @@
 'use strict'
 
 const { CLIEngine } = require('eslint')
-const log = require('eslint/lib/logging')
+const log = require('eslint/lib/util/logging')
 const detailedFormatter = require('eslint-detailed-reporter/lib/detailed')
 const friendlyFormatter = require('eslint-friendly-formatter')
 const prettyFormatter = require('eslint-formatter-pretty')

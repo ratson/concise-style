@@ -243,6 +243,7 @@
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 4 }],
     "no-alert": "warn",
     "no-array-constructor": "error",
+    "no-async-promise-executor": "error",
     "no-await-in-loop": "error",
     "no-bitwise": "off",
     "no-buffer-constructor": "error",
@@ -322,6 +323,7 @@
         "ignoreArrayIndexes": true
       }
     ],
+    "no-misleading-character-class": "error",
     "no-mixed-operators": [
       "error",
       {
@@ -689,8 +691,10 @@
     ],
     "quotes": ["error", "single", { "avoidEscape": true }],
     "radix": "error",
+    "require-atomic-updates": "error",
     "require-await": "off",
     "require-jsdoc": "off",
+    "require-unicode-regexp": "off",
     "require-yield": "error",
     "rest-spread-spacing": ["error", "never"],
     "security/detect-buffer-noassert": "error",
