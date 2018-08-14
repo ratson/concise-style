@@ -32,7 +32,16 @@ export const build = (configs, pkgs) => {
           ],
         ],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
-        ['eslint-config-xo', ['arrow-parens', 'no-empty']],
+        [
+          'eslint-config-xo',
+          [
+            'arrow-parens',
+            'no-async-promise-executor',
+            'no-empty',
+            'no-misleading-character-class',
+            'require-atomic-updates',
+          ],
+        ],
         ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
       ].map(([k, rules]) => _.pick(configs[k].rules, rules)),
     )

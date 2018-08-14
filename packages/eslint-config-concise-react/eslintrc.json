@@ -47,6 +47,16 @@
     "jsx-a11y/iframe-has-title": "error",
     "jsx-a11y/img-redundant-alt": "error",
     "jsx-a11y/interactive-supports-focus": "error",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "both",
+        "controlComponents": [],
+        "depth": 25,
+        "labelAttributes": [],
+        "labelComponents": []
+      }
+    ],
     "jsx-a11y/label-has-for": [
       "error",
       {
@@ -183,7 +193,13 @@
     ],
     "react/jsx-no-bind": [
       "error",
-      { "allowArrowFunctions": true, "allowBind": false, "ignoreRefs": true }
+      {
+        "allowArrowFunctions": true,
+        "allowBind": false,
+        "allowFunctions": false,
+        "ignoreDOMComponents": true,
+        "ignoreRefs": true
+      }
     ],
     "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],

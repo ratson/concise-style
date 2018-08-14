@@ -196,7 +196,7 @@
       "always",
       { "exceptAfterSingleLine": false }
     ],
-    "max-classes-per-file": "off",
+    "max-classes-per-file": ["off", 1],
     "max-depth": ["off", 4],
     "max-len": [
       "error",
@@ -214,7 +214,10 @@
       "off",
       { "max": 300, "skipBlankLines": true, "skipComments": true }
     ],
-    "max-lines-per-function": "off",
+    "max-lines-per-function": [
+      "off",
+      { "IIFEs": true, "max": 50, "skipBlankLines": true, "skipComments": true }
+    ],
     "max-nested-callbacks": "off",
     "max-params": ["off", 3],
     "max-statements": ["off", 10],
@@ -518,7 +521,7 @@
     "no-return-assign": ["error", "always"],
     "no-return-await": "error",
     "no-script-url": "error",
-    "no-self-assign": "error",
+    "no-self-assign": ["error", { "props": false }],
     "no-self-compare": "error",
     "no-sequences": "error",
     "no-shadow": "error",
