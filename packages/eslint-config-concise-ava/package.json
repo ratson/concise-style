@@ -10,7 +10,7 @@
     "eslint-plugin-ava": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.3.0"
+    "eslint": "^5.4.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-ava",
   "license": "MIT",
