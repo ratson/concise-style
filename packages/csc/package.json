@@ -23,7 +23,7 @@
     "eslint-plugin-react": "^7.11.1",
     "has-flag": "^3.0.0",
     "import-local": "^1.0.0",
-    "inquirer": "^6.1.0",
+    "inquirer": "^6.2.0",
     "lodash": "^4.17.10",
     "parse-gitignore": "^1.0.1",
     "path-exists": "^3.0.0",
