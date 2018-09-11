@@ -10,7 +10,7 @@
     "eslint-plugin-cypress": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.4.0"
+    "eslint": "^5.5.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-cypress",
   "license": "MIT",
