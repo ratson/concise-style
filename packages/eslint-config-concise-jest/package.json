@@ -7,7 +7,7 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-jest": "^21.23.0"
+    "eslint-plugin-jest": "^21.24.1"
   },
   "devDependencies": {
     "eslint": "^5.6.1"
