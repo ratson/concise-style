@@ -5,17 +5,17 @@
   "description": "Neutrino Preset for Concise ESLint config.",
   "peerDependencies": {
     "eslint": "^5.6.1",
-    "neutrino": "^8.3.0"
+    "neutrino": "^9.0.0-beta.0"
   },
   "dependencies": {
-    "@neutrinojs/eslint": "^8.3.0",
+    "@neutrinojs/eslint": "^9.0.0-beta.0",
     "eslint-config-concise": "^0.30.2",
     "eslint-config-concise-esnext": "^0.30.2",
     "eslint-config-concise-react": "^0.30.1"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
-    "neutrino": "^8.3.0"
+    "neutrino": "^9.0.0-beta.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/neutrino-preset-concise",
   "license": "MIT",
