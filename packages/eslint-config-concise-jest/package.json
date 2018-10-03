@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-jest",
-  "version": "0.30.2",
+  "version": "0.31.0",
   "main": "eslintrc.json",
   "description": "Concise ESLint config for Jest.",
   "peerDependencies": {
