@@ -7,7 +7,7 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-react-native": "^3.3.0"
+    "eslint-plugin-react-native": "^3.5.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react-native",
   "license": "MIT",

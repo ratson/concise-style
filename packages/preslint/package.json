@@ -6,8 +6,8 @@
   "bin": "cli.js",
   "dependencies": {
     "bluebird": "^3.5.2",
-    "debug": "^4.0.1",
-    "eslint": "^5.6.1",
+    "debug": "^4.1.0",
+    "eslint": "^5.7.0",
     "fs-extra": "^7.0.0",
     "prettier-eslint": "^8.8.2",
     "promise-exit": "^1.0.1",
@@ -25,7 +25,7 @@
     "cli"
   ],
   "devDependencies": {
-    "eslint": "^5.6.1",
+    "eslint": "^5.7.0",
     "prettier-eslint": "^8.8.2"
   }
 }

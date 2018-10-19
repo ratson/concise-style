@@ -259,7 +259,7 @@
       "error",
       { "customValidators": [], "skipShapeProps": true }
     ],
-    "react/no-unused-state": "error",
+    "react/no-unused-state": "warn",
     "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": ["error", "always"],
     "react/prefer-stateless-function": [

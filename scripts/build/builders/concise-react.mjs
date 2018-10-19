@@ -19,7 +19,7 @@ export const build = (configs, pkgs) => {
           return false
         }
         return plugins.includes(parts[0])
-      })
+      }),
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   return Object.assign({}, xoReact, {
@@ -43,6 +43,7 @@ export const build = (configs, pkgs) => {
       _.pick(configs['eslint-config-readable'].rules, [
         'react/jsx-curly-spacing',
         'react/no-unsafe',
+        'react/no-unused-state',
       ]),
       _.pick(configs['eslint-config-react-tools'].rules, [
         'class-methods-use-this',
@@ -51,7 +52,7 @@ export const build = (configs, pkgs) => {
       _.mapValues(_.pick(combinedRules, ['react/jsx-indent']), v => [
         'warn',
         ...v.slice(1),
-      ])
+      ]),
     ),
   })
 }
