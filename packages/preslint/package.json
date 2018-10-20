@@ -1,6 +1,6 @@
 {
   "name": "preslint",
-  "version": "0.31.0",
+  "version": "0.31.1",
   "main": "index.js",
   "description": "prettier-eslint + esLint in one pass.",
   "bin": "cli.js",
