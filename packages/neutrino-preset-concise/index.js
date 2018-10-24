@@ -8,13 +8,16 @@ module.exports = (neutrino, { eslint = {}, ...opts } = {}) => {
     ...opts,
     eslint: {
       ...eslint,
-      baseConfig: eslintMerge({
-        extends: [
-          require.resolve('eslint-config-concise'),
-          require.resolve('eslint-config-concise-esnext'),
-          require.resolve('eslint-config-concise-react'),
-        ],
-      }),
+      baseConfig: eslintMerge(
+        {
+          extends: [
+            require.resolve('eslint-config-concise'),
+            require.resolve('eslint-config-concise-esnext'),
+            require.resolve('eslint-config-concise-react'),
+          ],
+        },
+        eslint.baseConfig || {},
+      ),
     },
   })
 }
