@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-style",
-  "version": "0.32.0",
+  "version": "0.33.0",
   "main": "eslintrc.json",
   "description": "Concise, fixable ESLint config.",
   "scripts": {},
