@@ -53,6 +53,7 @@ export const build = (configs, pkgs) => {
         'warn',
         ...v.slice(1),
       ]),
+      { 'react-hooks/rules-of-hooks': 'error' },
     ),
   })
 }
