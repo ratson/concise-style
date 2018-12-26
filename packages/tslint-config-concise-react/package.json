@@ -1,0 +1,16 @@
+{
+  "name": "tslint-config-concise-react",
+  "version": "0.0.0",
+  "description": "A TSLint React config for Concise Style",
+  "main": "tslint.json",
+  "peerDependencies": {
+    "tslint": "^5.9.1"
+  },
+  "repository": "https://github.com/ratson/concise-style/tree/master/packages/tslint-config-concise-react",
+  "license": "MIT",
+  "keywords": [
+    "tslint",
+    "typescript",
+    "react"
+  ]
+}
