@@ -1,6 +1,6 @@
 {
   "name": "tslint-config-concise-react",
-  "version": "0.0.0",
+  "version": "0.36.0",
   "description": "A TSLint React config for Concise Style",
   "main": "tslint.json",
   "peerDependencies": {
