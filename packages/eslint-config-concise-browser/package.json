@@ -10,7 +10,7 @@
     "eslint-plugin-compat": "^2.6.3"
   },
   "devDependencies": {
-    "eslint": "^5.12.0"
+    "eslint": "^5.12.1"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-browser",
   "license": "MIT",

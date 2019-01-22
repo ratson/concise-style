@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.12.3",
+    "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^0.0.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-react",
