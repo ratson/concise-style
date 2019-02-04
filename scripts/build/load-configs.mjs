@@ -1,17 +1,17 @@
+import { getEslintConfig, isEslintPlugin, prettifyRule } from './utils'
+
 import Bluebird from 'bluebird'
-import loadRules from 'eslint/lib/load-rules'
 import Rules from 'eslint/lib/rules'
-import esmeta from 'esmeta'
 import _ from 'lodash'
+import esmeta from 'esmeta'
 import fp from 'lodash/fp'
 import pkg from '../../package.json'
-import { getEslintConfig, isEslintPlugin, prettifyRule } from './utils'
 
 const importMeta = esmeta(import.meta)
 
 export const loadDeprecatedRules = () => {
   const rules = new Rules()
-  return Object.keys(loadRules()).filter(ruleId => {
+  return Object.keys(rules.getAllLoadedRules()).filter(ruleId => {
     const r = rules.get(ruleId)
     return r && r.meta.deprecated
   })
