@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "eslint-plugin-eslint-comments": "^3.0.1",
-    "eslint-plugin-html": "^5.0.0",
-    "eslint-plugin-jsdoc": "^4.0.1",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-jsdoc": "^4.1.0",
     "eslint-plugin-markdown": "^1.0.0",
     "eslint-plugin-mysticatea": "^4.2.4",
     "eslint-plugin-node": "^8.0.1",
@@ -18,7 +18,7 @@
     "eslint-plugin-unicorn": "^7.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.12.1"
+    "eslint": "^5.13.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise",
   "license": "MIT",
