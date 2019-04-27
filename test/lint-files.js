@@ -61,7 +61,7 @@ const lintConfigs = _.mapValues(
       },
     },
   },
-  x => Object.assign(x, { root: true }),
+  x => _.assign(x, { root: true }),
 )
 
 function lintConciseGood(t, configKey, filename) {
@@ -70,7 +70,7 @@ function lintConciseGood(t, configKey, filename) {
     lintConfigs[configKey],
   )
   const { messages } = results[0]
-  t.true(messages.length === 0)
+  t.is(messages.length, 0)
 }
 
 lintConciseGood.title = (providedTitle, configKey, filename) => {

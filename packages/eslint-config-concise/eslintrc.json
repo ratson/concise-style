@@ -29,7 +29,10 @@
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "callback-return": "off",
-    "camelcase": ["error", { "properties": "never" }],
+    "camelcase": [
+      "error",
+      { "ignoreDestructuring": false, "properties": "never" }
+    ],
     "capitalized-comments": [
       "off",
       "never",
@@ -85,29 +88,20 @@
     "curly": ["error", "multi-line"],
     "default-case": ["error", { "commentPattern": "^no default$" }],
     "dot-location": ["error", "property"],
-    "dot-notation": ["error", { "allowKeywords": true }],
+    "dot-notation": ["error", { "allowKeywords": true, "allowPattern": "" }],
     "eol-last": ["error", "always"],
     "eqeqeq": ["error", "always", { "null": "ignore" }],
-    "eslint-comments/disable-enable-pair": "error",
+    "eslint-comments/disable-enable-pair": [
+      "error",
+      { "allowWholeFile": true }
+    ],
     "eslint-comments/no-aggregating-enable": "error",
     "eslint-comments/no-duplicate-disable": "error",
     "eslint-comments/no-restricted-disable": "off",
     "eslint-comments/no-unlimited-disable": "warn",
     "eslint-comments/no-unused-disable": "error",
     "eslint-comments/no-unused-enable": "error",
-    "eslint-comments/no-use": [
-      "error",
-      {
-        "allow": [
-          "eslint-disable",
-          "eslint-disable-line",
-          "eslint-disable-next-line",
-          "eslint-enable",
-          "eslint-env",
-          "globals"
-        ]
-      }
-    ],
+    "eslint-comments/no-use": "off",
     "for-direction": "error",
     "func-call-spacing": ["error", "never"],
     "func-name-matching": [
@@ -180,9 +174,9 @@
         "after": true,
         "before": true,
         "overrides": {
-          "case": { "after": true },
-          "return": { "after": true },
-          "throw": { "after": true }
+          "case": { "after": true, "before": true },
+          "return": { "after": true, "before": true },
+          "throw": { "after": true, "before": true }
         }
       }
     ],
@@ -211,6 +205,7 @@
         "ignoreRegExpLiterals": true,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true,
+        "ignoreTrailingComments": false,
         "ignoreUrls": true,
         "tabWidth": 2
       }
@@ -244,7 +239,8 @@
           "Immutable.List"
         ],
         "newIsCap": true,
-        "newIsCapExceptions": []
+        "newIsCapExceptions": [],
+        "properties": true
       }
     ],
     "new-parens": "error",
@@ -581,7 +577,7 @@
       { "classes": true, "functions": true, "variables": true }
     ],
     "no-useless-call": "off",
-    "no-useless-catch": "off",
+    "no-useless-catch": "error",
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
     "no-useless-constructor": "error",
@@ -644,7 +640,10 @@
     "object-curly-spacing": ["error", "always"],
     "object-property-newline": [
       "error",
-      { "allowAllPropertiesOnSameLine": true }
+      {
+        "allowAllPropertiesOnSameLine": true,
+        "allowMultiplePropertiesPerLine": false
+      }
     ],
     "object-shorthand": [
       "error",
@@ -680,6 +679,7 @@
       },
       { "enforceForRenamedProperties": false }
     ],
+    "prefer-named-capture-group": "off",
     "prefer-numeric-literals": "error",
     "prefer-object-spread": "off",
     "prefer-promise-reject-errors": ["error", { "allowEmptyReject": true }],
@@ -773,15 +773,24 @@
     "unicorn/import-index": "error",
     "unicorn/new-for-builtins": "error",
     "unicorn/no-array-instanceof": "error",
+    "unicorn/no-console-spaces": "off",
     "unicorn/no-fn-reference-in-iterator": "off",
+    "unicorn/no-for-loop": "error",
     "unicorn/no-hex-escape": "error",
     "unicorn/no-new-buffer": "error",
     "unicorn/no-process-exit": "error",
+    "unicorn/no-unreadable-array-destructuring": "error",
+    "unicorn/no-unused-properties": "warn",
+    "unicorn/no-zero-fractions": "error",
     "unicorn/number-literal-case": "error",
     "unicorn/prefer-add-event-listener": "off",
     "unicorn/prefer-exponentiation-operator": "error",
+    "unicorn/prefer-includes": "error",
+    "unicorn/prefer-node-append": "error",
+    "unicorn/prefer-node-remove": "error",
     "unicorn/prefer-spread": "off",
     "unicorn/prefer-starts-ends-with": "error",
+    "unicorn/prefer-text-content": "error",
     "unicorn/prefer-type-error": "error",
     "unicorn/regex-shorthand": "error",
     "unicorn/throw-new-error": "error",

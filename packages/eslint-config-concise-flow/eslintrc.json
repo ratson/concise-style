@@ -6,6 +6,7 @@
     "flowtype/define-flow-type": "warn",
     "flowtype/delimiter-dangle": "off",
     "flowtype/generic-spacing": ["error", "never"],
+    "flowtype/no-mixed": "off",
     "flowtype/no-types-missing-file-annotation": "error",
     "flowtype/no-weak-types": "off",
     "flowtype/require-parameter-type": "off",
@@ -18,7 +19,6 @@
     "flowtype/type-id-match": "off",
     "flowtype/union-intersection-spacing": ["error", "always"],
     "flowtype/use-flow-type": "warn",
-    "flowtype/valid-syntax": "warn",
     "spaced-comment": [
       "error",
       "always",

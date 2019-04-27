@@ -76,6 +76,8 @@ export const build = (configs, pkgs) => {
             'unicorn/filename-case',
             'unicorn/no-abusive-eslint-disable', // in favor of `eslint-comments/no-unlimited-disable`
             'node/shebang', // false-positive
+            'unicorn/prevent-abbreviations',
+            'unicorn/prefer-query-selector',
           ].includes(k)
         ) {
           return false
