@@ -5,13 +5,13 @@
     "prepublish": "run-s build test",
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
-    "build": "node --experimental-modules scripts/build",
+    "build": "node -r esm scripts/build",
     "lint": "run-s lint:*",
     "lint:csc": "node packages/csc/lib/cli.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern test/fixtures .",
     "test": "run-p test:* lint:*",
     "test:ava": "ava",
-    "print-rule": "node --experimental-modules scripts/print-rule"
+    "print-rule": "node -r esm scripts/print-rule"
   },
   "devDependencies": {
     "@anvilabs/eslint-config": "^19.1.0",
