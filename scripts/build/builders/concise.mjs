@@ -78,6 +78,8 @@ export const build = (configs, pkgs) => {
             'node/shebang', // false-positive
             'unicorn/prevent-abbreviations',
             'unicorn/prefer-query-selector',
+            'unicorn/prefer-event-key',
+            'unicorn/prefer-flat-map'
           ].includes(k)
         ) {
           return false

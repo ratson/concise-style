@@ -181,10 +181,11 @@
       "error",
       { "children": "never", "props": "never" }
     ],
+    "react/jsx-curly-newline": "error",
     "react/jsx-curly-spacing": "warn",
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
-    "react/jsx-fragments": ["error", "syntax"],
+    "react/jsx-fragments": ["off", "syntax"],
     "react/jsx-handler-names": [
       "off",
       { "eventHandlerPrefix": "handle", "eventHandlerPropPrefix": "on" }
@@ -215,6 +216,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
     "react/jsx-props-no-multi-spaces": "error",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-sort-default-props": ["off", { "ignoreCase": true }],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
@@ -251,7 +253,7 @@
     "react/no-direct-mutation-state": "off",
     "react/no-find-dom-node": "error",
     "react/no-is-mounted": "error",
-    "react/no-multi-comp": ["error", { "ignoreStateless": true }],
+    "react/no-multi-comp": "off",
     "react/no-redundant-should-component-update": "error",
     "react/no-render-return-value": "error",
     "react/no-set-state": "off",
@@ -268,6 +270,7 @@
     "react/no-unused-state": "warn",
     "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": ["error", "always"],
+    "react/prefer-read-only-props": "warn",
     "react/prefer-stateless-function": [
       "error",
       { "ignorePureComponents": true }
@@ -330,6 +333,8 @@
         "sortShapeProp": true
       }
     ],
+    "react/state-in-constructor": ["error", "always"],
+    "react/static-property-placement": "error",
     "react/style-prop-object": "error",
     "react/void-dom-elements-no-children": "error"
   },

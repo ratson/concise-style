@@ -52,6 +52,7 @@
     "import/no-named-as-default": "error",
     "import/no-named-as-default-member": "error",
     "import/no-named-default": "error",
+    "import/no-named-export": "off",
     "import/no-namespace": "off",
     "import/no-nodejs-modules": "off",
     "import/no-relative-parent-imports": "off",
@@ -61,6 +62,10 @@
     "import/no-unresolved": [
       "error",
       { "caseSensitive": true, "commonjs": true }
+    ],
+    "import/no-unused-modules": [
+      "off",
+      { "ignoreExports": [], "missingExports": true, "unusedExports": true }
     ],
     "import/no-useless-path-segments": "error",
     "import/no-webpack-loader-syntax": "error",

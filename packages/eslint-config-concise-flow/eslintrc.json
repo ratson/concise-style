@@ -10,6 +10,7 @@
     "flowtype/no-types-missing-file-annotation": "error",
     "flowtype/no-weak-types": "off",
     "flowtype/require-parameter-type": "off",
+    "flowtype/require-readonly-react-props": "off",
     "flowtype/require-return-type": "off",
     "flowtype/require-valid-file-annotation": "off",
     "flowtype/semi": "off",
