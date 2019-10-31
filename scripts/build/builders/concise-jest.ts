@@ -1,8 +1,9 @@
 import _ from 'lodash'
+import { BuildConfig } from '../main'
 
 export const outputPath = 'eslint-config-concise-jest/eslintrc.json'
 
-export const build = (configs, pkgs) => {
+export const build = ({ configs, pkgs }: BuildConfig) => {
   const { plugins } = pkgs['concise-jest']
   const combinedRules = ['eslint-plugin-jest']
     .map(configKey =>
@@ -12,12 +13,12 @@ export const build = (configs, pkgs) => {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   return {
     env: { jasmine: true, jest: true },
     plugins,
-    rules: Object.assign(combinedRules),
+    rules: Object.assign(combinedRules)
   }
 }

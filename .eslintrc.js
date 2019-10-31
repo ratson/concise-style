@@ -5,4 +5,7 @@ module.exports = {
     require.resolve('./packages/eslint-config-concise'),
     require.resolve('./packages/eslint-config-concise-esnext'),
   ],
+  rules: {
+    "strict": "off"
+  }
 }

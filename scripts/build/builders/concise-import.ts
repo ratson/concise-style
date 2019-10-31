@@ -1,8 +1,9 @@
 import _ from 'lodash'
+import { BuildConfig } from '../main'
 
 export const outputPath = 'eslint-config-concise-import/eslintrc.json'
 
-export const build = (configs, pkgs) => {
+export const build = ({ configs, pkgs }: BuildConfig) => {
   const { plugins } = pkgs['concise-import']
   const combinedRules = ['eslint-config-airbnb-base']
     .map(configKey => configs[configKey].rules)
@@ -13,7 +14,7 @@ export const build = (configs, pkgs) => {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   return {
@@ -22,12 +23,12 @@ export const build = (configs, pkgs) => {
       ...combinedRules,
       ..._.pick(configs['eslint-config-canonical'].rules, [
         'import/no-extraneous-dependencies',
-        'import/prefer-default-export',
+        'import/prefer-default-export'
       ]),
       'import/extensions': [
         'error',
         'always',
-        { js: 'never', jsx: 'never', mjs: 'never' },
+        { js: 'never', jsx: 'never', mjs: 'never' }
       ],
       'import/no-cycle': ['error', { maxDepth: 1 }],
       'import/order': [
@@ -39,11 +40,11 @@ export const build = (configs, pkgs) => {
             'internal',
             'parent',
             'sibling',
-            'index',
+            'index'
           ],
-          'newlines-between': 'ignore',
-        },
-      ],
-    },
+          'newlines-between': 'ignore'
+        }
+      ]
+    }
   }
 }

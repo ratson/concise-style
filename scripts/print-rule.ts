@@ -1,17 +1,18 @@
+// @ts-ignore
 import stringify from 'json-stringify-deterministic'
 import _ from 'lodash'
-import exit from 'promise-exit'
 import yargs from 'yargs'
-import { build as buildConciseConfig } from './build/builders/concise'
+// @ts-ignore
 import conciseImportConfig from '../packages/eslint-config-concise-import'
+// @ts-ignore
 import conciseReactConfig from '../packages/eslint-config-concise-react'
-import loadConfigs from './build/load-configs'
-import collectPackagesInfo from './build/pkgs-info'
+import { build as buildConciseConfig } from './build/builders/concise'
+import { collectPackagesInfo, loadConfigs } from './build/main'
 
 /* eslint-disable no-console */
-function printParserOptions(named) {
+const printParserOptions = (named: any) => {
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['parserOptions'])),
+    stringify(_.get(config, ['parserOptions']))
   )
   _.forEach(grouped, (config, parserOptions) => {
     console.log(parserOptions)
@@ -20,9 +21,9 @@ function printParserOptions(named) {
   })
 }
 
-function printEnv(named) {
+const printEnv = (named: any) => {
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['env'])),
+    stringify(_.get(config, ['env']))
   )
   _.forEach(grouped, (config, env) => {
     console.log(env)
@@ -41,12 +42,13 @@ async function main() {
   const { env, parserOptions, rule } = argv
 
   const named = _.mapValues(
-    Object.assign({}, configs, {
-      concise: buildConciseConfig(configs, pkgs),
+    {
+      ...configs,
+      concise: buildConciseConfig({ configs, pkgs }),
       'concise-import': conciseImportConfig,
-      'concise-react': conciseReactConfig,
-    }),
-    (v, k) => Object.assign(v, { name: k }),
+      'concise-react': conciseReactConfig
+    },
+    (v, k) => Object.assign(v, { name: k })
   )
   if (parserOptions) {
     printParserOptions(named)
@@ -58,7 +60,7 @@ async function main() {
   }
 
   const grouped = _.groupBy(_.values(named), config =>
-    stringify(_.get(config, ['rules', rule])),
+    stringify(_.get(config, ['rules', rule as string]))
   )
   _.forEach(grouped, (config, ruleValue) => {
     console.log(rule, '=', ruleValue)
@@ -68,4 +70,4 @@ async function main() {
 }
 /* eslint-enable no-console */
 
-exit(main)
+main().then(console.log)

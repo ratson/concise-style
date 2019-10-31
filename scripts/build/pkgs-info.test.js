@@ -1,6 +1,5 @@
 import test from 'ava'
-
-import collectPackagesInfo from './pkgs-info'
+import { collectPackagesInfo } from './main'
 
 test.beforeEach(async t => {
   // eslint-disable-next-line no-console

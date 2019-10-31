@@ -1,6 +1,5 @@
 import test from 'ava'
-
-import loadConfigs, { loadDeprecatedRules } from './load-configs'
+import { loadConfigs, loadDeprecatedRules } from './main'
 
 test.beforeEach(async t => {
   t.context.configs = await loadConfigs()

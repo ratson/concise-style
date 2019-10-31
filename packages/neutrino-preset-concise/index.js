@@ -1,7 +1,7 @@
 'use strict'
 
 const lint = require('@neutrinojs/eslint')
-const { merge: eslintMerge } = require('eslint/lib/config/config-ops')
+const { merge: eslintMerge } = require('eslint/lib/shared/config-ops')
 
 module.exports = (neutrino, { eslint = {}, ...opts } = {}) => {
   neutrino.use(lint, {

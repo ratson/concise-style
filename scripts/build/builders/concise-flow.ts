@@ -1,8 +1,9 @@
 import _ from 'lodash'
+import { BuildConfig } from '../main'
 
 export const outputPath = 'eslint-config-concise-flow/eslintrc.json'
 
-export const build = (configs, pkgs) => {
+export const build = ({ configs, pkgs }: BuildConfig) => {
   const { plugins } = pkgs['concise-flow']
   const combinedRules = ['eslint-plugin-flowtype']
     .map(configKey =>
@@ -12,7 +13,7 @@ export const build = (configs, pkgs) => {
           return false
         }
         return plugins.includes(parts[0])
-      }),
+      })
     )
     .reduce((r, rules) => Object.assign(r, rules), {})
   return {
@@ -20,7 +21,7 @@ export const build = (configs, pkgs) => {
     plugins,
     rules: Object.assign(
       combinedRules,
-      _.pick(configs['eslint-config-standard'].rules, ['spaced-comment']),
-    ),
+      _.pick(configs['eslint-config-standard'].rules, ['spaced-comment'])
+    )
   }
 }

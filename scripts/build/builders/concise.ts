@@ -1,25 +1,29 @@
+import assert from 'assert'
 import _ from 'lodash'
+import { BuildConfig } from '../main'
 
 export const outputPath = 'eslint-config-concise/eslintrc.json'
 
-export const build = (configs, pkgs) => {
+export const build = ({ configs, pkgs }: BuildConfig) => {
   const combinedRules = [
     'eslint-config-jquery',
     'eslint-config-javascript',
     'eslint-config-simplifield',
-    'eslint-config-simplifield/backend',
-    'eslint/recommended',
+    'eslint:recommended',
     'eslint-config-standard',
     'eslint-config-canonical',
     'eslint-config-videoamp-node',
     'eslint-config-react-app',
     'eslint-config-mysticatea',
-    'eslint-plugin-shopify',
+    'plugin:shopify/esnext',
     'eslint-config-xo',
     'eslint-config-google',
-    'eslint-config-airbnb-base',
+    'eslint-config-airbnb-base'
   ]
-    .map(k => configs[k].rules)
+    .map(k => {
+      assert(configs[k], k)
+      return configs[k].rules
+    })
     .concat(
       [
         [
@@ -27,9 +31,11 @@ export const build = (configs, pkgs) => {
           [
             'no-unused-vars',
             'implicit-arrow-linebreak',
+            'no-bitwise',
             'operator-linebreak',
             'semi-style',
-          ],
+            'strict'
+          ]
         ],
         ['eslint-config-standard', ['no-mixed-operators', 'semi']],
         [
@@ -39,19 +45,20 @@ export const build = (configs, pkgs) => {
             'no-async-promise-executor',
             'no-empty',
             'no-misleading-character-class',
-            'require-atomic-updates',
-          ],
+            'require-atomic-updates'
+          ]
         ],
-        ['eslint/recommended', ['no-bitwise', 'function-paren-newline']],
-      ].map(([k, rules]) => _.pick(configs[k].rules, rules)),
+        ['eslint:recommended', ['no-bitwise', 'function-paren-newline']]
+      ].map(([k, rules]) => _.pick(configs[k as any].rules, rules))
     )
-    .reduce((r, rules) => Object.assign(r, rules), {})
+    .reduce((r, rules) => Object.assign(r, rules), {}) as any
+
   const { plugins } = pkgs.concise
   return {
-    parserOptions: {
-      ecmaVersion: 2018,
-    },
-    env: configs['eslint-config-xo'].env,
+    ..._.pick(configs['eslint-config-xo'], ['env']),
+    parserOptions: _.omit(configs['eslint-plugin-ava'].parserOptions, [
+      'sourceType'
+    ]),
     plugins,
     rules: Object.assign(
       _.pickBy(combinedRules, (v, k) => {
@@ -94,9 +101,9 @@ export const build = (configs, pkgs) => {
         _.pick(combinedRules, [
           'indent',
           'operator-linebreak',
-          'class-methods-use-this',
+          'class-methods-use-this'
         ]),
-        v => ['warn', ...v.slice(1)],
+        v => ['warn', ...(v as any).slice(1)]
       ),
       {
         'eslint-comments/no-unlimited-disable': 'warn',
@@ -106,26 +113,26 @@ export const build = (configs, pkgs) => {
             ..._.last(combinedRules['max-len']),
             code: 80,
             ignoreComments: true,
-            tabWidth: 2,
-          },
+            tabWidth: 2
+          }
         ],
         'no-unused-vars': [
           'warn',
           {
             ..._.last(combinedRules['no-unused-vars']),
-            args: 'after-used',
-          },
+            args: 'after-used'
+          }
         ],
         'no-param-reassign': _.cloneDeep(
-          combinedRules['no-param-reassign'],
-        ).map((v, i) => {
+          combinedRules['no-param-reassign']
+        ).map((v: any, i: number) => {
           if (i === 1) {
             v.ignorePropertyModificationsFor.push('doc', 't')
             v.ignorePropertyModificationsFor.sort()
           }
           return v
-        }),
-      },
-    ),
+        })
+      }
+    )
   }
 }

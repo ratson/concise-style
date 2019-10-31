@@ -45,6 +45,35 @@
     ],
     "jsx-a11y/aria-unsupported-elements": "error",
     "jsx-a11y/click-events-have-key-events": "error",
+    "jsx-a11y/control-has-associated-label": [
+      "error",
+      {
+        "controlComponents": [],
+        "depth": 5,
+        "ignoreElements": [
+          "audio",
+          "canvas",
+          "embed",
+          "input",
+          "textarea",
+          "tr",
+          "video"
+        ],
+        "ignoreRoles": [
+          "grid",
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "row",
+          "tablist",
+          "toolbar",
+          "tree",
+          "treegrid"
+        ],
+        "labelAttributes": ["label"]
+      }
+    ],
     "jsx-a11y/heading-has-content": ["error", { "components": [""] }],
     "jsx-a11y/html-has-lang": "error",
     "jsx-a11y/iframe-has-title": "error",
@@ -61,7 +90,7 @@
       }
     ],
     "jsx-a11y/label-has-for": [
-      "error",
+      "off",
       {
         "allowChildren": false,
         "components": [],
@@ -181,11 +210,14 @@
       "error",
       { "children": "never", "props": "never" }
     ],
-    "react/jsx-curly-newline": "error",
+    "react/jsx-curly-newline": [
+      "error",
+      { "multiline": "consistent", "singleline": "consistent" }
+    ],
     "react/jsx-curly-spacing": "warn",
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
-    "react/jsx-fragments": ["off", "syntax"],
+    "react/jsx-fragments": ["error", "syntax"],
     "react/jsx-handler-names": [
       "off",
       { "eventHandlerPrefix": "handle", "eventHandlerPropPrefix": "on" }
@@ -216,7 +248,10 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
     "react/jsx-props-no-multi-spaces": "error",
-    "react/jsx-props-no-spreading": "off",
+    "react/jsx-props-no-spreading": [
+      "error",
+      { "custom": "enforce", "exceptions": [], "html": "enforce" }
+    ],
     "react/jsx-sort-default-props": ["off", { "ignoreCase": true }],
     "react/jsx-sort-prop-types": "off",
     "react/jsx-sort-props": [
@@ -270,7 +305,7 @@
     "react/no-unused-state": "warn",
     "react/no-will-update-set-state": "error",
     "react/prefer-es6-class": ["error", "always"],
-    "react/prefer-read-only-props": "warn",
+    "react/prefer-read-only-props": "off",
     "react/prefer-stateless-function": [
       "error",
       { "ignorePureComponents": true }
@@ -300,13 +335,20 @@
             "getInitialState",
             "state",
             "getChildContext",
+            "getDerivedStateFromProps",
             "componentWillMount",
+            "UNSAFE_componentWillMount",
             "componentDidMount",
             "componentWillReceiveProps",
+            "UNSAFE_componentWillReceiveProps",
             "shouldComponentUpdate",
             "componentWillUpdate",
+            "UNSAFE_componentWillUpdate",
+            "getSnapshotBeforeUpdate",
             "componentDidUpdate",
-            "componentWillUnmount"
+            "componentDidCatch",
+            "componentWillUnmount",
+            "componentDidCatch"
           ],
           "rendering": ["/^render.+$/", "render"]
         },
@@ -334,7 +376,7 @@
       }
     ],
     "react/state-in-constructor": ["error", "always"],
-    "react/static-property-placement": "error",
+    "react/static-property-placement": ["error", "property assignment"],
     "react/style-prop-object": "error",
     "react/void-dom-elements-no-children": "error"
   },
