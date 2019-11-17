@@ -110,7 +110,7 @@ export const build = ({ configs, pkgs }: BuildConfig) => {
         'max-len': [
           'error',
           {
-            ..._.last(combinedRules['max-len']),
+            ...(_.last(combinedRules['max-len']) as object),
             code: 80,
             ignoreComments: true,
             tabWidth: 2
@@ -119,7 +119,7 @@ export const build = ({ configs, pkgs }: BuildConfig) => {
         'no-unused-vars': [
           'warn',
           {
-            ..._.last(combinedRules['no-unused-vars']),
+            ...(_.last(combinedRules['no-unused-vars']) as object),
             args: 'after-used'
           }
         ],

@@ -11,7 +11,7 @@
     "fs-extra": "^8.1.0",
     "prettier-eslint": "^9.0.0",
     "promise-exit": "^1.0.1",
-    "yargs": "^14.2.0"
+    "yargs": "^15.0.1"
   },
   "engines": {
     "node": ">=8"
