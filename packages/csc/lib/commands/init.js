@@ -52,7 +52,7 @@ async function handler() {
   ])
 
   const installPackages = _.uniq(
-    _.flatMap(answers.packages, pkg => getPeerDependencies(pkg)).concat(
+    _.flatMap(answers.packages, (pkg) => getPeerDependencies(pkg)).concat(
       answers.packages,
     ),
   )

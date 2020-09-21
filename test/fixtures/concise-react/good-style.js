@@ -3,9 +3,7 @@ import { render } from 'react-dom'
 
 const App = ({ title = 'Hello World' }) => (
   <div>
-    <h1>
-      {title}
-    </h1>
+    <h1>{title}</h1>
   </div>
 )
 

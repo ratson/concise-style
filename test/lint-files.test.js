@@ -61,7 +61,7 @@ const lintConfigs = _.mapValues(
       },
     },
   },
-  x => _.assign(x, { root: true }),
+  (x) => _.assign(x, { root: true }),
 )
 
 function lintConciseGood(t, configKey, filename) {
@@ -82,7 +82,7 @@ globby
   .sync(['./fixtures/concise/good-*.js', './fixtures/concise-*/good-*.js'], {
     cwd: __dirname,
   })
-  .forEach(filename => {
+  .forEach((filename) => {
     const configKey = path.basename(path.dirname(filename))
     test.skip(lintConciseGood, configKey, filename)
   })

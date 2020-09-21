@@ -41,7 +41,6 @@ export const build = ({ configs, pkgs }: BuildConfig) => {
         [
           'eslint-config-xo',
           [
-            'arrow-parens',
             'no-async-promise-executor',
             'no-empty',
             'no-misleading-character-class',

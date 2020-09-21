@@ -23,7 +23,7 @@
       "as-needed",
       { "requireReturnForObjectLiteral": false }
     ],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["error", "always"],
     "arrow-spacing": ["error", { "after": true, "before": true }],
     "block-scoped-var": "error",
     "block-spacing": ["error", "always"],

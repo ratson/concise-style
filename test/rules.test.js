@@ -4,7 +4,7 @@ import { buildLinter } from './_utils'
 
 const conciseConfigFile = require.resolve('../packages/eslint-config-concise')
 
-test('unused vars', t => {
+test('unused vars', (t) => {
   const linter = buildLinter(conciseConfigFile)
   const { messages } = linter.executeOnText(
     "'use strict'\n\nconst a = 1\n",
@@ -12,7 +12,7 @@ test('unused vars', t => {
   t.is(messages[0].ruleId, 'no-unused-vars')
 })
 
-test('unused vars in function args', t => {
+test('unused vars in function args', (t) => {
   const linter = buildLinter(conciseConfigFile)
   const { messages } = linter.executeOnText(
     "'use strict'\n\nmodule.exports = (a, b) => b\n",
@@ -20,7 +20,7 @@ test('unused vars in function args', t => {
   t.deepEqual(messages, [])
 })
 
-test('unused vars try catch err', t => {
+test('unused vars try catch err', (t) => {
   const linter = buildLinter(conciseConfigFile, {
     config: {
       rules: {

@@ -1,6 +1,5 @@
 'use strict'
 
-function _dangle() {
-}
+function _dangle() {}
 
 _dangle()

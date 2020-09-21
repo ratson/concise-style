@@ -11,7 +11,7 @@ module.exports = async ({ fix = false, files } = {}) => {
   })
   const formatter = cli.getFormatter()
 
-  return Bluebird.map(files, async filePath => {
+  return Bluebird.map(files, async (filePath) => {
     const text = await fse.readFile(filePath, 'utf8')
     const formatted = format({
       text,

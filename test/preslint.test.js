@@ -2,7 +2,7 @@ import test from 'ava'
 import execa from 'execa'
 import Path from 'path'
 
-test('respect .eslintignore', async t => {
+test('respect .eslintignore', async (t) => {
   const filename = require.resolve('./fixtures/preslint-ignore/ignored.js')
   const { exitCode } = await execa(
     require.resolve('../packages/preslint/cli'),
