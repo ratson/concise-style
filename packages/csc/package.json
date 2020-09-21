@@ -1,6 +1,6 @@
 {
   "name": "csc",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "description": "Concise Style Checker for JavaScript",
   "bin": "lib/cli.js",
   "dependencies": {
@@ -8,8 +8,8 @@
     "child-process-promise": "^2.2.1",
     "debug": "^4.1.1",
     "eslint": "^6.6.0",
-    "eslint-config-concise": "^0.37.1",
-    "eslint-config-concise-react": "^0.37.1",
+    "eslint-config-concise": "^0.38.0",
+    "eslint-config-concise-react": "^0.38.0",
     "eslint-detailed-reporter": "^0.8.0",
     "eslint-formatter-pretty": "^3.0.0",
     "eslint-friendly-formatter": "^4.0.1",
