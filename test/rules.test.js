@@ -34,5 +34,5 @@ try {
   // ...
 } catch (_err) {}
 `).results[0]
-  t.deepEqual(messages, [])
+  t.is(messages[0].ruleId, 'unicorn/prefer-optional-catch-binding')
 })

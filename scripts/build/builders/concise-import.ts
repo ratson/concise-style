@@ -21,10 +21,10 @@ export const build = ({ configs, pkgs }: BuildConfig) => {
     plugins,
     rules: {
       ...combinedRules,
-      ..._.pick(configs['eslint-config-canonical'].rules, [
-        'import/no-extraneous-dependencies',
-        'import/prefer-default-export'
-      ]),
+      // ..._.pick(configs['eslint-config-canonical'].rules, [
+      //   'import/no-extraneous-dependencies',
+      //   'import/prefer-default-export'
+      // ]),
       'import/extensions': [
         'error',
         'always',

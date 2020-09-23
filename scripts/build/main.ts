@@ -112,7 +112,8 @@ export const loadConfigs = async () => {
           '@anvilabs/eslint-config',
           'eslint-config-get-off-my-lawn',
           'eslint-config-logux',
-          'eslint-config-majestic'
+          'eslint-config-majestic',
+          'eslint-config-canonical',
         ].includes(dep)
     )
     .concat([

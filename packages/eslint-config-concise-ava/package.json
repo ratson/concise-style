@@ -7,7 +7,7 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-ava": "^9.0.0"
+    "eslint-plugin-ava": "^11.0.0"
   },
   "devDependencies": {
     "eslint": "^6.6.0"

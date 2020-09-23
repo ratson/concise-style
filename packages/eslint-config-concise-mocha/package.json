@@ -7,7 +7,7 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-mocha": "^6.2.1"
+    "eslint-plugin-mocha": "^8.0.0"
   },
   "devDependencies": {
     "eslint": "^6.6.0"

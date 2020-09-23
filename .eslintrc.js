@@ -6,6 +6,6 @@ module.exports = {
     require.resolve('./packages/eslint-config-concise-esnext'),
   ],
   rules: {
-    "strict": "off"
-  }
+    strict: 'off',
+  },
 }

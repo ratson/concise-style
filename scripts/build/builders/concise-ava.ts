@@ -6,7 +6,7 @@ export const outputPath = 'eslint-config-concise-ava/eslintrc.json'
 export const build = ({ configs, pkgs }: BuildConfig) => {
   const { plugins } = pkgs['concise-ava']
   const combinedRules = [
-    'eslint-config-canonical',
+    // 'eslint-config-canonical',
     'plugin:shopify/esnext',
     'eslint-plugin-ava'
   ]

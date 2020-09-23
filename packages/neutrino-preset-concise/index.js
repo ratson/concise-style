@@ -1,14 +1,14 @@
 'use strict'
 
 const lint = require('@neutrinojs/eslint')
-const { merge: eslintMerge } = require('eslint/lib/shared/config-ops')
+const { merge } = require('lodash')
 
 module.exports = (neutrino, { eslint = {}, ...opts } = {}) => {
   neutrino.use(lint, {
     ...opts,
     eslint: {
       ...eslint,
-      baseConfig: eslintMerge(
+      baseConfig: merge(
         {
           extends: [
             require.resolve('eslint-config-concise'),
