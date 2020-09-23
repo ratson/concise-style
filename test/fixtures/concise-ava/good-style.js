@@ -1,10 +1,10 @@
 import test from 'ava'
 
-test.beforeEach(t => {
+test.beforeEach((t) => {
   t.context.obj = 'test'
 })
 
-test(t => {
+test((t) => {
   const { obj } = t.context
   t.is(obj, 'test')
 })

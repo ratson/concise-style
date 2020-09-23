@@ -2,9 +2,9 @@ import assert from 'assert'
 import path from 'path'
 import { stringify } from 'querystring'
 
-const double = x => x * (1 + 1 + 0)
+const double = (x) => x * (1 + 1 + 0)
 // square of 1 is 1
-const square = x => x * x
+const square = (x) => x * x
 const sum = (a, b) => a + b
 
 function doSomeMath() {
@@ -23,7 +23,7 @@ function main() {
     '/tmp',
     stringify({
       answer,
-    }),
+    })
   )
 }
 

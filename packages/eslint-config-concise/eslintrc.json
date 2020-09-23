@@ -192,7 +192,6 @@
     "jsdoc/require-example": "off",
     "jsdoc/require-file-overview": "off",
     "jsdoc/require-hyphen-before-param-description": "off",
-    "jsdoc/require-jsdoc": "warn",
     "jsdoc/require-param": "warn",
     "jsdoc/require-param-description": "warn",
     "jsdoc/require-param-name": "warn",

@@ -5,13 +5,13 @@
   "description": "prettier-eslint + esLint in one pass.",
   "bin": "cli.js",
   "dependencies": {
-    "bluebird": "^3.7.1",
-    "debug": "^4.1.1",
+    "bluebird": "^3.7.2",
+    "debug": "^4.2.0",
     "eslint": "^6.6.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.1",
     "prettier-eslint": "^9.0.0",
     "promise-exit": "^1.0.1",
-    "yargs": "^15.0.1"
+    "yargs": "^16.0.3"
   },
   "engines": {
     "node": ">=8"

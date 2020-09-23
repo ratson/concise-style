@@ -67,6 +67,7 @@ export const build = ({ configs, pkgs }: BuildConfig) => {
           [
             'getter-return',
             'indent-legacy',
+            'jsdoc/require-jsdoc',
             'no-underscore-dangle',
             'mysticatea/arrow-parens',
             'mysticatea/no-use-ignored-vars',
