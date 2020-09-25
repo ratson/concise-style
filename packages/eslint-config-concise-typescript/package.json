@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-typescript",
-  "version": "0.0.0",
+  "version": "0.39.0",
   "main": "index.js",
   "description": "Concise ESLint config for TypeScript.",
   "peerDependencies": {

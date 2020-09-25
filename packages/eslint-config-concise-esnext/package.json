@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-concise-esnext",
-  "version": "0.38.0",
+  "version": "0.39.0",
   "main": "index.js",
   "description": "Concise ESLint config using babel-eslint parser.",
   "peerDependencies": {
