@@ -84,6 +84,7 @@ export const build = ({ configs, pkgs }: BuildConfig) => {
             'unicorn/custom-error-definition',
             'unicorn/filename-case',
             'unicorn/no-abusive-eslint-disable', // in favor of `eslint-comments/no-unlimited-disable`
+            'unicorn/no-null',
             'node/shebang', // false-positive
             'unicorn/prevent-abbreviations',
             'unicorn/prefer-query-selector',
