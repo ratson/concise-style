@@ -23,7 +23,7 @@ function main() {
     '/tmp',
     stringify({
       answer,
-    })
+    }),
   )
 }
 
