@@ -5,13 +5,13 @@
     "prepublishOnly": "run-s build test",
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
-    "build": "ts-node scripts/build",
+    "build": "ts-node -TH scripts/build",
     "lint": "run-s lint:*",
     "lint:csc": "node packages/csc/lib/cli.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern test/fixtures .",
     "test": "run-p test:* lint:*",
     "test:ava": "ava test/*.test.js",
-    "print-rule": "ts-node scripts/print-rule"
+    "print-rule": "ts-node -TH scripts/print-rule"
   },
   "devDependencies": {
     "@anvilabs/eslint-config": "^19.1.0",
@@ -143,7 +143,7 @@
     "react": "^17.0.1",
     "read-pkg": "^5.2.0",
     "temp-write": "^4.0.0",
-    "ts-node": "^9.1.0",
+    "ts-node": "^9.1.1",
     "tslint-microsoft-contrib": "^6.2.0",
     "typescript": "^4.1.2",
     "yargs": "^16.2.0"
