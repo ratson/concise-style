@@ -20,7 +20,7 @@
         ]
       }
     ],
-    "jsx-a11y/accessible-emoji": "error",
+    "jsx-a11y/accessible-emoji": "off",
     "jsx-a11y/alt-text": [
       "error",
       {
@@ -39,10 +39,7 @@
     "jsx-a11y/aria-activedescendant-has-tabindex": "error",
     "jsx-a11y/aria-props": "error",
     "jsx-a11y/aria-proptypes": "error",
-    "jsx-a11y/aria-role": [
-      "error",
-      { "ignoreNonDOM": false, "ignoreNonDom": false }
-    ],
+    "jsx-a11y/aria-role": ["error", { "ignoreNonDOM": false }],
     "jsx-a11y/aria-unsupported-elements": "error",
     "jsx-a11y/autocomplete-valid": ["off", { "inputComponents": [] }],
     "jsx-a11y/click-events-have-key-events": "error",
@@ -372,6 +369,7 @@
           "static-methods",
           "instance-variables",
           "lifecycle",
+          "/^handle.+$/",
           "/^on.+$/",
           "getters",
           "setters",

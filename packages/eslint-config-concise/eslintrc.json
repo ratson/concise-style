@@ -1,5 +1,5 @@
 {
-  "env": { "es2020": true, "node": true },
+  "env": { "es2021": true, "node": true },
   "parserOptions": { "ecmaVersion": 2020 },
   "plugins": [
     "eslint-comments",
@@ -128,6 +128,7 @@
     "generator-star-spacing": ["error", { "after": true, "before": false }],
     "grouped-accessor-pairs": "off",
     "guard-for-in": "error",
+    "id-denylist": "off",
     "id-length": "off",
     "id-match": "off",
     "implicit-arrow-linebreak": "off",
@@ -416,7 +417,7 @@
       }
     ],
     "no-plusplus": "error",
-    "no-promise-executor-return": "error",
+    "no-promise-executor-return": "off",
     "no-proto": "error",
     "no-prototype-builtins": "error",
     "no-redeclare": "error",
@@ -427,8 +428,14 @@
     ],
     "no-restricted-globals": [
       "error",
-      "isFinite",
-      "isNaN",
+      {
+        "message": "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite",
+        "name": "isFinite"
+      },
+      {
+        "message": "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
+        "name": "isNaN"
+      },
       "addEventListener",
       "blur",
       "close",
@@ -585,7 +592,7 @@
     "no-unmodified-loop-condition": "off",
     "no-unneeded-ternary": ["error", { "defaultAssignment": false }],
     "no-unreachable": "error",
-    "no-unreachable-loop": "error",
+    "no-unreachable-loop": ["off", { "ignore": [] }],
     "no-unsafe-finally": "error",
     "no-unsafe-negation": "error",
     "no-unused-expressions": [
@@ -636,9 +643,14 @@
     "no-whitespace-before-property": "error",
     "no-with": "error",
     "node/exports-style": "off",
+    "node/handle-callback-err": ["error", "^(err|error)$"],
+    "node/no-callback-literal": "error",
     "node/no-deprecated-api": "error",
+    "node/no-exports-assign": "error",
     "node/no-missing-import": "off",
     "node/no-missing-require": "error",
+    "node/no-new-require": "error",
+    "node/no-path-concat": "error",
     "node/no-unpublished-bin": "error",
     "node/no-unpublished-import": "off",
     "node/no-unpublished-require": "off",
@@ -830,10 +842,12 @@
     "unicorn/no-useless-undefined": "error",
     "unicorn/no-zero-fractions": "error",
     "unicorn/number-literal-case": "error",
+    "unicorn/numeric-separators-style": "off",
     "unicorn/prefer-add-event-listener": "error",
     "unicorn/prefer-array-find": "error",
     "unicorn/prefer-dataset": "error",
     "unicorn/prefer-includes": "error",
+    "unicorn/prefer-math-trunc": "error",
     "unicorn/prefer-modern-dom-apis": "error",
     "unicorn/prefer-negative-index": "error",
     "unicorn/prefer-node-append": "error",
@@ -846,6 +860,7 @@
     "unicorn/prefer-spread": "error",
     "unicorn/prefer-starts-ends-with": "error",
     "unicorn/prefer-string-slice": "error",
+    "unicorn/prefer-ternary": "error",
     "unicorn/prefer-text-content": "error",
     "unicorn/prefer-trim-start-end": "error",
     "unicorn/prefer-type-error": "error",
