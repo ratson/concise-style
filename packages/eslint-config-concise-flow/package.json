@@ -7,6 +7,7 @@
     "eslint": "*"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint-plugin-flowtype": "^5.2.0"
   },
   "devDependencies": {

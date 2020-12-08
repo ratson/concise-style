@@ -6,10 +6,10 @@
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
     "build": "ts-node -TH scripts/build",
-    "lint": "run-s lint:*",
+    "lint": "run-s 'lint:*'",
     "lint:csc": "node packages/csc/lib/cli.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern test/fixtures .",
-    "test": "run-p test:* lint:*",
+    "test": "run-p 'test:*' 'lint:*'",
     "test:ava": "ava test/*.test.js",
     "print-rule": "ts-node -TH scripts/print-rule"
   },
@@ -21,6 +21,7 @@
     "@callstack/eslint-config": "^10.1.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@concise-style/prettier-config": "workspace:packages/prettier-config",
     "@microsoft/fast-tslint-rules": "^3.2.0",
     "@mysticatea/eslint-plugin": "^13.0.0",
     "@oclif/tslint": "^3.1.1",
@@ -38,6 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "ava": "^3.14.0",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "del-cli": "^3.0.1",
     "eslint": "^7.15.0",
@@ -82,6 +84,7 @@
     "eslint-find-rules": "^3.6.1",
     "eslint-index": "^1.5.0",
     "eslint-plugin-ava": "^11.0.0",
+    "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-codebox": "^2.0.2",
     "eslint-plugin-compat": "^3.8.0",
@@ -157,6 +160,11 @@
     ],
     "timeout": "2m"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
@@ -167,6 +175,14 @@
     "*.{js,jsx,mjs}": [
       "preslint --fix"
     ]
+  },
+  "dependenciesMeta": {
+    "core-js": {
+      "built": false
+    },
+    "core-js-pure": {
+      "built": false
+    }
   },
   "resolutions": {
     "eslint": "^7.15.0"
