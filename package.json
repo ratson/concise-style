@@ -6,11 +6,11 @@
     "publish": "lerna publish",
     "clean": "del '*.log' '**/yarn.lock' '**/package-lock.json' '!**/node_modules/**'",
     "build": "ts-node -TH scripts/build",
-    "lint": "run-s 'lint:*'",
+    "lint": "npm run lint:csc && npm run lint:eslint",
     "lint:csc": "node packages/csc/lib/cli.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern test/fixtures .",
-    "test": "run-p 'test:*' 'lint:*'",
-    "test:ava": "ava test/*.test.js",
+    "test": "ava 'test/*.test.js'",
+    "posttest": "npm run lint",
     "print-rule": "ts-node -TH scripts/print-rule"
   },
   "devDependencies": {
