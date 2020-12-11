@@ -7,10 +7,10 @@
     "eslint": "*"
   },
   "dependencies": {
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.1"
   },
   "devDependencies": {
-    "eslint": "^6.6.0"
+    "eslint": "^7.15.0"
   },
   "repository": "https://github.com/ratson/concise-style/tree/master/packages/eslint-config-concise-import",
   "license": "MIT",
